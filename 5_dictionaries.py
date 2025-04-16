@@ -63,4 +63,4 @@ for k,v in dict1.items():
 
 musteriler= {'Elon Musk': {'doğum yeri': 'izmir', 'yaş': 56 , 'medeni durum': 'evli'}, 
              'Habil Yazıcı': {'doğum yeri': 'rize', 'yaş': 23 , 'medeni durum': 'bekar'}}
-print(musteriler['Habil Yazıcı']['yaş'])
+print(musteriler['Habil Yazıcı']['yaş']) 

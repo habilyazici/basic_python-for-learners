@@ -25,7 +25,6 @@ for x in friends:
     print(x)
 
 message= ''
-
 my_flag= True
 while my_flag:
     message= input('quit yazarsanız çıkabilirsiniz! ')

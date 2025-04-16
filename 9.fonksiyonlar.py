@@ -1,5 +1,5 @@
 # fonksiyonlar builtin ve custom(özel fonksiyonlar) olarak ikiye ayrılır.
-#builtin func: sum, print, len gibi, 'built in functions python' google'le veya builtin.py dosyasına bak
+#builtin func: sum, print, len gibi, 'built in functions in python' google'le veya builtin.py dosyasına bak
 def merhaba():
     x= 'işlem...'
     print('merhaba dünya hoşgeldiniz')
@@ -52,7 +52,7 @@ def sayiCarpimMekanizmasi():
         # print(carpim)
 sayiCarpimMekanizmasi()
 
-a = int(input('faktöreyli alınması istediğiniz sayıyı giriniz.'))
+a = int(input('faktöryeli alınması istediğiniz sayıyı giriniz.'))
 def faktoriyel(a):
     if a == 0:
         return 1     #sayı olan bir bu 

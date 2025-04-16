@@ -22,7 +22,7 @@ sehirler.clear() # del cities' de kullanılabilir ama clear boş bir set yapıs�
 
 yeni_tuple= (22, 22 ,32 , [223, 342], 34)
 yeni_tuple[3][0]= 17
-# Tuple da veri değiştirme yok yedik ama tupple içerisindeki bir listede değişme yapılabilmektedir.
+# Tuple da veri değiştirme yok yedik ama tupple içerisindeki bir listede değişme yapılabilir.
 print(32 in yeni_tuple)
 print(yeni_tuple)
 

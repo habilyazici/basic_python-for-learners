@@ -7,7 +7,7 @@ print(x)
 name= 'habil yazlılım'
 print(len(name))
 print(name[0])
-print(name[2:7]) # index olarak söylüyor ikinci indexten başlarım diyor yani. indexin bir eksiğine kadar gider
+print(name[2:7]) # index olarak söylüyor ikinci indexten başlarım diyor yani. ama son index dahil değil.
 print(name[:5])
 print(name[3:])
 print(name[-1])
@@ -35,7 +35,7 @@ name2 = 'selam '
 messsage = 'merhaba? ' + name  + name2  
 print(messsage)
 diğer3= 'merhaba'    ' '  +    name2 + 'buraya geldiğiniz için çok teşekkürler' + ' ' + str(12)
-#Ekleme yapbilmek için tüm kavramların aynı türde veri yapısı olması gerekir. 
+#Ekleme yapbilmek için tüm verilerin aynı türde veri yapısının olması gerekir. 
 print(diğer3)
 
 habil = 'hoşgeldilniz'

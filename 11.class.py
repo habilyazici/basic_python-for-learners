@@ -123,7 +123,7 @@ class Cat(Animal):
         return f"{new_speak} ve bu ses miyav miyav'dır"
     def info(self):
         base_info = super().info()
-        return f"Bu kedinin rengi {self.color}'dir"
+        return f"{base_info} Bu kedinin rengi {self.color}'dir"
 
 dog1 = Dog("Buddy", 3, "Golden Retriever")
 cat1 = Cat("Whiskers", 2, "gri")

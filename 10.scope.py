@@ -25,4 +25,4 @@ fonk1()
 
 # LEGB - Program değişkeni hafızaya alıp çalıştırırken ilk bu sırada bakar ilk olarak local değişken mi değilmi
 # sonrasında enclousing değişken mi, sonrasında global değişken mi, sonrasında ise built in func değişkeni mi
-# Global veya scope değişken ile iki değişkeni yerel veya global erişir hale getirebilirsin.
+# Global veya scope ile iki değişkeni yerel veya global erişir hale getirebilirsin.
