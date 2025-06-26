@@ -1,6 +1,6 @@
-mylist= ['meth','kenevir','others']
+mylist= ['s','y','others']
 
-if 'meth' and 'kenevir' in mylist:
+if 's' and 'y' in mylist:
     print('listende kötü madde var')
 else: 
     print('temizsin')

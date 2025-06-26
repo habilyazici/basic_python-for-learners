@@ -2,7 +2,7 @@ x = 'selami'
 print(x)
 x = 20 
 print(x)
-#tek tırnak işareti, çift tırnak veya parantez içerisinde tek veya çift tırnak işareti pyhton tarafından string olarak algılanmaktadır
+#tek tırnak işareti, çift tırnak veya parantez içerisinde tek veya çift tırnak işareti pyhton tarafından string olarak algılanmaktadır.
 
 name= 'habil yazlılım'
 print(len(name))
@@ -17,7 +17,7 @@ name= 'habil yazlılım'
 name2= 'alaSAASskWWWWWdjg'
 print(name.title()) # lower upper
 print(name2.count('W'))
-print(name.find('m'))
+print(name.find('h'))
 print('merhaba dünya'.upper())
 # print(dir()) ve print(dir(name)) ile pyhtondaki şuan aktif olan tüm kurallar ve methodları görebilirsin.
 # print(help(str))
