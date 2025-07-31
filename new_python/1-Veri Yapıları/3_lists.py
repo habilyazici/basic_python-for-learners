@@ -11,22 +11,23 @@ message = 'Hello There. My name is Sadık Turan'.split()
 list1 = ['one','two','there']
 list2 = ['four','five','six']
 numbers = list1 + list2
-print(numbers)
-print(len(numbers))
-print(message[0])
-print(numbers[2])
+print("Birleştirilmiş liste:", numbers)
+print("Uzunluk:", len(numbers))
+print("İlk kelime:", message[0])
+print("Üçüncü sayı:", numbers[2])
 userA = ['Sadık', 36]
 userB = ['Çınar', 2]
 users = [userA, userB]
-print(userA)
-print(userB)
-print(users)
-print(users[0][0])
+print("userA:", userA)
+print("userB:", userB)
+print("users:", users)
+print("users[0][0]:", users[0][0])
 print()
 
-del arabalar[-1]
+# =====================================================
+# 2. Listelerle Uygulama ve Sık Kullanılan İşlemler
+# =====================================================
 
-# --- lists-demo.py ---
 arabalar = ['Bmw','Mercedes','Opel','Mazda']
 result = len(arabalar)
 print("Araba sayısı:", result)
@@ -70,16 +71,19 @@ result = f"{studentA[0]} {studentA[1]} {2019-studentA[2]} yaşında ve not ortal
 print(result)
 print()
 
-# --- list-methods.py ---
+# =====================================================
+# 3. Liste Metodları ve Fonksiyonları
+# =====================================================
+
 numbers = [1, 10, 5, 16, 4, 9, 10]
 letters = ['a', 'g', 's', 'b', 'y', 'a', 's']
-val = min(numbers)
-val = max(numbers)
-val = max(letters)
-val = min(letters)
-val = numbers[3:6]
-val = numbers[:3]
-val = numbers[4:]
+print("min(numbers):", min(numbers))
+print("max(numbers):", max(numbers))
+print("max(letters):", max(letters))
+print("min(letters):", min(letters))
+print("numbers[3:6]:", numbers[3:6])
+print("numbers[:3]:", numbers[:3])
+print("numbers[4:]:", numbers[4:])
 numbers[4] = 40
 numbers.append(49)
 numbers.append(59)
@@ -93,16 +97,20 @@ numbers.sort()
 numbers.reverse()
 letters.sort()
 letters.reverse()
-print(numbers)
-print(letters)
-print(len(numbers))
-print(len(letters))
-print(numbers.count(10))
-print(letters.count('a'))
+print("Sıralı numbers:", numbers)
+print("Sıralı letters:", letters)
+print("numbers uzunluğu:", len(numbers))
+print("letters uzunluğu:", len(letters))
+print("numbers.count(10):", numbers.count(10))
+print("letters.count('a'):", letters.count('a'))
 numbers.clear()
-print(numbers)
+print("Temizlenmiş numbers:", numbers)
+print()
 
-# --- list-methods-demo.py ---
+# =====================================================
+# 4. Liste Uygulama Soruları
+# =====================================================
+
 names = ['Ali','Yağmur','Hakan','Deniz']
 years = [1998, 2000, 1998, 1987]
 # names.append('Cenk')
@@ -126,11 +134,9 @@ years = [1998, 2000, 1998, 1987]
 # print(min, max)
 # result = years.count(1998)
 # years.clear()
+
 markalar = []
-marka = input("marka: ")
-markalar.append(marka)
-marka = input("marka: ")
-markalar.append(marka)
-marka = input("marka: ")
-markalar.append(marka)
-print(markalar)
+for i in range(3):
+    marka = input(f"{i+1}. markayı girin: ")
+    markalar.append(marka)
+print("Girilen markalar:", markalar)
