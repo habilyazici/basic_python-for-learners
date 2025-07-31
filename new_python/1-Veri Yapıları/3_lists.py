@@ -1,6 +1,8 @@
-# Listeler
 
-# --- lists.py ---
+# =====================================================
+# 1. Listelerle Temel İşlemler
+# =====================================================
+
 message = 'Hello There. My name is Sadık Turan'.split()
 # print(message[0])
 # my_list = [1,2,3]
@@ -20,34 +22,53 @@ print(userA)
 print(userB)
 print(users)
 print(users[0][0])
+print()
+
+del arabalar[-1]
 
 # --- lists-demo.py ---
 arabalar = ['Bmw','Mercedes','Opel','Mazda']
 result = len(arabalar)
+print("Araba sayısı:", result)
 result = arabalar[0]
+print("İlk araba:", result)
 result = arabalar[3]
+print("Dördüncü araba:", result)
 result = arabalar[-1]
+print("Son araba:", result)
 # arabalar[-1]= 'Toyota'
 result = arabalar
+print("Arabalar listesi:", result)
 result = 'Mercedes' in arabalar
+print("Mercedes var mı?:", result)
 result = arabalar[-2]
+print("Sondan ikinci araba:", result)
 result = arabalar[0:3]
+print("İlk üç araba:", result)
 result = arabalar[:3]
+print("İlk üç araba (alternatif):", result)
 result = arabalar[-2:]
+print("Son iki araba:", result)
 arabalar[-2:] = ['Toyota','Renault']
-result = arabalar
+print("Güncellenmiş arabalar:", arabalar)
 result = arabalar + ['Audi','Nissan']
+print("Yeni arabalar listesi:", result)
 del arabalar[-1]
-result = arabalar
+print("Son araba silindi:", arabalar)
 result = arabalar[::-1]
+print("Ters çevrilmiş arabalar:", result)
 studentA = ['Yiğit','Bilgi',2010,[70,60,70]]
 studentB = ['Sena','Turan',1999,[80,80,70]]
 studentC = ['Ahmet','Turan',1998,[80,70,90]]
 result = studentA[0]
+print("studentA adı:", result)
 result = studentB[1]
+print("studentB soyadı:", result)
 result = studentC[3][1]
+print("studentC ikinci notu:", result)
 result = f"{studentA[0]} {studentA[1]} {2019-studentA[2]} yaşında ve not ortalaması {(studentA[3][0] + studentA[3][1] + studentA[3][2])/3}"
 print(result)
+print()
 
 # --- list-methods.py ---
 numbers = [1, 10, 5, 16, 4, 9, 10]

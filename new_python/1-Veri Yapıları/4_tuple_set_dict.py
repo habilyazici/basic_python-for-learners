@@ -1,6 +1,8 @@
-# Tuple, Set ve Dictionary
 
-# --- tuple.py ---
+# =====================================================
+# 1. Tuple İşlemleri
+# =====================================================
+
 list = [1, 2, 3]
 tuple = (1, 'iki', 3)
 # print(type(list))
@@ -19,6 +21,8 @@ print(tuple.count('ayşe'))
 print(tuple.index('ayşe'))
 print(list)
 print(tuple)
+print()
+
 
 # --- sets.py ---
 fruits = { 'orange', 'apple', 'banana'}
@@ -35,6 +39,8 @@ print(fruits)
 # myList = [1,2,5,4,4,2,1]
 # print(myList)
 # print(set(myList))
+print()
+
 
 # --- dictionary.py ---
 # key - value
@@ -67,6 +73,7 @@ users = {
     }
 }
 print(users['cinarturan']['roles'][0])
+print()
 
 # --- dictionary-demo.py ---
 '''

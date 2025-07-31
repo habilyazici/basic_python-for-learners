@@ -1,4 +1,7 @@
-# Format ve Referans Kavramı
+
+# =====================================================
+# 1. Format ve Referans Kavramı
+# =====================================================
 
 # --- format.py ---
 name = 'Çınar'
@@ -12,9 +15,11 @@ age = 36
 # result = 200 / 700
 # print('the result is {r:1.4}'.format(r=result))
 print(f"My name is {name} {surname} and I'm {age} years old.")
+print()
 
 # --- reference.py ---
 # value types => string, number
+
 x = 5
 y = 25
 x = y
@@ -26,3 +31,4 @@ b = ["apple","banana"]
 a = b
 b[0] = "grape"
 print(a, b)
+print()
