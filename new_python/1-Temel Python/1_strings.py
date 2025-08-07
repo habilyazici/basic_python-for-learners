@@ -39,7 +39,6 @@ print("7- s:", s1)
 print("8- abc 3 defa yazdır:", 'abc ' * 3)
 print("\n" + 20 * '-' + "\n")
 
-# --- 6_format_reference.py'den eklenen örnekler ---
 person_name = 'Çınar'
 person_surname = 'Turan'
 person_age = 36
@@ -51,7 +50,7 @@ print("My name is {} {} and I'm {} years old.".format(person_name, person_name, 
 result_format = 200 / 700
 print('the result is {r:1.4}'.format(r=result_format))
 print(f"My name is {person_name} {person_surname} and I'm {person_age} years old.")
-print()
+print("\n" + 20 * '-' + "\n")
 
 # value types => string, number
 value_x = 5
