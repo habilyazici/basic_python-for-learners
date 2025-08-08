@@ -1,7 +1,5 @@
-number1 = 10
-print("number1 ilk değer:", number1)
 number1 = 20
-print("number1 güncellendi:", number1)
+print("number1:", number1)
 number1 += 30
 print("number1 güncellendi (30 eklendi):", number1)
 number1 = 20
@@ -21,7 +19,7 @@ x, y, name, isStudent = (1, 2.3, "Çınar", True)
 
 a = '10'
 b = '20'
-print("a+b (string):", a+b) # => 1020
+print("a+b (string):", a+b)
 firstName = "Sadık"
 lastName = " Turan"
 print("Ad Soyad:", firstName + lastName)
@@ -33,23 +31,14 @@ print(type(x_input1))
 toplam_input1 = int(x_input1) + int(y_input1)
 print("Toplam:", toplam_input1)
 
-x4 = 5
-y4 = 2.5
-name4 = 'Çınar'
-isOnline4 = True
-print(type(x4))
-print(type(y4))
-print(type(name4))
-print(type(isOnline4))
-print("\n" + 20 * '-' + "\n")
+x4, y4, name4, isOnline4 = 5, 2.5, 'Çınar', True
+print(type(x4), type(y4), type(name4), type(isOnline4))
 print(float(x4))
 print(int(y4))
 print(str(x4) + str(y4))
 print(str(isOnline4))
 isOnline5 = False
-isOnline5 = int(isOnline5)
-print("isOnline (int):", isOnline5)
-print(type(isOnline5))
+print("isOnline (int):", int(isOnline5))
 print("\n" + 20 * '-' + "\n")
 
 pi = 3.14
