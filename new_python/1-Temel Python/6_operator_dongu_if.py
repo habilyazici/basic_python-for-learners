@@ -1,9 +1,3 @@
-# =====================================================
-# Operatörler, Koşullar ve Döngüler - Toplu Notlar
-# =====================================================
-
-# 1. Karşılaştırma Operatörleri
-# -----------------------------
 a, b, c, d = 5, 5, 10, 4
 password = '1234'
 username = 'sadikturan'
