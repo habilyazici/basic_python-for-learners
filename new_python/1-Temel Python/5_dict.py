@@ -1,20 +1,14 @@
-# =====================================================
-# Dictionary (Sözlük) İşlemleri
-# =====================================================
-
 # key - value
-# 41 => kocaeli 34 => istanbul
 sehirler = ['kocaeli','istanbul']
 plakalar = [41, 34]
 print(plakalar[sehirler.index('istanbul')])
 # print(plakalar['kocaeli']) => 41
-# print(plakalar['istanbul']) => 34
 plakalar_dict = { 'kocaeli' : 41, 'istanbul': 34 }
 print(plakalar_dict['kocaeli'])
-print(plakalar_dict['istanbul'])
 plakalar_dict['ankara'] = 6
 plakalar_dict['kocaeli'] = 'new value'
 print(plakalar_dict)
+print("\n" + 20 * '-' + "\n")
 
 users1 = {
     'sadikturan': {
@@ -33,27 +27,15 @@ users1 = {
     }
 }
 print(users1['cinarturan']['roles'][0])
-print()
+print(users1['sadikturan']['email'])
+users1['sadikturan']['roles'].append('admin')
+print("\n" + 20 * '-' + "\n")
 
 ## Bilgileri verilen öğrencileri kullanıcıdan aldığınız bilgilerle dictionary içinde saklayınız.
 ## Öğrenci numarasını kullanıcıdan alıp ilgili öğrenci bilgisini gösterin.
-ogrenciler = {}
-number = input("öğrenci no: ")
-name = input("öğrenci adı: ")
-surname = input("öğrenci soyad: ")
-phone = input("öğrenci telefon: ")
-# ogrenciler[number] = {
-#     'ad': name,
-#     'soyad': surname,
-#     'telefon': phone
-# }
-ogrenciler.update({
-    number: {
-        'ad': name,
-        'soyad': surname,
-        'telefon':phone 
-    }
-})
+ogrenciler = {
+
+}
 number = input("öğrenci no: ")
 name = input("öğrenci adı: ")
 surname = input("öğrenci soyad: ")
@@ -65,19 +47,7 @@ ogrenciler.update({
         'telefon':phone 
     }
 })
-number = input("öğrenci no: ")
-name = input("öğrenci adı: ")
-surname = input("öğrenci soyad: ")
-phone = input("öğrenci telefon: ")
-ogrenciler.update({
-    number: {
-        'ad': name,
-        'soyad': surname,
-        'telefon':phone 
-    }
-})
-print('*'*50)
-ogrNo = input('öğrenci no: ')
-ogrenci = ogrenciler[ogrNo]
-print(ogrenci)
-print(f"Aradığınız {ogrNo} nolu öğrencinin adı: {ogrenci['ad']} soyadı: {ogrenci['soyad']} ve telefonu ise {ogrenci['telefon']}")
+print("\n" + 20 * '-' + "\n")
+ogrNo = input('öğrenci no: ') 
+print(ogrenciler[ogrNo])
+print(f"Aradığınız {ogrNo} nolu öğrencinin adı: {ogrenciler[ogrNo]['ad']} soyadı: {ogrenciler[ogrNo]['soyad']} ve telefonu ise {ogrenciler[ogrNo]['telefon']}")

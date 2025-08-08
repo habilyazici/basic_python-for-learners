@@ -43,7 +43,6 @@ def add(*params):
     sum = 0
     for n in params:
         sum = sum + n
-    return sum
 print(add(10, 20, 50))
 print(add(10, 20, 30))
 print(add(10, 20, 30,50,60,10,20))
@@ -103,6 +102,9 @@ def myFunc(a, b, c, *args, **kwargs):
 #         return num1 + 1
 #     num2 = inner_increment(num1)
 #     print(num1, num2)
+# =====================================================
+# Fonksiyonlar, Parametreler ve İleri Fonksiyonel Konular - Toplu Notlar
+# =====================================================
 # outer(10)
 # inner_increment(10)
 

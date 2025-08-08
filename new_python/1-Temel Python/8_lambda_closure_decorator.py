@@ -1,6 +1,5 @@
 # Lambda, Closure, Decorator ve List Methods
 
-# Closure örnekleri
 # def usalma(number):
 #     def inner(power):
 #         return number ** power
@@ -60,6 +59,9 @@ def calculate_time(func):
         time.sleep(1)
         func(*args,**kwargs)        
         finish = time.time()
+# =====================================================
+# Lambda, Closure, Decorator ve List Methods - Toplu Notlar
+# =====================================================
         print("fonksiyon "+func.__name__ +" " + str(finish-start) + " saniye sürdü.")
     return inner
 @calculate_time
