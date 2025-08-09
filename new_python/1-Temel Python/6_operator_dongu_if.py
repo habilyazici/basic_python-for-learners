@@ -2,43 +2,32 @@ a, b, c, d = 5, 5, 10, 4
 password = '1234'
 username = 'sadikturan'
 print(a == b)
-print(a == c)
-print('sdktrn'== username)
 print('sadikturan'== username)
 print(a != b)
-print(a != c)
-print(a > c)
 print(a < c)
-print(a >= b)
 print(c <= b)
 print(True == 1)
-print(False == 0)
 print(False + True + 40)
+print("\n" + 20 * '-' + "\n")
 
-# 2. Mantıksal Operatörler
-# ------------------------
 x = 5
 hak = 0
 devam = 'e'
-print((x > 5) and (x < 10))
 print((hak > 0) and (devam == 'e'))
 print((x > 0) or (x % 2 == 0))
 print(not(x > 0))
 print(((x>5) and (x<10)) and (x%2==0))
+print("\n" + 20 * '-' + "\n")
 
-# 3. Atama Operatörleri ve Temel Döngüler
-# ---------------------------------------
 x, y, z = 2, 5, 10
 values = 1, 2, 3, 4, 5
-print(values)
 print(type(values))
 x, y, *z = values
+# bir yıldız tupple'a çevirir iki yıldız dictionary'ye çevirir
 print(x, y, z)
 print(x, y, z[1])
+print("\n" + 20 * '-' + "\n")
 
-numbers = [1,2,3,4,5]
-for a in numbers:
-    print('Hello')
 names = ['çınar','sadık','sena']
 for name in names:
     print(f'my name is {name}')
@@ -51,6 +40,7 @@ for a,b in tuple_list:
 d = {'k1':1, 'k2':2, 'k3':3}
 for key,value in d.items():
     print(key, value)
+print("\n" + 20 * '-' + "\n")
 
 x = 1
 while x <= 10:
@@ -59,19 +49,37 @@ while x <= 10:
     else:
         print(f'sayı çift: {x}')
     x += 1
-print('bitti...')
+print("\n" + 20 * '-' + "\n")
 
-# 4. For ve While Döngüsü Uygulamaları
-# ------------------------------------
+
 sayilar = [1,3,5,7,9,12,19,21]
-# 1- Sayilar listesindeki hangi sayılar 3'ün katıdır ?
-# 2- Sayilar listesinde sayıların toplamı kaçtır ?
-# 3- Sayilar listesindeki tek sayıların karesini alınız.
-# sehirler = ['kocaeli','istanbul','ankara','izmir','rize']
-# 4- Şehirlerden hangileri en fazla 5 karakterlidir ?
-# urunler = [ ... ]
-# 5- Ürünlerin fiyatları toplamı nedir ?
-# 6- Ürünlerden fiyatı en fazla 5000 olan ürünleri gösteriniz ?
+for s in sayilar:
+    if s % 3 == 0:
+        print(f'{s} 3\'ün katıdır.')
+
+print(f'Sayıların toplamı: {sum(sayilar)}')
+print(f'Tek sayıların kareleri: {[s**2 for s in sayilar if s % 2 == 1]}')
+
+sehirler = ['kocaeli','istanbul','ankara','izmir','rize']
+kucuk_sehirler = [sehir for sehir in sehirler if len(sehir) <= 5]
+print(f'5 karakter veya daha kısa şehirler: {kucuk_sehirler}')
+print("\n" + 20 * '-' + "\n")
+
+urunler = []
+adet = int(input("Kaç ürün eklemek istersiniz? "))
+for i in range(adet):
+    ad = input(f"{i+1}. ürün adı: ")
+    fiyat = float(input(f"{i+1}. ürün fiyatı: "))
+    urunler.append({'ad': ad, 'fiyat': fiyat})
+
+toplam_fiyat = sum([urun['fiyat'] for urun in urunler])
+print(f"Ürünlerin toplam fiyatı: {toplam_fiyat}")
+
+en_fazla_5000 = [urun for urun in urunler if urun['fiyat'] <= 5000]
+for urun in en_fazla_5000:
+    print(f"{urun['ad']} - {urun['fiyat']}")
+print("\n" + 20 * '-' + "\n")
+
 
 # while ile uygulamalar
 # 1: sayilar listesini while ile ekrana yazdırın.
