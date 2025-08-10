@@ -60,116 +60,12 @@ class Teacher(PersonBase):
     def who_am_i(self):
         print(f'I am a {self.branch} teacher')
 
-p = PersonBase("Ali", "Veli")
-s = Student("Ayşe", "Yılmaz", 123)
-t = Teacher("Mehmet", "Demir", "Math")
+p1 = PersonBase("Ali", "Veli")
+s1 = Student("Ayşe", "Yılmaz", 123)
+t1 = Teacher("Mehmet", "Demir", "Math")
 
-p.who_am_i()
-s.who_am_i()
-s.sayHello()
-t.who_am_i()
+p1.who_am_i()
+s1.who_am_i()
+s1.sayHello()
+t1.who_am_i()
 print("\n" + 20 * '-' + "\n")
-
-class Question:
-    def __init__(self, text, choices, answer):
-        self.text = text
-        self.choices = choices
-        self.answer = answer
-    def checkAnswer(self, answer):
-        return self.answer == answer
-class Quiz:
-    def __init__(self, questions):
-        self.questions = questions
-        self.score = 0
-        self.questionIndex = 0
-    def getQuestion(self):
-        return self.questions[self.questionIndex]
-    def displayQuestion(self):
-        question = self.getQuestion()
-        print(f'Soru {self.questionIndex + 1}: {question.text}')
-        for q in question.choices:
-            print('-'+ q)
-        answer = input('cevap: ')
-        self.guess(answer)
-        self.loadQuestion()
-    def guess(self, answer):
-        question = self.getQuestion()
-        if question.checkAnswer(answer):
-            self.score += 1
-        self.questionIndex += 1
-    def loadQuestion(self):
-        if len(self.questions) == self.questionIndex:
-            print('Quiz bitti')
-        else:
-            self.displayQuestion()
-
-q1 = Question("En iyi programlama dili hangisidir?", ["Python", "Java", "C#"], "Python")
-q2 = Question("En popüler renk?", ["Kırmızı", "Mavi", "Yeşil"], "Mavi")
-q3 = Question("2 + 2 kaçtır?", ["3", "4", "5"], "4")
-
-questions = [q1, q2, q3]
-quiz = Quiz(questions)
-quiz.displayQuestion()
-
-# Bankamatik uygulaması
-def paraCek(hesap, miktar):
-    print(f"Merhaba {hesap['ad']}")
-    if (hesap['bakiye'] >= miktar):
-        hesap['bakiye'] -= miktar 
-        print('paranızı alabilirsiniz.')
-        bakiyeSorgula(hesap)
-    else:
-        toplam = hesap['bakiye'] + hesap['ekHesap']
-        if (toplam >= miktar):
-            ekHesapKullanimi = input('ek hesap kullanılsın mı (e/h)')
-            if ekHesapKullanimi == 'e':
-                ekhesapKullanilacakMiktar = miktar - hesap['bakiye']
-                hesap['bakiye'] = 0
-                hesap['ekHesap'] -= ekhesapKullanilacakMiktar
-                print('paranızı alabilirsiniz.')
-                bakiyeSorgula(hesap)
-            else:
-                print(f"{hesap['hesapNo']} nolu hesabınızda {hesap['bakiye']} bulunmaktadir.")
-        else:
-            print('üzgünüz bakiye yetersiz')
-            bakiyeSorgula(hesap)
-SadikHesap = {
-    'ad': 'Sadık Turan',
-    'hesapNo': '13245678',
-    'bakiye': 3000,
-    'ekHesap': 2000
-}
-AliHesap = {
-    'ad': 'Ali Turan',
-    'hesapNo': '12345678',
-    'bakiye': 2000,
-    'ekHesap': 1000
-}
-# Bakiye sorgulama fonksiyonu eksikti, ekleniyor
-def bakiyeSorgula(hesap):
-    print(f"{hesap['hesapNo']} nolu hesabınızda {hesap['bakiye']} TL bulunmaktadır. Ek hesap limiti: {hesap['ekHesap']} TL")
-# Hesap makinesi uygulaması
-def toplama(a,b):
-    return a+b
-def cikarma(a,b):
-    return a-b
-def carpma(a,b):
-    return a*b
-def bolme(a,b):
-    return a/b
-def islem(f1, f2, f3, f4, islem_adi):
-    if islem_adi== "toplama":
-        print(f1(2,3))
-    elif islem_adi == "cikarma":
-        print(f2(5,3))
-    elif islem_adi == "carpma":
-        print(f3(3,4))
-    elif islem_adi == "bolme":
-        print(f4(10,2))
-    else:
-        print("geçersiz işlem...")
-islem(toplama, cikarma, carpma, bolme, "toplama")
-islem(toplama, cikarma, carpma, bolme, "cikarma")
-islem(toplama, cikarma, carpma, bolme, "bolme")
-islem(toplama, cikarma, carpma, bolme, "carpma")
-islem(toplama, cikarma, carpma, bolme, "carpmaa")
