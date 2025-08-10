@@ -4,27 +4,18 @@ class Person:
         self.name = name
         self.year = year
         print('init metodu çalıştı.')
-# object (instance)
+
 p1 = Person(name='ali', year= 1990) 
-p2 = Person(name ='yağmur', year = 1995)
+p2 = Person("yağmur", 1995)
 p1.name = 'ahmet'
 p1.address = 'kocaeli' 
 print(f'p1 :name: {p1.name} year: {p1.year} address: {p1.address}')
 print(f'p2 :name: {p2.name} year: {p2.year} address: {p2.address}')
-print(p1)
 print(p2)
 print(type(p1))
-print(type(p2))
 print(p1 == p2)
+print("\n" + 20 * '-' + "\n")
 
-# Gelişmiş class örneği
-class Circle:
-    pi = 3.14
-    def __init__(self, yaricap=1):
-        self.yaricap = yaricap
-    # Methods
-
-# Special methods
 class Movie():
     def __init__(self, title, director, duration):
         self.title = title
@@ -36,11 +27,12 @@ class Movie():
     def __len__(self):
         return self.duration
     def __del__(self):
-        print('film objesi silindi')
+        print(f'{self.title} film objesi silindi.')
+
 m = Movie('film adı','yönetmen adı',120)
 print(str(m))
+print("\n" + 20 * '-' + "\n")
 
-# Inheritance (Kalıtım)
 class PersonBase():
     def __init__(self, fname, lname):
         self.firstName = fname
@@ -50,6 +42,7 @@ class PersonBase():
         print('I am a person')
     def eat(self):
         print('I am eating')
+
 class Student(PersonBase):
     def __init__(self, fname, lname, number):
         PersonBase.__init__(self, fname, lname)
@@ -59,16 +52,26 @@ class Student(PersonBase):
         print('I am a student')
     def sayHello(self):
         print('Hello I am a student')
+
 class Teacher(PersonBase):
-    def __init__(self,fname, lname,branch):
+    def __init__(self, fname, lname, branch):
         super().__init__(fname, lname)
         self.branch = branch
     def who_am_i(self):
         print(f'I am a {self.branch} teacher')
 
-# Soru ve Quiz uygulaması
+p = PersonBase("Ali", "Veli")
+s = Student("Ayşe", "Yılmaz", 123)
+t = Teacher("Mehmet", "Demir", "Math")
+
+p.who_am_i()
+s.who_am_i()
+s.sayHello()
+t.who_am_i()
+print("\n" + 20 * '-' + "\n")
+
 class Question:
-    def __init__(self,text,choices,answer):
+    def __init__(self, text, choices, answer):
         self.text = text
         self.choices = choices
         self.answer = answer
@@ -99,6 +102,14 @@ class Quiz:
             print('Quiz bitti')
         else:
             self.displayQuestion()
+
+q1 = Question("En iyi programlama dili hangisidir?", ["Python", "Java", "C#"], "Python")
+q2 = Question("En popüler renk?", ["Kırmızı", "Mavi", "Yeşil"], "Mavi")
+q3 = Question("2 + 2 kaçtır?", ["3", "4", "5"], "4")
+
+questions = [q1, q2, q3]
+quiz = Quiz(questions)
+quiz.displayQuestion()
 
 # Bankamatik uygulaması
 def paraCek(hesap, miktar):
