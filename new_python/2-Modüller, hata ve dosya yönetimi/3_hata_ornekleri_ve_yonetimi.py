@@ -68,6 +68,22 @@ for x in [5, 10, 20, -3, '10a']:
         continue
     print(y)
 
+def factorial(number):
+    if not isinstance(number, int):
+        raise TypeError("number must be an integer")
+    if not number >=0:
+        raise ValueError("number must be zero or positive")
+    def inner_factorial(number):
+        if number <= 1:
+            return 1
+        return number * inner_factorial(number - 1)
+    return inner_factorial(number)
+try:
+    print(factorial("4"))
+except Exception as ex:
+    print(ex)
+print("\n" + 20 * '-' + "\n")
+
 # 12_hata_yonetimi.py
 # error handling => hata yönetimi
 # try:

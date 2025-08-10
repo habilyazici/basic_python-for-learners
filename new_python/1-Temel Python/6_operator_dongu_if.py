@@ -80,25 +80,42 @@ for urun in en_fazla_5000:
     print(f"{urun['ad']} - {urun['fiyat']}")
 print("\n" + 20 * '-' + "\n")
 
+sayilar = [1, 2, 3, 4, 5]
+i = 0
+while i < len(sayilar):
+    print(sayilar[i])
+    i += 1
 
-# while ile uygulamalar
-# 1: sayilar listesini while ile ekrana yazdırın.
-# 2: Başlangıç ve bitiş değerlerini kullanıcıdan alıp aradaki tüm tek sayıları ekrana yazdırın.
-# 3: 1-100 arasındaki sayıları azalan şekilde yazdırın.
-# 4: Kullanıcıdan alacağınız 5 sayıyı ekranda sıralı bir şekilde yazdırın.
-# 5: Kullanıcıdan alacağınız sınırsız ürün bilgisini urunler listesi içinde saklayınız.
+baslangic = int(input("Başlangıç değerini girin: "))
+bitis = int(input("Bitiş değerini girin: "))
+i = baslangic
+while i <= bitis:
+    if i % 2 == 1:
+        print(i)
+    i += 1
+print("\n" + 20 * '-' + "\n")
 
-# 5. break, continue, range, enumerate, zip, list comprehensions
-# -------------------------------------------------------------
-# break-continue örnekleri
+urunler = []
+while True:
+    ad = input("Ürün adı (çıkmak için 'q' tuşlayın): ")
+    if ad == 'q':
+        break
+    fiyat = float(input("Ürün fiyatı: "))
+    urunler.append({'ad': ad, 'fiyat': fiyat})
+print("Ürünler:")
+for urun in urunler:
+    print(f"Ad: {urun['ad']}, Fiyat: {urun['fiyat']}")
+print("\n" + 20 * '-' + "\n")
+
 x = 0
 result = 0
-while x <= 100:    
-    x+=1
+while x <= 100:
+    x += 1
     if x % 2 == 0:
         continue
     result += x
 print(f'toplam: {result}')
+print("\n" + 20 * '-' + "\n")
 
 list1 = [1,2,3,4,5]
 list2 = ['a','b','c','d','e']
@@ -108,47 +125,42 @@ for item in zip(list1, list2, list3):
     print(item)
 for a,b,c in zip(list1, list2, list3):
     print(a,b,c)
+print("\n" + 20 * '-' + "\n")
 
-numbers = [x for x in range(10)]
-print(numbers)
 numbers = [x**2 for x in range(10)]    
 print(numbers)
 numbers = [x*x for x in range(10) if x%3==0]
 print(numbers)
+print("\n" + 20 * '-' + "\n")
 
-# 6. Karışık Uygulamalar ve Mini Projeler
-# ---------------------------------------
-# Sayi tahmin oyunu
-# 1-100 arasında rastgele üretilecek bir sayıyı aşağı yukarı ifadeleri ile buldurmaya çalışın. (hak = 5)
-# import random
-# sayi = random.randint(1,10)
-# can = int(input('kaç hak kullanmak istersiniz: '))
-# hak = can
-# sayac = 0
-# while hak > 0:
-#     hak -= 1
-#     sayac += 1
-#     tahmin = int(input('tahmin: '))
-#     if sayi == tahmin:
-#         print(f'Tebrikler {sayac}. defada bildiniz. Toplam puanınız: {100 - (100/can) * (sayac-1) }')
-#         break
-#     elif sayi > tahmin:
-#         print('yukarı')
-#     else:
-#         print('aşağı')
-#     if hak == 0:
-#         print(f'hakkınız bitti. Tutulan sayı : {sayi}')
+import random
+sayi = random.randint(1,10)
+can = int(input('kaç hak kullanmak istersiniz: '))
+hak = can
+sayac = 0
+while hak > 0:
+    hak -= 1
+    sayac += 1
+    tahmin = int(input('tahmin: '))
+    if sayi == tahmin:
+        print(f'Tebrikler {sayac}. defada bildiniz. Toplam puanınız: {100 - (100/can) * (sayac-1) }')
+        break
+    elif sayi > tahmin:
+        print('yukarı çıkın')
+    else:
+        print('aşağı inin')
+    if hak == 0:
+        print(f'hakkınız bitti. Tutulan sayı : {sayi}')
 
-# Asal sayı kontrolü
-# sayi = int(input('sayı: '))
-# asalmi = True
-# if sayi == 1:
-#     asalmi = False
-# for i in range(2, sayi):
-#     if (sayi % i == 0):
-#         asalmi = False
-#         break
-# if asalmi:
-#     print('sayı asaldır.')
-# else:
-#     print('sayı asal değildir.')
+sayi = int(input('sayı: '))
+asalmi = True
+if sayi == 1:
+    asalmi = False
+for i in range(2, sayi):
+    if (sayi % i == 0):
+        asalmi = False
+        break
+if asalmi:
+    print('sayı asaldır.')
+else:
+    print('sayı asal değildir.')

@@ -1,6 +1,3 @@
-# Sınıflar, OOP ve Uygulama Örnekleri
-
-# Temel class örneği
 class Person:
     address = 'no information'
     def __init__(self, name, year):
