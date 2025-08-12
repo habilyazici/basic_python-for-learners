@@ -34,7 +34,7 @@ def add(*params):
         total += x
     return total
 print(add(10, 20, 50))
-print(add(10, 20, 30,50,60,10,20))
+print(add(10, 20, 30, 50, 60, 10, 20))
 print("\n" + 20 * '-' + "\n")
 
 def displayUser(**args):
@@ -51,15 +51,15 @@ def myFunc(a, b, c, *args, **kwargs):
     print("c:", c)
     print("args (tuple):", args)
     print("kwargs (dict):", kwargs)
-myFunc(1, 2, 3, 4, 5, x=10, y=20, name='mehmet', age=5)
+myFunc(1, 2, 3, 4, 5, 6, x=10, y=20, name='mehmet', age=5)
+print("\n" + 20 * '-' + "\n")
 
 def listeyeCevir(*params):
     liste = []
     for param in params:
         liste.append(param)
     return liste
-result = listeyeCevir(10,20,30,'Merhaba')
-print(result)
+print(listeyeCevir(10,20,30,'Merhaba'))
 print("\n" + 20 * '-' + "\n")
 
 def asalSayilariBul(sayi1, sayi2):
@@ -82,6 +82,7 @@ print("\n" + 20 * '-' + "\n")
 
 global_x = 'global x'
 def function():
+    global_x = "Yeni global x"
     print(global_x)
 function()
 print(global_x)
