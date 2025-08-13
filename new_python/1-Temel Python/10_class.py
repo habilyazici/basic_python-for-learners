@@ -64,6 +64,7 @@ p1 = PersonBase("Ali", "Veli")
 s1 = Student("Ayşe", "Yılmaz", 123)
 t1 = Teacher("Mehmet", "Demir", "Math")
 
+print(s1.studentNumber)
 p1.who_am_i()
 s1.who_am_i()
 s1.sayHello()
