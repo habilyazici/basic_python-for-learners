@@ -1,12 +1,3 @@
-"""
-Hata yönetimi ve örnekleri
-Birleştirilen dosyalar:
-- 10_hata_nedir.py
-- 11_hata_ornekleri.py
-- 12_hata_yonetimi.py
-- 13_raise_kullanimi.py
-"""
-
 # 10_hata_nedir.py
 # error => hata
 # Error

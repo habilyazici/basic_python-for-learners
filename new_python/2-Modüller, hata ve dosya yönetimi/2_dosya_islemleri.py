@@ -31,7 +31,8 @@ file4.close()
 print("\n" + 20 * '-' + "\n")
 
 # 'r+': Dosyayı hem okumak hem yazmak için açar. Dosya mevcut olmalı, yoksa hata verir.
-# imleç dosya başında açılır, seek() kullanabilirsin.
+# "w+": (Write and Read) yazma ve okuma. Dosya konumda yoksa oluşturur.
+# imleç dosya başında açılır.
 with open(current_dir + "/newfile.txt", "r+", encoding="utf-8") as file5:
     file5.seek(80) # Dosya imlecini 80. bayta getirir
     file5.write("deneme ")
@@ -84,18 +85,12 @@ with open(current_dir + "/newfile.txt", "r", encoding="utf-8") as file10:
     # Tüm satırları liste olarak okuma
     file10.seek(0)
     print(file10.readlines())
+    print("\n" + 20 * '-' + "\n")
 
-with open("newfile.txt","r",encoding="utf-8") as file:
-    content = file.read(10)
-    print(content)
-    file.seek(0)
-    print(file.tell())
-    content2 = file.read(10)
-    print(content2)
-
-
-
-# # "r+": (Read and Write) okuma ve yazma. Dosya konumda yoksa hata verir.
-# file = open(current_dir + "/newfile.txt","r+",encoding='utf-8
-# # "w+": (Write and Read) yazma ve okuma. Dosya konumda yoksa oluşturur.
-# file = open(current_dir + "/newfile.txt","w+",encoding='utf-8
+with open(current_dir + "/newfile.txt", "r", encoding="utf-8") as file11:
+    print(file11.read(10))
+    print(file11.read(8))
+    print(file11.tell())
+    file11.seek(0)
+    print(file11.read(14))
+    # \n bir byte okunuyor
