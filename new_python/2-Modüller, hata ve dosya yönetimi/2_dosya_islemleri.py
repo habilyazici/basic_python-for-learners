@@ -25,7 +25,7 @@ finally:
 print("\n" + 20 * '-' + "\n")
 
 # "r": (Read) okuma. varsayılan. dosya konumda yoksa hata verir.
-file4 = open(current_dir + "/newfile.txt", "r", encoding='utf-8')
+file4 = open(current_dir + "/newfile.txt", encoding='utf-8')
 print(file4.read())
 file4.close()
 print("\n" + 20 * '-' + "\n")
@@ -36,10 +36,6 @@ print("\n" + 20 * '-' + "\n")
 with open(current_dir + "/newfile.txt", "r+", encoding="utf-8") as file5:
     file5.seek(80) # Dosya imlecini 80. bayta getirir
     file5.write("deneme ")
-
-with open(current_dir + "/newfile.txt", "r+", encoding="utf-8") as file6:
-    print(file6.read())
-print("\n" + 20 * '-' + "\n")
 
 # Sayfa başı ortası ve sonunda güncelleme
 with open(current_dir + "/newfile.txt", "a", encoding="utf-8") as file7:
@@ -61,8 +57,8 @@ print("\n" + 20 * '-' + "\n")
 
 with open(current_dir + "/newfile.txt", "r", encoding="utf-8") as file10:
     for i in file10:
-        print(i, end="") 
-    # end="" ile satır sonu eklenmez end olmazsa boş bir satır ekler. for daha az RAM kullanır.
+        print(i, end="-") 
+    # end="" ile satır sonu eklenmez end olmazsa boş bir satır ekler. for daha az RAM için kullanılır.
     print("\n" + 20 * '-' + "\n")
 
     # Tüm içeriği bir defada okuma
@@ -80,6 +76,14 @@ with open(current_dir + "/newfile.txt", "r", encoding="utf-8") as file10:
     print(file10.readline(), end="")
     print(file10.readline(), end="")
     print(file10.readline(), end="")
+    print("\n" + 20 * '-' + "\n")
+
+    file10.seek(0)
+    while True:
+        satir = file10.readline()
+        if not satir:
+            break
+        print(satir, end="")
     print("\n" + 20 * '-' + "\n")
 
     # Tüm satırları liste olarak okuma
