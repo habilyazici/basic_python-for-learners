@@ -1,5 +1,5 @@
 # bir dosya oluşturup onu çağırmakta bir modüldür.
-# from math import *   # bu yöntemde math adında nesne yoktur o yüzden kullanamazsın.
+# from math import * Bu yöntemde 'math' adında bir nesne oluşmaz, sadece fonksiyonları doğrudan kullanabilirsin (math.sqrt gibi yazamazsın, sqrt(9) yazarsın).
 # import math as islem
 import math
 
@@ -25,7 +25,7 @@ print(value3)
 print("\n" + 20 * '-' + "\n")
 
 import random as random
-print(random.random()) # 0.0 - 1.0
+print(random.random())
 print(random.random() * 100)
 print(int(random.uniform(10,100)))
 print(random.randint(1,100))
