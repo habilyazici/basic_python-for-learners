@@ -15,7 +15,7 @@ file2.close()
 
 # "x": (Create) oluşturma. Dosya zaten varsa hata verir.
 try:
-    file3 = open(current_dir + "/newfile2.txt", "x", encoding='utf-8')
+    file3 = open(current_dir + "/file1.txt", "x", encoding='utf-8')
     file3.write("Bu dosya yeni oluşturuldu.")
     file3.close()
 except FileExistsError:
