@@ -5,6 +5,7 @@ print("Current Directory:", current_dir)
 print(type(current_dir))
 file = open(current_dir + "/file1.txt", "w", encoding="utf-8")
 file.write("Dosya başarıyla oluşturuldu.\n")
+# file.read() dosyayı yazma modunda açtığımız için içeriği okuyamaz.
 file.close()
 print("\n" + 20 * '-' + "\n")
 
@@ -30,14 +31,12 @@ print(file4.read())
 file4.close()
 print("\n" + 20 * '-' + "\n")
 
-# 'r+': Dosyayı hem okumak hem yazmak için açar. Dosya mevcut olmalı, yoksa hata verir.
-# "w+": (Write and Read) yazma ve okuma. Dosya konumda yoksa oluşturur.
-# imleç dosya başında açılır.
+# 'r+': Dosyayı hem okumak hem yazmak için açar. Dosya mevcut olmalı, imleç baştadır ama içerikler silinmemiştir.
+# "w+": Aynısı ek olarak, dosya konumda yoksa oluşturur. Varsa içeriği siler
 with open(current_dir + "/newfile.txt", "r+", encoding="utf-8") as file5:
-    file5.seek(80) # Dosya imlecini 80. bayta getirir
+    file5.seek(80)
     file5.write("deneme ")
 
-# Sayfa başı ortası ve sonunda güncelleme
 with open(current_dir + "/newfile.txt", "a", encoding="utf-8") as file7:
     file7.write("\nFerhat Şirin")
 
@@ -55,23 +54,22 @@ with open(current_dir + "/newfile.txt", "r+", encoding="utf-8") as file9:
     file9.writelines(list)
 print("\n" + 20 * '-' + "\n")
 
+# Farklı okuma yöntemleri
 with open(current_dir + "/newfile.txt", "r", encoding="utf-8") as file10:
     for i in file10:
         print(i, end="-") 
-    # end="" ile satır sonu eklenmez end olmazsa boş bir satır ekler. for daha az RAM için kullanılır.
+    # end="" olmalı böylece satır sonu eklenmez end olmazsa boş bir satır ekler. for daha az RAM için kullanılır.
     print("\n" + 20 * '-' + "\n")
 
-    # Tüm içeriği bir defada okuma
-    file10.seek(0) # imleci başa al
+    file10.seek(0)
     print(file10.read())
     print("\n" + 20 * '-' + "\n")
 
-    # Belirli karakter kadar okuma
     file10.seek(0)
     print(file10.read(5))
     print("\n" + 20 * '-' + "\n")
 
-    # readline() satır satır okur. Her çağrıda bir sonraki satırı okur.
+    # veriler iterabledır, readline() satır satır okur. Her çağrıda bir sonraki satırı okur.
     file10.seek(0)
     print(file10.readline(), end="")
     print(file10.readline(), end="")
@@ -86,7 +84,6 @@ with open(current_dir + "/newfile.txt", "r", encoding="utf-8") as file10:
         print(satir, end="")
     print("\n" + 20 * '-' + "\n")
 
-    # Tüm satırları liste olarak okuma
     file10.seek(0)
     print(file10.readlines())
     print("\n" + 20 * '-' + "\n")

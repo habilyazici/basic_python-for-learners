@@ -7,8 +7,7 @@
 liste = ["1","2","5a","10b","abc","10","50"]
 for x in liste:
     try:
-        result = int(x)
-        print(result)
+        print(int(x))
     except ValueError:
         continue
 print("\n" + 20 * '-' + "\n")
@@ -30,8 +29,6 @@ def checkPassword(parola):
     for i in parola:
         if i in turkce_karakterler:
             raise TypeError('Parola türkçe karakter içeremez.')
-        else:
-            pass
     print('geçerli parola')
 hak = 3
 while hak > 0:
@@ -48,11 +45,10 @@ while hak > 0:
             print(f'Kalan deneme hakkınız: {hak}')
 print("\n" + 20 * '-' + "\n")
 
-# 4: Faktöriyel fonksiyonu oluşturup fonksiyona gelen değer için hata mesajları verin.
 def faktoriyel(x):
     x = int(x)
     if x < 0:
-        raise ValueError('Negatif değer') # direkt Exception('Negatif değer') yazabilirsin veya mesaj yazmayabilirsin de.
+        raise ValueError('Negatif değer') # direkt Exception('Negatif değer') veya Exception.
     result = 1
     for i in range(1, x+1):
         result *= i
@@ -85,14 +81,8 @@ try:
     y = int(input('y: '))
     print(x/y)
 except (ZeroDivisionError,ValueError) as e:
-    print('yanlış bilgi girdiniz')
+    print('Hatalı işlem!')
     print(e)
-try:
-    x = int(input('x: '))
-    y = int(input('y: '))
-    print(x/y)
-except:
-    print('yanlış bilgi girdiniz')
 print("\n" + 20 * '-' + "\n")
 
 while True:
@@ -101,7 +91,7 @@ while True:
         y = int(input('y: '))
         print(x/y)
     except Exception as ex:
-        print('yanlış bilgi girdiniz', ex)
+        print('Hatalı işlem!', ex)
     else:
         break
     # try kısmıı başarılı olursa else çalışır. finally hep çalışır.
