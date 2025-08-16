@@ -5,11 +5,14 @@ class Question:
         self.answer = answer
     def checkAnswer(self, answer):
         return self.answer == answer
+
 class Quiz:
+    SumQuizCount = 0
     def __init__(self, questions):
         self.questions = questions
         self.score = 0
         self.questionIndex = 0
+        Quiz.SumQuizCount += 1
     def getQuestion(self):
         return self.questions[self.questionIndex]
     def displayQuestion(self):
@@ -32,10 +35,10 @@ class Quiz:
         else:
             self.displayQuestion()
 
-q1 = Question("En iyi programlama dili hangisidir?", ["Python", "Java", "C#"], "Python")
-q2 = Question("En popüler renk?", ["Kırmızı", "Mavi", "Yeşil"], "Mavi")
-q3 = Question("2 + 2 kaçtır?", ["3", "4", "5"], "4")
-questions = [q1, q2, q3]
+question1 = Question("En iyi programlama dili hangisidir?", ["Python", "Java", "C#"], "Python")
+question2 = Question("En popüler renk?", ["Kırmızı", "Mavi", "Yeşil"], "Mavi")
+question3 = Question("2 + 2 kaçtır?", ["3", "4", "5"], "4")
+questions = [question1, question2, question3]
 quiz = Quiz(questions)
 quiz.displayQuestion()
 print("\n" + 20 * '-' + "\n")

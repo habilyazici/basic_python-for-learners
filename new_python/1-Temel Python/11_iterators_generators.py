@@ -1,26 +1,21 @@
-# liste = [1,2,3,4,5]
+liste = [1,2,3,4,5]
+iterator = iter(liste)
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+print(next(iterator))
+print("\n" + 20 * '-' + "\n")
 
-# iterator = iter(liste)
+liste2 = [1,2,3,4,5]
+iterator = iter(liste2)
 
-# print(next(iterator))
-# print(next(iterator))
-# print(next(iterator))
-# print(next(iterator))
-# print(next(iterator))
-# # print(next(iterator))
-
-# for i in liste:
-#     print(i)
-
-# liste = [1,2,3,4,5]
-# iterator = iter(liste)
-
-# while True:
-#     try:
-#         element = next(iterator)
-#         print(element)
-#     except StopIteration:
-#         break
+while True:
+    try:
+        element = next(iterator)
+        print(element)
+    except StopIteration:
+        break
 
 class MyNumbers:
     def __init__(self, start, stop):

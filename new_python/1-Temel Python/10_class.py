@@ -17,17 +17,21 @@ print(p1 == p2)
 print("\n" + 20 * '-' + "\n")
 
 class Movie():
+    movieCount = 0
     def __init__(self, title, director, duration):
         self.title = title
         self.director = director
         self.duration = duration
+        Movie.movieCount += 1
         print('movie objesi oluşturuldu.')
+
     def __str__(self):
         return f"{self.title} by {self.director}"
     def __len__(self):
         return self.duration
     def __del__(self):
         print(f'{self.title} film objesi silindi.')
+    
 
 m = Movie('film adı','yönetmen adı',120)
 print(str(m))
@@ -39,17 +43,18 @@ class PersonBase():
         self.lastName = lname
         print('Person Created')
     def who_am_i(self):
-        print('I am a person')
+        print(f'I am a person. My name is {self.firstName} {self.lastName}.')
     def eat(self):
-        print('I am eating')
+        print('I am eating' )
 
 class Student(PersonBase):
     def __init__(self, fname, lname, number):
         PersonBase.__init__(self, fname, lname)
         self.studentNumber = number
         print('Student Created')
+        # Burdaki, parent clasın init methodunu çağırmada tüm init çağırılıyor.
     def who_am_i(self):
-        print('I am a student')
+        print(f'I am a student. My name is {self.firstName} {self.lastName}. My student number is {self.studentNumber}.')
     def sayHello(self):
         print('Hello I am a student')
 
@@ -58,15 +63,15 @@ class Teacher(PersonBase):
         super().__init__(fname, lname)
         self.branch = branch
     def who_am_i(self):
-        print(f'I am a {self.branch} teacher')
+        print(f'I am a teacher. My name is {self.firstName} {self.lastName}. My branch is {self.branch}.')
 
-p1 = PersonBase("Ali", "Veli")
-s1 = Student("Ayşe", "Yılmaz", 123)
-t1 = Teacher("Mehmet", "Demir", "Math")
+person1 = PersonBase("Ali", "Veli")
+student1 = Student("Ayşe", "Yılmaz", 123)
+teacher1 = Teacher("Mehmet", "Demir", "Math")
 
-print(s1.studentNumber)
-p1.who_am_i()
-s1.who_am_i()
-s1.sayHello()
-t1.who_am_i()
+print(student1.studentNumber)
+person1.who_am_i()
+student1.who_am_i()
+student1.sayHello()
+teacher1.who_am_i()
 print("\n" + 20 * '-' + "\n")

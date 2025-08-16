@@ -6,7 +6,6 @@ def usalma(number):
     # fonksiyonunun kendisini çağırıyor fonksiyonu döndürmüyor.
 two = usalma(2)
 print(two(3))
-print("\n" + 20 * '-' + "\n")
 
 def usalma(number):
     def inner(power):
@@ -46,16 +45,27 @@ def islem(islem_adi):
 topla = islem("toplama")
 print(topla(1, 2, 3)) 
 carp = islem("carpma")
-print(carp(2, 3, 4))
+print(carp(2, 3, 4, 5, 6))
 print("\n" + 20 * '-' + "\n")
+
+
 
 # Decorator Fonksiyonları
 import math
 import time
+
+def toplama(a, b):
+    start = time.time()
+    time.sleep(1)
+    print(a + b)
+    finish = time.time()
+    print("fonksiyon toplama", str(finish - start), "saniye sürdü.")
+toplama(10, 20)
+print("\n" + 20 * '-' + "\n")
+
 def calculate_time(func):
     def inner(*args,**kwargs):
-        # burda *args ve **kwargs kullanırsak kapsadığımız fonksiyon istediği kadar parametre
-        # istediği parametreyi alabilir dict, string, int, float vs.
+        # burda *args ve **kwargs kullanırsak kapsadığımız fonksiyon istediği kadar parametre ve istediği parametreyi alabilir dict, string, int, float vs.
         start = time.time()
         time.sleep(1)
         func(*args,**kwargs)
@@ -71,17 +81,8 @@ def usalma(a, b):
 def faktoriyel(num):
     print(math.factorial(num))
 
-# Klasik yöntemle fonksiyon süresi ölçme
-def toplama(a, b):
-    start = time.time()
-    time.sleep(1)
-    print(a + b)
-    finish = time.time()
-    print("fonksiyon toplama", str(finish - start), "saniye sürdü.")
-
 usalma(2, 3)
 faktoriyel(4)
-toplama(10, 20)
 print("\n" + 20 * '-' + "\n")
 
 # Lambda Fonksiyonları ve map Kullanımı
@@ -93,18 +94,12 @@ print("square2(5):", square2(50))
 
 numbers = [1, 3, 5, 9, 10, 4]
 result = list(map(lambda num: num ** 2, numbers))
-print("map(lambda num: num ** 2, numbers):", result)
+print("map ile bir açık fonksiyon ve listenin işlenmesi:", result)
 
 result2 = list(map(square, numbers))
-print("map(square, numbers):", result2)
+print("map ile bir kapalı fonksiyon ve listenin işlenmesi:", result2)
+# burda veriler bir herhangi bir iterable veri olabilir: liste, tuple, set, string, dict, range
 
 for item in map(square, numbers):
     print(item)
-print("\n" + 20 * '-' + "\n")
-
-def check_even(num):
-    return num % 2 == 0
-check_even_lambda = lambda num: num % 2 == 0
-print("check_even(5):", check_even(5))
-print("check_even_lambda(4):", check_even_lambda(4))
 print("\n" + 20 * '-' + "\n")

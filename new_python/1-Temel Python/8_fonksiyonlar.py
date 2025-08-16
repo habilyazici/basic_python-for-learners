@@ -78,6 +78,10 @@ def greeting(name):
     return f'hello {name}'
 print(greeting('ali'))
 del greeting
+try:
+    print(greeting('ali'))
+except NameError as e:
+    print("Hata:", e)
 print("\n" + 20 * '-' + "\n")
 
 global_x = 'global x'
