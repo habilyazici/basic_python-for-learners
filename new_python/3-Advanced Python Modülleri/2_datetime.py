@@ -2,7 +2,6 @@ from datetime import datetime
 from datetime import timedelta
 # from datetime import date
 # from datetime import time
-
 # import datetime
 
 simdi = datetime.now()
