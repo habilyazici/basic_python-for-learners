@@ -1,48 +1,74 @@
-from datetime import datetime
-from datetime import timedelta
-# from datetime import date
-# from datetime import time
+# datetime: Tarih ve saat bilgisini verir (Yıl, ay, gün, saat, dakika, saniye, mikrosaniye)
+# timedelta: İki tarih/saat arasındaki farkı bulabilir.
+# timezone: Bir zaman dilimini belirtmek için kullanılır. (örn: UTC, UTC+3)
+print("\n" + 20 * '-' + "\n")
+
+from datetime import datetime, timedelta, timezone
+
+# from datetime import time, date
 # import datetime
-
+# now() ile zaman dilimi değiştirilebilir today() ile değiştirilemez.
 simdi = datetime.now()
-simdi = datetime.today()
+simdi2 = datetime.today()
+print("Şu anki tarih ve saat:", simdi) 
+print("Bugünün tarihi ve saati:", simdi2)
+print("UTC zamanı:", datetime.now(timezone.utc))
+print("Türkiye (UTC+3) zamanı:", datetime.now(timezone(timedelta(hours=3))))
+print("\n" + 20 * '-' + "\n")
 
-result = datetime.now()
-result = simdi.year
-result = simdi.month
-result = simdi.day
-result = simdi.hour
-result = simdi.minute
-result = simdi.second
+print("Yıl(int):", datetime.now().year)
+print("Ay(int):", simdi.month)
+print("Gün(int):", simdi.day)
+print("Saat(int):", simdi.hour)
+print("Dakika(int):", simdi.minute)
+print("Saniye(int):", simdi.second)
+print("\n" + 20 * '-' + "\n")
 
-result = datetime.ctime(simdi)
-result = datetime.strftime(simdi,'%Y')
-result = datetime.strftime(simdi,'%X')
-result = datetime.strftime(simdi,'%d')
-result = datetime.strftime(simdi,'%A')
-result = datetime.strftime(simdi,'%B')
-result = datetime.strftime(simdi,'%Y %B %A')
+print("Ctime ile okunabilir format:", datetime.ctime(simdi))
+print("Yıl (string):", datetime.strftime(simdi,'%Y')) # string for time
+print("Saat (string):", datetime.strftime(simdi,'%X'))
+print("Gün (string):", datetime.strftime(simdi,'%d'))
+print("Haftanın günü:", datetime.strftime(simdi,'%A'))
+print("Ay ismi:", datetime.strftime(simdi,'%B'))
+print("Yıl, ay ve gün ismi:", datetime.strftime(simdi,'%Y %B %A'))
+print("\n" + 20 * '-' + "\n")
 
-t = '15 April 2019 hour 10:12:30'
-result = datetime.strptime(t, '%d %B %Y hour %H:%M:%S')
-result = result.year
+time2 = 'tarih: 15 April 2019 hour 10:12:30 saniye 234234      '
+result14 = datetime.strptime(time2, 'tarih: %d %B %Y hour %H:%M:%S saniye %f      ') 
+# string parse time, metini datetime nesnesine çevir datetime.now() şeklinde bir nesne
+print("Stringden datetime oluştur:", result14)
+result15 = result14.year
+print("Oluşan tarihin yılı:", result15)
+print("\n" + 20 * '-' + "\n")
 
-birthday = datetime(1983,5,9,12,30,10)
+birthday = datetime(1983, 5, 9, 12, 30, 10, 132354)
+print("Doğum günü tarihi:", birthday)
 
-result = datetime.timestamp(birthday) # saniye
-result = datetime.fromtimestamp(result) # saniye to datetime
-result = datetime.fromtimestamp(0)
+result16 = datetime.timestamp(birthday)
+print("1970 den sonra geçen total saniye:", result16)
+result17 = datetime.fromtimestamp(result16) # saniye to datetime
+print("Saniyeden datetime'a çevir:", result17)
+result18 = datetime.fromtimestamp(0) 
+print("Unix epoch (0) tarihi:", result18)
+print("\n" + 20 * '-' + "\n")
 
-result = simdi - birthday # timedelta
+result19 = simdi - birthday
+print(type(result19))
+print("Doğum gününden bugüne geçen süre (timedelta):", result19)
+print("Total days:", result19.days)
+print("Total hours:", result19.total_seconds() // 3600)
+print("Total hours:", result19.seconds // 3600)
+print("years:", result19.days // 365)
+print("months:", (result19.days % 365) // 30)
+print("days:", (result19.days % 365) % 30)
+print("\n" + 20 * '-' + "\n")
 
-# result = result.days
-# result = result.seconds
-# result = result.microseconds
-print(simdi)
+result20 = simdi - timedelta(days = 10)
+print("result20 (simdi - timedelta 10 gün):", result20)
+print("\n" + 20 * '-' + "\n")
 
-# result = simdi + timedelta(days=10)
-# result = simdi + timedelta(days=730, minutes = 10)
-
-result = simdi - timedelta(days = 10)
-
-print(result)
+print(simdi - timedelta(days=5, hours=3, minutes=2, seconds=10))
+print(simdi + timedelta(days=2*365 + 30 + 10))
+print(simdi + timedelta(weeks=1, hours=12, seconds=30))
+print(simdi + timedelta(days=366, hours=1, minutes=1, seconds=1))
+print(simdi + timedelta(days=-(2*365 + 90 + 7)))
