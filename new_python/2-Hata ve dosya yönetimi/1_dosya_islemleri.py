@@ -1,3 +1,4 @@
+# Os ile dizini seçip bunları yapmayı dene
 # "w": (Write) yazma modu dosya yoksa oluşturur ve varsa içeriğini siler.
 import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
