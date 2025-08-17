@@ -3,7 +3,7 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 def not_hesapla(satir):
-    satir = satir[:-1] # satır sonundaki \n yi kaldlırıyor.
+    satir = satir[:-1] # satır sonundaki \n yi almıyor
     liste = satir.split(':')
     ogrenciAdi = liste[0]
     notlar = liste[1].split(',')

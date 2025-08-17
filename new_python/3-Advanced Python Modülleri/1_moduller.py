@@ -1,6 +1,5 @@
 # bir dosya oluşturup onu çağırmakta bir modüldür.
 # from math import * Bu yöntemde 'math' adında bir nesne oluşmaz, sadece fonksiyonları doğrudan kullanabilirsin (math.sqrt gibi yazamazsın, sqrt(9) yazarsın).
-# import math as islem
 import math
 
 print(dir(math))
@@ -10,18 +9,14 @@ print(math.sqrt(49))
 print(math.factorial(5))
 print(math.floor(5.9))
 print(math.ceil(5.9))
-# print(islem.factorial(5))
 print("\n" + 20 * '-' + "\n")
 
 from math import factorial, sqrt, ceil
 def sqrt(x):
-    return 'x :'+ str(x)
-value1 = factorial(5)
-value2 = sqrt(9)
-value3 = ceil(9.8)
-print(value1)
-print(value2)
-print(value3)
+    return 'x :' + str(x)
+print(factorial(5))
+print(sqrt(9))
+print(ceil(9.8))
 print("\n" + 20 * '-' + "\n")
 
 import random as random
