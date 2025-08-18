@@ -1,5 +1,5 @@
 import json
-
+# nesne json dosyasına gönderilemiyor
 person_string = '{"name":"Ali", "languages":["python","C#"]}'
 person_dict = {"name": "Ali","languages": ["Python","C#"] }
 
