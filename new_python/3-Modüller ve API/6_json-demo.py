@@ -73,6 +73,7 @@ class UserRepository:
 
 repository = UserRepository()
 
+
 while True:
     print('Menü'.center(50,'*'))
     secim = input('1- Register\n2- Login\n3- Logout\n4- identity\n5- Exit\nseçiminiz: ')
