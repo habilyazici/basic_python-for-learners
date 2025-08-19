@@ -1,4 +1,4 @@
-# Bir nesnenin elemanlarını tek tek almak için kullanılırlar bellekte tüm elemanları tutmak yerine tek tek tutarlar. Bir list, tuple, set veya dictionary gibi nesneler otomatik olarak __iter__ (iterable) dır dolayısıyla for kullanabiliyoruz. for x in liste(yada başka bir iterable): Python arka planda otomatik olarak iter(liste) çağırır ve her adımda next() ile elemanları alır
+# Bir nesnenin elemanlarını tek tek almak için kullanılır bellekte tüm elemanları tutmak yerine tek tek tutarlar. Bir list, tuple, set veya dictionary gibi nesneler otomatik olarak __iter__ (iterable) dır dolayısıyla for kullanabiliyoruz. for x in liste(yada başka bir iterable): Python arka planda otomatik olarak iter(liste) çağırır ve her adımda next() ile elemanları alır
 liste = [1,2,3,4,5]
 iterator = iter(liste)
 # böyle yaparak listenin iteratör nesnesini oluşturduk bu sayede nesne next() fonksiyonuyla beraber kullanmaya hazır olur.
@@ -59,8 +59,7 @@ while True:
 #     print(i)
 print("\n" + 20 * '-' + "\n")
 
-
-# generator function
+# Generator
 def cube():
     for i in range(5):
         yield i ** 3

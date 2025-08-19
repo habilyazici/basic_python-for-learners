@@ -1,28 +1,39 @@
+# json verisi tırnak işareti ile tanımlanır.
+import os
 import json
-# nesne json dosyasına gönderilemiyor
-person_string = '{"name":"Ali", "languages":["python","C#"]}'
-person_dict = {"name": "Ali","languages": ["Python","C#"] }
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-# JSON string to Dict
-# result = json.loads(person_string)
-# result = result["name"]
-# result = result["languages"]
+person_json_string = '{"name": "Ali", "languages": ["Python", "Java"]}'
+person_json_string = '[{"name": "Ali", "languages": ["Python", "Java"]},{"name": "Ayşe", "languages": ["C#", "JavaScript"]},{"name": "Mehmet", "languages": ["Go", "Rust"]},{"name": "Fatma", "languages": ["Python", "Ruby"]}]'
 
-# with open("person.json") as f:
-#     data = json.load(f)
-#     print(data["name"])
-#     print(data["languages"])
+person_python = {"name": "Ali", "languages": ["Python", "Java"]}
+person_python = [
+    {"name": "Ali", "languages": ["Python", "Java"]},
+    {"name": "Ayşe", "languages": ["C#", "JavaScript"]},
+    {"name": "Mehmet", "languages": ["Go", "Rust"]},
+    {"name": "Fatma", "languages": ["Python", "Ruby"]}
+]
 
+# JSON string to python, dosya üzerinde işlemlerde tekil olarak kullan
+loads = json.loads(person_json_string)
+print(loads)
+print(type(loads))
+for user in loads:
+    print(user["name"], user["languages"])
+print("\n" + 20 * '-')
 
-# Dict to JSON string
-# result = json.dumps(person_dict)
-# print(type(result))
+with open("users.json", encoding="utf-8") as f:
+    load = json.load(f)
+    for user in load:
+        print(user["username"], user["password"], user["email"])
+print("\n" + 20 * '-')
 
-# with open("person.json","w") as f:
-#     json.dump(person_dict, f)
+# Python to JSON string, indent kullanmazsan direkt sıfır boşluksuz bir satıra yazar 
+dumps = json.dumps(person_python, sort_keys= True)
+print("json stringi:", dumps)
+print(type(dumps))
 
-# person_dict = json.loads(person_string)
-
-# result = json.dumps(person_dict, indent= 4, sort_keys= True)
-# print(person_dict)
-# print(result)
+with open("person.json", "w" , encoding="utf-8") as f:
+    json.dump(person_python, f, indent=4, sort_keys= True, ensure_ascii=False)
+    print("JSON dosyasına yazıldı.")
+print("\n" + 20 * '-')

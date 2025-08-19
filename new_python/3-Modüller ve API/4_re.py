@@ -1,12 +1,12 @@
 # regular expression, metin içinde arama, eşleşme, değiştirme gibi işlemleri kolaylaştırır
-# kaçış karakterleri ayrı regular expression ayrıdır \n yeni - \b dolayısıyla regex ararken r kullanmak kaçış karakteri oluşmasını engeller.
+# kaçış karakterleri ayrı regular expression ayrıdır \n yeni - \b. Regex ararken r kullanmak kaçış karakteri oluşmasını engeller.
 import re
 
 print(dir(re))
 print("\n" + 20 * '-')
 
 str = "Python Kursu: Python Programlama Rehberiniz | 40 saat"
-result = re.findall("Python",str)
+result = re.findall("Python", str)
 print(result)
 print(len(result))
 print("\n" + 20 * '-')
@@ -54,7 +54,7 @@ print("P ile başlıyor: ", re.findall("^P",str))
 print("a ile başlıyor: ", re.findall("^a",str))
 print("t ile bitiyor: ", re.findall("t$",str))
 print("s ile başlayıp t ile biten 4 karakterli: ", re.findall("s..t$",str))
-print("saatt ile bitiyor: ", re.findall("saatt$",str))
+print("saatt ile bitiyor mu: ", re.findall("saatt$",str))
 print("\n" + 20 * '-')
 
 # * = Bir karakterin sıfır ya da daha fazla sayıda olmasını kontrol eder.
@@ -94,7 +94,8 @@ print("\n" + 20 * '-')
 print(re.findall(r"(P|K)ython", str))
 print(re.findall(r"(P|K)ython\sKursu", str))
 print(re.findall(r"(Python|Programlama)\s", str))
-print(re.findall(r"(Python|Kursu)", str))
+print(re.findall(r"(Python\sK|Kursu)", str))
+# burda Python K daki kullanılır ve diğerinde kullanılmaz!
 print("\n" + 20 * '-')
 
 # \ karakteri, özel karakterleri (örneğin $) normal karakter gibi aramamızı sağlar. Yani $ işaretini aramak için \$ kullanılır.

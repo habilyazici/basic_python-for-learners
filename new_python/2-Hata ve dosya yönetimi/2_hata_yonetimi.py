@@ -27,8 +27,9 @@ print("\n" + 20 * '-' + "\n")
 def checkPassword(parola):
     turkce_karakterler = 'şçğüöıİ'
     for i in parola:
-        if i in turkce_karakterler:
-            raise TypeError('Parola türkçe karakter içeremez.')
+        for j in turkce_karakterler:
+            if i == j:
+                raise TypeError('Parola türkçe karakter içeremez.')
     print('geçerli parola')
 hak = 3
 while hak > 0:
@@ -101,11 +102,11 @@ print("\n" + 20 * '-' + "\n")
 
 class Person:
     def __init__(self, name, year):
+        self.year = year
         if len(name) > 10:
             raise Exception("name alanı fazla karakter içeriyor.")
         else:
             self.name = name
-        self.year = year
 try:
     p = Person("Aliiiiiiiiiiii", 1989)
 except Exception as ex:

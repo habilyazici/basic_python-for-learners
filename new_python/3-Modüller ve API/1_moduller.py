@@ -1,4 +1,4 @@
-# bir dosya oluşturup onu çağırmakta bir modüldür.
+# Bir dosya oluşturup onu çağırmak modüldür.
 # from math import * Bu yöntemde 'math' adında bir nesne oluşmaz, sadece fonksiyonları doğrudan kullanabilirsin (math.sqrt gibi yazamazsın, sqrt(9) yazarsın).
 import math
 

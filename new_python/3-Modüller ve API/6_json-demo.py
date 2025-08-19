@@ -1,5 +1,6 @@
 import json
 import os
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 class User:
     def __init__(self, username, password, email):
@@ -18,11 +19,10 @@ class UserRepository:
 
     def loadUsers(self):
         if os.path.exists('users.json'):
-            with open('users.json','r',encoding='utf-8') as file:
+            with open('users.json', 'r', encoding='utf-8') as file:
                 users = json.load(file)
                 for user in users:
-                    user = json.loads(user)
-                    newUser = User(username = user['username'], password = user['password'], email = user['email'])
+                    newUser = User(username=user['username'], password=user['password'], email=user['email'])
                     self.users.append(newUser)
             print(self.users)
 
@@ -30,6 +30,7 @@ class UserRepository:
         self.users.append(user)
         self.savetoFile()
         print('Kullanıcı oluşturuldu.')
+        print("\n" + 20 * '-' + "\n")
 
     def login(self, username, password):     
         for user in self.users:
@@ -37,27 +38,37 @@ class UserRepository:
                 self.isLoggedIn = True
                 self.currentUser = user
                 print('login yapıldı.')
+                print("\n" + 20 * '-' + "\n")
                 break
+        print('Kullanıcı adı veya şifre hatalı.')
+        print("\n" + 20 * '-' + "\n")
 
     def logout(self):
+        if not self.isLoggedIn:
+            print('Giriş yapılmadı.')
+            print("\n" + 20 * '-' + "\n")
+            return
         self.isLoggedIn = False
         self.currentUser = {}
         print('Çıkış yapıldı.')
+        print("\n" + 20 * '-' + "\n")
 
     def identity(self):
         if self.isLoggedIn:
             print(f'username: {self.currentUser.username}')
         else:
-            print('giriş yapılmadı.')
+            print('Giriş yaptıksan sonra lütfen tekrar deneyiniz.')
+            print("\n" + 20 * '-' + "\n")
+
 
     def savetoFile(self):
         list = []
 
         for user in self.users:
-            list.append(json.dumps(user.__dict__))
+            list.append(user.__dict__)
 
-        with open('users.json','w') as file:
-            json.dump(list, file)
+        with open('users.json','w', encoding='utf-8') as file:
+            json.dump(list, file, ensure_ascii=False, indent=4)
 
 
 repository = UserRepository()
@@ -77,7 +88,8 @@ while True:
             repository.register(user)
         elif secim == '2':
             if repository.isLoggedIn:
-                print('zaten login oldunuz')
+                print('Zaten login oldunuz.')
+                print("\n" + 20 * '-' + "\n")
             else:
                 username = input('username: ')
                 password = input('password: ')
@@ -87,4 +99,5 @@ while True:
         elif secim == '4':
             repository.identity()
         else:
-            print('yanlış seçim')
+            print('Yanlış seçim')
+            print("\n" + 20 * '-' + "\n")

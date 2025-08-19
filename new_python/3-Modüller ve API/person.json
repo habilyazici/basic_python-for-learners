@@ -1,0 +1,30 @@
+[
+    {
+        "languages": [
+            "Python",
+            "Java"
+        ],
+        "name": "Ali"
+    },
+    {
+        "languages": [
+            "C#",
+            "JavaScript"
+        ],
+        "name": "Ayşe"
+    },
+    {
+        "languages": [
+            "Go",
+            "Rust"
+        ],
+        "name": "Mehmet"
+    },
+    {
+        "languages": [
+            "Python",
+            "Ruby"
+        ],
+        "name": "Fatma"
+    }
+]

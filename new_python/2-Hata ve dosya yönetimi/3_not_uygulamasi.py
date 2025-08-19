@@ -1,19 +1,15 @@
 import os
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(current_dir)
 
 def not_hesapla(satir):
-    satir = satir[:-1] # satır sonundaki \n yi almıyor
+    satir = satir[:-1] # satır sonundaki \n yi almıyor 
     liste = satir.split(':')
     ogrenciAdi = liste[0]
     notlar = liste[1].split(',')
-    try:
-        not1 = int(notlar[0])
-        not2 = int(notlar[1])
-        not3 = int(notlar[2])
-    except (ValueError, IndexError):
-        return ogrenciAdi + ": Notları girerken bir sorun oluştu\n"
-    ortalama = (not1+not2+not3)/3
+    notlar = [int(x) for x in notlar]
+    ortalama = sum(notlar)/3
     if ortalama>=90 and ortalama<=100:
         harf = "AA"
     elif ortalama>=85 and ortalama<=89:
@@ -36,12 +32,13 @@ def not_hesapla(satir):
 
 def ortalamalari_oku():
     try:
-        with open(current_dir + "/sonuclar.txt", "r", encoding="utf-8") as file:
+        with open("sonuclar.txt", "r", encoding="utf-8") as file:
             contents = file.read()
-            if contents.strip() == "": # sağdan soldan dosyadaki boşukları silince hiç veri yoksa 
+            if contents.strip() == "":
                 print("Daha not girilmedi.")
             else:
                 print(contents, end="")
+                print("\n")
     except FileNotFoundError:
         print("sonuclar.txt dosyası bulunamadı!")
 
@@ -56,19 +53,19 @@ def not_gir():
             break
         except ValueError:
             print("Notlar sayı olmalı!")
-    try:
-        with open(current_dir + "/sinav_notlari.txt", "a", encoding="utf-8") as file:
-            file.write(ad + ' ' + soyad + ':' + str(not1) + ',' + str(not2) + ',' + str(not3)+ '\n') # write() methodu sadece str() türleri kabul eder.
-    except Exception:
-        print("dosya bulunamadı")
-    notlari_kayitet()
-
+    with open("sinav_notlari.txt", "a", encoding="utf-8") as file:
+        file.write(ad + ' ' + soyad + ':' + str(not1) + ',' + str(not2) + ',' + str(not3)+ '\n') # write() methodu sadece str() türleri kabul eder.
+    print("Girilen bilgiler veritabanına kaydedilsin mi?")
+    cevap = input('(E/H): ')
+    if cevap.upper() == 'E':
+        notlari_kayitet()
+        print("Notlar kaydedildi.")
 def notlari_kayitet():
-    with open(current_dir + "/sinav_notlari.txt", "r", encoding="utf-8") as file:
+    with open("sinav_notlari.txt", "r", encoding="utf-8") as file:
         liste = []
         for i in file:
             liste.append(not_hesapla(i))
-        with open(current_dir + "/sonuclar.txt", "w", encoding="utf-8") as file2:
+        with open("sonuclar.txt", "w", encoding="utf-8") as file2:
             for i in liste:
                 file2.write(i)
 
