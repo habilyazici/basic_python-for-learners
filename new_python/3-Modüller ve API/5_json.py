@@ -1,4 +1,5 @@
 # json verisi tırnak işareti ile tanımlanır.
+print("\n" + 20 * '-')
 import os
 import json
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -29,7 +30,7 @@ with open("users.json", encoding="utf-8") as f:
 print("\n" + 20 * '-')
 
 # Python to JSON string, indent kullanmazsan direkt sıfır boşluksuz bir satıra yazar 
-dumps = json.dumps(person_python, sort_keys= True)
+dumps = json.dumps(person_python, sort_keys= True, ensure_ascii=False)
 print("json stringi:", dumps)
 print(type(dumps))
 

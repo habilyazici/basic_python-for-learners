@@ -1,4 +1,4 @@
-# regular expression, metin içinde arama, eşleşme, değiştirme gibi işlemleri kolaylaştırır
+# regular expression, string içinde arama, eşleşme, değiştirme gibi işlemleri kolaylaştırır
 # kaçış karakterleri ayrı regular expression ayrıdır \n yeni - \b. Regex ararken r kullanmak kaçış karakteri oluşmasını engeller.
 import re
 
@@ -46,7 +46,7 @@ print("\n" + 20 * '-')
 print("ortada h.", re.findall(".h.", str))
 print("s ile başlar t ile biter.", re.findall("s..t", str))
 print("3 karakterli.", re.findall("...", str))
-print("P ile başlar n ile biter.", re.findall("P..h..n", str))
+print("P ile başlar n ile biter.", re.findall("P..h.n", str))
 print("\n" + 20 * '-')
 
 # ^ ve $ = string belirtilen karakterle başlayıp bitiyor mu?
@@ -99,7 +99,7 @@ print(re.findall(r"(Python\sK|Kursu)", str))
 print("\n" + 20 * '-')
 
 # \ karakteri, özel karakterleri (örneğin $) normal karakter gibi aramamızı sağlar. Yani $ işaretini aramak için \$ kullanılır.
-print(re.findall(r"\$a", "$abc a$ab"))
+print(re.findall("\$a", "$abc a$ab"))
 print("\n" + 20 * '-')
 
 # \A ve \Z= Belirtilen karakter string in başında veya sonunda mı

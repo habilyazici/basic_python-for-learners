@@ -3,12 +3,9 @@ from datetime import datetime
 
 print(dir(os))
 print(os.name)
-print("\n" + 20 * '-' + "\n")
-
 print("Mevcut dizin:", os.getcwd()) # get current working directory
 os.chdir('C:\\Users\\habil\\OneDrive\\Belgeler\\')
 os.chdir('..')
-print("Mevcut dizin:", os.getcwd())
 print("\n" + 20 * '-' + "\n")
 
 os.chdir(r'C:\Users\habil\OneDrive\Belgeler\GitHub\basic-python\new_python\2-Hata ve dosya yönetimi')
@@ -48,14 +45,10 @@ for dosyaAdi in newdirectory:
         print(dosyaAdi)
 print("\n" + 20 * '-' + "\n")
 
-print(os.getcwd())
-os.chdir('..')
-os.chdir('2-Hata ve dosya yönetimi')
-result = os.stat("1_dosya_islemleri.py")
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+result = os.stat("3_os.py")
 print(result)
-print("\n" + 20 * '-' + "\n")
-
-result1 = result.st_size/1024
+result1 = result.st_size / 1024
 result2 = datetime.fromtimestamp(result.st_ctime)
 result3 = datetime.fromtimestamp(result.st_atime)
 result4 = datetime.fromtimestamp(result.st_mtime)
@@ -65,16 +58,10 @@ print("Son erişilme tarihi:", result3)
 print("Değiştirilme tarihi:", result4)
 print("\n" + 20 * '-' + "\n")
 
-yol = os.path.join(r"C:\Users\habil", "OneDrive", "Belgeler", "GitHub", "basic-python", "new_python", "2-Hata ve dosya yönetimi", "file1.txt")
-print("Dosya yolu:", yol)
 # os.system("start chrome")
 # os.system(r"start c:\Users")
 # os.system(r"start C:\Users\habil\AppData\Roaming\Spotify\Spotify.exe")
 # os.system(f"notepad.exe {yol}")
-print("\n" + 20 * '-' + "\n")
-
-os.chdir('..')
-os.chdir('3-Modüller ve API')
 
 dosyaYolu = os.path.abspath(__file__)
 print("Dosya yolu:", dosyaYolu)
@@ -87,9 +74,10 @@ print("saadece dosya var mı    ", os.path.isfile("3_os.py"))
 print("\n" + 20 * '-')
 
 # join ve split herhangi bir dosya ve klasörün yolunu birleştirmek için tasarlanmıştır.
-print(os.path.join("C:\\", "deneme", "deneme1", "deneme2.py"))
-split_result = os.path.split("C:\\deneme\\deneme1\\deneme2.py")
+print(os.path.join("C:\\", "deneme", "deneme1", "join.py"))
+split_result = os.path.split("C:\\deneme\\deneme1\\join.py")
 print(split_result)
+print(type(split_result))
 print("Klasör yolu:", split_result[0])
 print("Dosya adı:", split_result[1])
 

@@ -13,7 +13,6 @@ class UserRepository:
         self.users = []
         self.isLoggedIn = False
         self.currentUser = {}
-
         # load users from .json file
         self.loadUsers()
 
@@ -45,7 +44,7 @@ class UserRepository:
 
     def logout(self):
         if not self.isLoggedIn:
-            print('Giriş yapılmadı.')
+            print('Giriş yapılmadı ki.')
             print("\n" + 20 * '-' + "\n")
             return
         self.isLoggedIn = False
@@ -60,19 +59,14 @@ class UserRepository:
             print('Giriş yaptıksan sonra lütfen tekrar deneyiniz.')
             print("\n" + 20 * '-' + "\n")
 
-
     def savetoFile(self):
         list = []
-
         for user in self.users:
             list.append(user.__dict__)
-
         with open('users.json','w', encoding='utf-8') as file:
             json.dump(list, file, ensure_ascii=False, indent=4)
 
-
 repository = UserRepository()
-
 
 while True:
     print('Menü'.center(50,'*'))
@@ -85,7 +79,7 @@ while True:
             password = input('password: ')          
             email = input('email: ')          
 
-            user = User(username=username, password = password, email = email)
+            user = User(username= username, password = password, email = email)
             repository.register(user)
         elif secim == '2':
             if repository.isLoggedIn:

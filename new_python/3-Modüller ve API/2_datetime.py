@@ -39,7 +39,7 @@ print("\n" + 20 * '-' + "\n")
 
 time2 = 'tarih: 15 April 2019 hour 10:12:30 saniye 234234      '
 result14 = datetime.strptime(time2, 'tarih: %d %B %Y hour %H:%M:%S saniye %f      ') 
-# string parse time, metini datetime nesnesine çevir datetime.now() şeklinde bir nesne
+# string parse time, metini datetime nesnesine çevir.
 print("Oluşan dt nesnesi: ", result14)
 result15 = result14.year
 print("Oluşan tarihin yılı:", result15)
@@ -47,7 +47,7 @@ print("\n" + 20 * '-' + "\n")
 
 result16 = datetime.timestamp(birthday)
 print("1970 den sonra geçen total saniye:", result16)
-datetime.fromtimestamp(result16) # saniye to datetime
+result17 = datetime.fromtimestamp(result16) # saniye to datetime
 print("Saniyeden datetime'a çevir:", result17)
 result18 = datetime.fromtimestamp(0) 
 print("Unix epoch (0) tarihi:", result18)
