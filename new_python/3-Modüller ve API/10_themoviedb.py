@@ -1,5 +1,4 @@
 # themoviedb.org 
-from re import search
 import requests
 
 class theMovieDb:
@@ -22,8 +21,7 @@ class theMovieDb:
 movieApi = theMovieDb()
 
 while True:
-    secim = input("1-Popular Movies\n2-Search Movies\n3-Exit\nSeçim: ")
-
+    secim = input("1-Popular Movies\n2-Search Movies\n3-Exit\nSeçim: ")                
     if secim == "3":
         break
     else:

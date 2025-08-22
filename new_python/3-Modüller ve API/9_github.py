@@ -21,9 +21,9 @@ class Github:
             print(repo['name'])    
 
     def createRepository(self, name):
-        response = requests.post(self.api_url+'/user/repos', headers=self.headers, json={
+        response = requests.post(self.api_url + '/user/repos', headers=self.headers, json={
             "name": name,
-            "description": "This is your first repository",
+            "description": "Bu api ile oluşturulan bir repodur",
             "homepage": "https://github.com",
             "private": False,
             "has_issues": True,
@@ -42,13 +42,13 @@ while True:
     else:
         if secim == '1':
             username= input('username: ')
-            result = github.getUser(username)
+            github.getUser(username)
         elif secim == '2':
             username = input('username: ')
-            result = github.getRepositories(username)
+            github.getRepositories(username)
         elif secim == '3':
             name = input('repository name: ')
             result = github.createRepository(name)
-            print(result) 
+            print(result)
         else:
             print('yanlış seçim') 

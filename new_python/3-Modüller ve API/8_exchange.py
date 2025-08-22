@@ -1,7 +1,7 @@
 import requests
 import json
 
-access_key = "7eb06b60e5377d9969de9c75a2c47bdc" 
+access_key = "7eb06b60e5377d9969de9c75a2c47bdc"
 # apilayer.com
 
 bozulan_doviz = input("bozulan döviz türü: ").upper()
