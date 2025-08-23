@@ -1,4 +1,3 @@
-from githubUserInfo import username, password
 from selenium import webdriver
 import time
 
@@ -26,13 +25,11 @@ class Github:
         for i in items:
             self.followers.append(i.find_element_by_css_selector(".link-gray.pl-1").text)
 
-
     def getFollowers(self):
         self.browser.get(f"https://github.com/{self.username}?tab=followers")
         time.sleep(2)
 
         self.loadFollowers()
-
         while True:
             links = self.browser.find_element_by_class_name("BtnGroup").find_elements_by_tag_name("a")
 
@@ -53,8 +50,10 @@ class Github:
                     else:
                         continue
 
+input_username = input("Kullanıcı Adınız: ")
+input_password = input("Parolanız: ")
 
-github = Github(username, password)
+github = Github(input_username, input_password)
 github.signIn()
 github.getFollowers()
 print(len(github.followers))
