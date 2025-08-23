@@ -85,3 +85,6 @@ splitext_result = os.path.splitext("3_os.py")
 print(splitext_result)
 print("Dosya adı:", splitext_result[0])
 print("Dosya uzantısı:", splitext_result[1])
+
+# import sys
+# sys.path.append("modülün_bulunduğu_dizin_yolu")

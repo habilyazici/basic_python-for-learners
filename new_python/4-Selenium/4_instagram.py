@@ -1,3 +1,4 @@
+from tkinter import dialog
 from instagramUserInfo import username, password
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -7,58 +8,66 @@ class Instagram:
     def __init__(self,username,password):
         self.browserProfile = webdriver.ChromeOptions()
         self.browserProfile.add_experimental_option('prefs', {'intl.accept_languages':'en,en_US'})
-        self.browser = webdriver.Chrome('chromedriver.exe', chrome_options=self.browserProfile)
+        self.browser = webdriver.Chrome(options=self.browserProfile)
+        self.browser.maximize_window()
         self.username = username
         self.password = password
 
     def signIn(self):
         self.browser.get("https://www.instagram.com/accounts/login/")
         time.sleep(3)
-        
-        usernameInput = self.browser.find_element_by_xpath("//*[@id='react-root']/section/main/div/article/div/div[1]/div/form/div[2]/div/label/input")
-        passwordInput = self.browser.find_element_by_xpath("//*[@id='react-root']/section/main/div/article/div/div[1]/div/form/div[3]/div/label/input")
+
+        usernameInput = self.browser.find_element("xpath", "//*[@id='loginForm']/div[1]/div[1]/div/label/input")
+        passwordInput = self.browser.find_element("xpath", "//*[@id='loginForm']/div[1]/div[2]/div/label/input")
 
         usernameInput.send_keys(self.username)
         passwordInput.send_keys(self.password)
         passwordInput.send_keys(Keys.ENTER)
-        time.sleep(2)
+        time.sleep(4)
 
     def getFollowers(self, max):
         self.browser.get(f"https://www.instagram.com/{self.username}")
+        time.sleep(4)
+        self.browser.find_element("css selector", "header").find_elements("css selector", "section")[2].find_elements("css selector", "li")[1].find_element("css selector", "a").click()
         time.sleep(2)
-        self.browser.find_element_by_xpath("//*[@id='react-root']/section/main/div/header/section/ul/li[2]/a").click()
-        time.sleep(2)
-        
-        dialog = self.browser.find_element_by_css_selector("div[role=dialog] ul")
-        followerCount = len(dialog.find_elements_by_css_selector("li"))
 
-        print(f"first count: {followerCount}")
+        dialog = self.browser.find_element("css selector", "div[role=dialog]")
+
+        def get_follower_divs():
+            return self.browser.find_element(
+                "xpath",
+                "/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/div[1]/div"
+            ).find_elements("css selector", "div")
+
+        followers = get_follower_divs()
+        print(f"first count: {len(followers)}")
+        time.sleep(2)
 
         action = webdriver.ActionChains(self.browser)
 
-        while followerCount < max:
+        while len(followers) < max:
             dialog.click()
             action.key_down(Keys.SPACE).key_up(Keys.SPACE).perform()
             time.sleep(2)
 
-            newCount = len(dialog.find_elements_by_css_selector("li"))
+            newCount = len(get_follower_divs())
 
-            if followerCount != newCount:
-                followerCount = newCount
+            if len(followers) != newCount:
+                followers = get_follower_divs()
                 print(f"second count: {newCount}")
                 time.sleep(1)
             else:
                 break
-        
-        followers = dialog.find_elements_by_css_selector("li")
+
+        followers = get_follower_divs()
 
         followerList = []
-        i = 0
-        for user in followers:
-            link = user.find_element_by_css_selector("a").get_attribute("href")            
-            followerList.append(link)            
+        i = 1
+        for div in followers:
+            link = div.find_element("css selector", "a").get_attribute("href")
+            followerList.append(link)
             i += 1
-            if i == max:
+            if i == max + 1:
                 break
 
         with open("followers.txt", "w",encoding="UTF-8") as file:
@@ -69,7 +78,7 @@ class Instagram:
         self.browser.get("https://www.instagram.com/"+ username)
         time.sleep(2)
 
-        followButton = self.browser.find_element_by_tag_name("button")
+        followButton = self.browser.find_element("tag name", "button")
         if followButton.text != "Following":
             followButton.click()
             time.sleep(2)
@@ -80,23 +89,19 @@ class Instagram:
         self.browser.get("https://www.instagram.com/"+ username)
         time.sleep(2)
 
-        followButton = self.browser.find_element_by_tag_name("button")
+        followButton = self.browser.find_element("tag name", "button")
         if followButton.text == "Following":
             followButton.click()
             time.sleep(2)
-            self.browser.find_element_by_xpath('//button[text()="Unfollow"]').click()
+            self.browser.find_element("xpath", '/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[8]/div[1]/div').click()
+            time.sleep(2)
         else:
             print("zaten takip etmiyorsunuz.")
 
 
 instgrm = Instagram(username, password)
 instgrm.signIn()
-instgrm.getFollowers(50)
-# instgrm.followUser('kod_evreni')
-# instgrm.unFollowUser('kod_evreni')
+# instgrm.getFollowers(50)
 
-# list = ["kod_evreni",""]
-
-# for user in list:
-#     instgrm.followUser(user)
-#     time.sleep(3)
+instgrm.followUser('kod_evreni')
+instgrm.unFollowUser('kod_evreni')
