@@ -1,3 +1,5 @@
+# fonksiyonlar builtin ve custom(özel fonksiyonlar) olarak ikiye ayrılır.
+#builtin func: sum, print, len gibi, 'built in functions in python' google'le veya builtin.py dosyasına bak
 def total(num1, num2):
     return num1 + num2
 result = total(10,20)
