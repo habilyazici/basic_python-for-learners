@@ -1,8 +1,6 @@
-# key - value
-sehirler = ['kocaeli','istanbul']
-plakalar = [41, 34]
+sehirler = ['kocaeli','istanbul','ankara','izmir','rize']
+plakalar = [41, 34, 6, 35, 53]
 print(plakalar[sehirler.index('istanbul')])
-# print(plakalar['kocaeli']) => 41
 plakalar_dict = { 'kocaeli' : 41, 'istanbul': 34 }
 print(plakalar_dict['kocaeli'])
 plakalar_dict['ankara'] = 6
@@ -10,53 +8,50 @@ plakalar_dict['kocaeli'] = 'new value'
 print(plakalar_dict)
 print("\n" + 20 * '-' + "\n")
 
-users1 = {
-    'sadikturan': {
+users = {
+    'selimturan': {
         'age': 36,        
         'roles': ['user'],
-        'email': 'sadik@gmail.com',
+        'email': 'selim@gmail.com',
         'address': 'kocaeli',
         'phone': '1231321'
     },
-    'cinarturan': {
+    'habilyazici': {
         'age': 2,
         'roles': ['admin','user'],
-        'email': 'cinar@gmail.com',
+        'email': 'habil@gmail.com',
         'address': 'kocaeli',
         'phone': '1231321'
     }
 }
-print(users1['cinarturan']['roles'][0])
-print(users1['sadikturan']['email'])
-print(users1.get('asdfdasdf'))
-users1['sadikturan']['roles'].append('admin')
+print(users['selimturan']['email'])
+print(users['habilyazici']['roles'][0])
+print(users.get('mehmetturan'))
+users['selimturan']['roles'].append('db_admin')
 print("\n" + 20 * '-' + "\n")
 
-## Bilgileri verilen öğrencileri kullanıcıdan aldığınız bilgilerle dictionary içinde saklayınız.
-## Öğrenci numarasını kullanıcıdan alıp ilgili öğrenci bilgisini gösterin.
 ogrenciler = {
 
 }
-number = input("öğrenci no: ")
+ogrNo = int(input("öğrenci no: "))
 name = input("öğrenci adı: ")
 surname = input("öğrenci soyad: ")
 phone = input("öğrenci telefon: ")
 ogrenciler.update({
-    number: {
+    ogrNo: {
         'ad': name,
         'soyad': surname,
         'telefon':phone 
     }
 })
-print("\n" + 20 * '-' + "\n")
-ogrNo = input('öğrenci no: ') 
-print(ogrenciler[ogrNo])
+ogrNo = int(input('Bilgi almak istediğiniz öğrenci no: '))
 print(f"Aradığınız {ogrNo} nolu öğrencinin adı: {ogrenciler[ogrNo]['ad']} soyadı: {ogrenciler[ogrNo]['soyad']} ve telefonu ise {ogrenciler[ogrNo]['telefon']}")
-
+print("\n" + 20 * '-' + "\n")
 
 list1= []
 list2= list()
 string= ''
+string2= str()
 tuple1= ()
 tuple2= tuple()
 set1= set()
@@ -69,7 +64,4 @@ for k,v in dict1.items():
         print(f'{k} nın aldığı not {v} ve : {k} GEÇTİ')
     else:
         print(f'{k} nın aldığı not {v} ve : KALDI')
-
-musteriler= {'Elon Musk': {'doğum yeri': 'izmir', 'yaş': 56 , 'medeni durum': 'evli'}, 
-             'Habil Yazıcı': {'doğum yeri': 'rize', 'yaş': 23 , 'medeni durum': 'bekar'}}
-print(musteriler['Habil Yazıcı']['yaş'])
+print("\n" + 20 * '-' + "\n")

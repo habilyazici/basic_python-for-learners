@@ -3,14 +3,6 @@ list2 = ['four','five','six']
 numbers1 = list1 + list2
 print("Birleştirilmiş liste:", numbers1)
 print("Uzunluk:", len(numbers1))
-print("Üçüncü sayı:", numbers1[2])
-print("\n" + 20 * '-' + "\n")
-
-userA1 = ['Sadık', 36]
-userB1 = ['Çınar', 2]
-users1 = [userA1, userB1]
-print("users:", users1)
-print("users[0][0]:", users1[0][0])
 print("\n" + 20 * '-' + "\n")
 
 arabalar1 = ['Bmw','Mercedes','Opel','Mazda']
@@ -25,11 +17,17 @@ del arabalar1[-1]
 print("Ters çevrilmiş arabalar:", arabalar1[::-1])
 print("\n" + 20 * '-' + "\n")
 
+userA1 = ['Sadık', 36]
+userB1 = ['Çınar', 2]
+users1 = [userA1, userB1]
+print("users:", users1)
+print("users[0][0]:", users1[0][0])
+print("\n" + 20 * '-' + "\n")
+
 studentA1 = ['Yiğit','Bilgi',2010,[70,60,70]]
 studentB1 = ['Sena','Turan',1999,[80,80,70]]
 studentC1 = ['Ahmet','Turan',1998,[80,70,90]]
 print("studentA adı:", studentA1[0])
-print("studentB soyadı:", studentB1[1])
 print("studentC ikinci notu:", studentC1[3][1])
 print(f"{studentA1[0]} {studentA1[1]} {2019-studentA1[2]} yaşında ve not ortalaması {(studentA1[3][0] + studentA1[3][1] + studentA1[3][2])/3}")
 print("\n" + 20 * '-' + "\n")
@@ -44,22 +42,21 @@ numbers2.insert(-1,52)
 numbers2.pop()
 numbers2.pop(0)
 numbers2.remove(52)
+numbers2.discard(100)  # Hata vermez, eleman yoksa da devam eder
 numbers2.sort()
 numbers2.reverse()
-print("Sıralı numbers:", numbers2)
+print("Son Hali:", numbers2)
 print("\n" + 20 * '-' + "\n")
+numbers2.clear()
 
 names = ['Ali','Yağmur','Hakan','Deniz']
 years = [1998, 2000, 1998, 1987]
 index  = names.index('Deniz')
-print("Deniz'in indeksi:", index)
-names.pop(index)
-years.clear()
-print("Güncellenmiş isimler:", years)
+print("Deniz'in yaşı:", years[index])
 print("\n" + 20 * '-' + "\n")
 
 markalar = []
-for i in range(3):
+for i in range(2):
     marka = input(f"{i+1}. markayı girin: ")
     markalar.append(marka)
 print("Girilen markalar:", markalar)

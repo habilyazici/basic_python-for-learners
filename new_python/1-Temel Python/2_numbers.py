@@ -15,14 +15,27 @@ print("age (küçük harfli):", age)
 print("AGE (büyük harfli):", AGE)
 print("_age (alt çizgili):", _age)
 print("\n" + 20 * '-' + "\n")
-x, y, name, isStudent = (1, 2.3, "Çınar", True)
 
 a = '10'
 b = '20'
 print("a+b (string):", a+b)
-firstName = "Sadık"
-lastName = " Turan"
+firstName = "Sadık "
+lastName = "Turan"
 print("Ad Soyad:", firstName + lastName)
+
+print(2**8)
+print(pow(2 , 8))
+print(abs(-4))
+print(4 % 2)
+print(6/3)
+print(5//3)
+print("\n" + 20 * '-' + "\n")
+
+x= 89.3453
+print(round(x))
+print(round(32.155551 , 2))
+print(min(3,4,5,6,8))
+print(max(3,4,5,6,8))
 print("\n" + 20 * '-' + "\n")
 
 x_input1 = input('1.sayı: ')
@@ -30,6 +43,7 @@ y_input1 = input('2.sayı: ')
 print(type(x_input1))
 toplam_input1 = int(x_input1) + int(y_input1)
 print("Toplam:", toplam_input1)
+print("\n" + 20 * '-' + "\n")
 
 x4, y4, name4, isOnline4 = 5, 2.5, 'Çınar', True
 print(type(x4), type(y4), type(name4), type(isOnline4))
@@ -48,45 +62,3 @@ print("Alan tipi:", type(alan)) # floatla intigeri çarparsan float olur
 cevre = 2 * pi * r
 print("Dairenin alanı:", alan, "Çevresi:", cevre)
 print("\n" + 20 * '-' + "\n")
-
-y = 'merhaba '
-print(y*3)
-y= 34
-print(y*3)
-
-# buradaki tek bölme işareti veya çift bölme işareti olarak inteeger veya float çevirir çift bölme intigeri ortaya çıkartır
-print(2**8)
-print(pow(2 , 8))
-print(abs(-4))
-print(4 % 2)
-print(6/3)
-print(5//3)
-
-x= 89.3453
-print(round(x))
-print(round(32.155551 , 2))
-print(min(3,4,5,6,8))
-
-num_1 = '53'
-num_2 = '67'
-print(num_1 + num_2)
-print(type(num_1))
-
-num_3 = 53
-num_4 = 67
-print(num_3 + num_4)
-print(type(num_3))
-
-num_1 = '53'
-num_2 = '67'
-num_1 = int(num_1)
-num_2 = int(num_2)
-print(num_1 + num_2)
-
-x= 50
-y= '1'
-print(int(y)-x)
-
-import math
-r=5
-print(2*math.pi*r)

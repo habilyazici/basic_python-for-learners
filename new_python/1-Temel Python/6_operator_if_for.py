@@ -1,6 +1,6 @@
 a, b, c, d = 5, 5, 10, 4
-password = '1234'
 username = 'sadikturan'
+password = '1234'
 print(a == b)
 print('sadikturan'== username)
 print(a != b)
@@ -19,12 +19,13 @@ print(not(x > 0))
 print(((x>5) and (x<10)) and (x%2==0))
 print("\n" + 20 * '-' + "\n")
 
-x, y, z = 2, 5, 10
-values = 1, 2, 3, 4, 5
+values = (1, 2, 3, "mehmet", 5)
 print(type(values))
 x, y, *z = values
-# bir yıldız tupple'a çevirir iki yıldız dictionary'ye çevirir
-print(x, y, z)
+# bir yıldız liste'ye çevirir iki yıldız dictionary'ye çevirir
+print("sırasıyla x, y, z: ", x, y, z)
+print(type(x))
+print(type(z))
 print(x, y, z[1])
 print("\n" + 20 * '-' + "\n")
 
@@ -34,9 +35,12 @@ for name in names:
 name = 'Sadık Turan'
 for n in name:
     print(n)
+print("\n" + 20 * '-' + "\n")
+
 tuple_list = [(1,2),(1,3),(3,5),(5,7)]
 for a,b in tuple_list:
     print(a,b)
+
 d = {'k1':1, 'k2':2, 'k3':3}
 for key,value in d.items():
     print(key, value)
@@ -51,18 +55,24 @@ while x <= 10:
     x += 1
 print("\n" + 20 * '-' + "\n")
 
-
 sayilar = [1,3,5,7,9,12,19,21]
 for s in sayilar:
     if s % 3 == 0:
-        print(f'{s} 3\'ün katıdır.')
+        print(f'{s}, 3\'ün katıdır.')
 
 print(f'Sayıların toplamı: {sum(sayilar)}')
+print(f'Tek sayıların kareleri: {[s for s in sayilar if s % 2 == 1]}')
 print(f'Tek sayıların kareleri: {[s**2 for s in sayilar if s % 2 == 1]}')
 
 sehirler = ['kocaeli','istanbul','ankara','izmir','rize']
 kucuk_sehirler = [sehir for sehir in sehirler if len(sehir) <= 5]
 print(f'5 karakter veya daha kısa şehirler: {kucuk_sehirler}')
+print("\n" + 20 * '-' + "\n")
+
+numbers = [x**2 for x in range(10)]    
+print(numbers)
+numbers = [x*x for x in range(10) if x%3==0]
+print(numbers)
 print("\n" + 20 * '-' + "\n")
 
 urunler = []
@@ -77,23 +87,18 @@ print(f"Ürünlerin toplam fiyatı: {toplam_fiyat}")
 
 en_fazla_5000 = [urun for urun in urunler if urun['fiyat'] <= 5000]
 for urun in en_fazla_5000:
-    print(f"{urun['ad']} - {urun['fiyat']}")
+    print(f" fiyatı en fazla 5000 olan ürün: {urun['ad']} - {urun['fiyat']}")
 print("\n" + 20 * '-' + "\n")
 
 list1 = [1,2,3,4,5]
 list2 = ['a','b','c','d','e']
 list3 = [100,200,300,400,500]
-print(list(zip(list1, list2, list3)))
 for item in zip(list1, list2, list3):
     print(item)
+print(list(zip(list1, list2, list3)))
+
 for a,b,c in zip(list1, list2, list3):
     print(a,b,c)
-print("\n" + 20 * '-' + "\n")
-
-numbers = [x**2 for x in range(10)]    
-print(numbers)
-numbers = [x*x for x in range(10) if x%3==0]
-print(numbers)
 print("\n" + 20 * '-' + "\n")
 
 import random
