@@ -31,7 +31,6 @@ class Movie():
         return self.duration
     def __del__(self):
         print(f'{self.title} film objesi silindi.')
-    
 
 m = Movie('film adı','yönetmen adı',120)
 print(str(m))
@@ -52,7 +51,7 @@ class Student(PersonBase):
         PersonBase.__init__(self, fname, lname)
         self.studentNumber = number
         print('Student Created')
-        # Burdaki, parent clasın init methodunu çağırmada tüm init çağırılıyor.
+        # Burdaki, parent classın init methodunu çağırmada tüm init çağırılıyor.
     def who_am_i(self):
         print(f'I am a student. My name is {self.firstName} {self.lastName}. My student number is {self.studentNumber}.')
     def sayHello(self):

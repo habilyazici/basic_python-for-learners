@@ -24,8 +24,7 @@ class Quiz:
         self.guess(answer)
         self.loadQuestion()
     def guess(self, answer):
-        question = self.getQuestion()
-        if question.checkAnswer(answer):
+        if self.getQuestion().checkAnswer(answer):
             self.score += 1
         self.questionIndex += 1
     def loadQuestion(self):
@@ -42,46 +41,6 @@ questions = [question1, question2, question3]
 quiz = Quiz(questions)
 quiz.displayQuestion()
 print("\n" + 20 * '-' + "\n")
-
-def paraCek(hesap, miktar):
-    print(f"Merhaba {hesap['ad']}")
-    if (hesap['bakiye'] >= miktar):
-        hesap['bakiye'] -= miktar 
-        print('paranızı alabilirsiniz.')
-        bakiyeSorgula(hesap)
-    else:
-        toplam = hesap['bakiye'] + hesap['ekHesap']
-        if (toplam >= miktar):
-            ekHesapKullanimi = input('ek hesap kullanılsın mı (e/h)')
-            if ekHesapKullanimi == 'e':
-                ekhesapKullanilacakMiktar = miktar - hesap['bakiye']
-                hesap['bakiye'] = 0
-                hesap['ekHesap'] -= ekhesapKullanilacakMiktar
-                print('paranızı alabilirsiniz.')
-            else:
-                bakiyeSorgula(hesap)
-        else:
-            print('üzgünüz bakiye yetersiz')
-            bakiyeSorgula(hesap)
-
-def bakiyeSorgula(hesap):
-    print(f"{hesap['hesapNo']} nolu hesabınızda {hesap['bakiye']} TL bulunmaktadır. Ek hesap limiti: {hesap['ekHesap']} TL")
-    
-KerimHesap = {
-    'ad': 'Kerim Yılmaz',
-    'hesapNo': '98765432',
-    'bakiye': 3000,
-    'ekHesap': 2000
-}
-AsımHesap = {
-    'ad': 'Asım Turan',
-    'hesapNo': '46345602',
-    'bakiye': 2000,
-    'ekHesap': 1000
-}
-paraCek(KerimHesap, 3500)
-paraCek(KerimHesap, 2000)
-paraCek(AsımHesap, 3000)
 
 class BankaHesap:
     def __init__(self, ad, hesapNo, bakiye, ekHesap):
@@ -115,9 +74,33 @@ class BankaHesap:
     def bakiye_sorgula(self):
         print(f"{self.hesapNo} nolu hesabınızda {self.bakiye} TL bulunmaktadır. Ek hesap limiti: {self.ekHesap} TL")
 
-sadik_hesap = BankaHesap('Sadık Turan', '13245678', 3000, 2000)
-ali_hesap = BankaHesap('Ali Turan', '12345678', 2000, 1000)
+json_veri = [
+    {
+        'ad': 'Sadık Turan',
+        'hesapNo': '13245678',
+        'bakiye': 3000,
+        'ekHesap': 2000
+    },
+    {
+        'ad': 'Ali Turan',
+        'hesapNo': '12345678',
+        'bakiye': 2000,
+        'ekHesap': 1000
+    },
+    {
+        'ad': 'Ayşe Yılmaz',
+        'hesapNo': '87654321',
+        'bakiye': 5000,
+        'ekHesap': 1500
+    }
+]
 
-sadik_hesap.para_cek(3500)
-sadik_hesap.para_cek(2000)
-ali_hesap.para_cek(3000)
+users = []
+for user in json_veri:
+    users.append(BankaHesap(**user))
+print(users)
+
+# Her hesap için para çekme işlemi
+cekilecek_miktarlar = [3500, 2000, 3000]
+for user, miktar in zip(users, cekilecek_miktarlar):
+    user.para_cek(miktar)

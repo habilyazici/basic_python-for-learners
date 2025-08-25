@@ -1,5 +1,4 @@
 # fonksiyonlar builtin ve custom(özel fonksiyonlar) olarak ikiye ayrılır.
-#builtin func: sum, print, len gibi, 'built in functions in python' google'le veya builtin.py dosyasına bak
 def total(num1, num2):
     return num1 + num2
 result = total(10,20)
@@ -31,6 +30,7 @@ print("\n" + 20 * '-' + "\n")
 # *args ve **kwargs kullanımı
 def add(*params):
     print(type(params))
+    # def içerisinde args kullanımı list döndürmez
     total = 0
     for x in params:
         total += x
@@ -85,18 +85,3 @@ try:
 except NameError as e:
     print("Hata:", e)
 print("\n" + 20 * '-' + "\n")
-
-global_x = 'global x'
-def function():
-    global_x = "Yeni global x"
-    print(global_x)
-function()
-print(global_x)
-
-name = 'Çınar'
-def changeName(new_name):
-    global name
-    name = new_name
-    print(name)
-changeName('Ada')
-print(name)

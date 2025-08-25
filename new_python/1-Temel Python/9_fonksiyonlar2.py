@@ -17,9 +17,9 @@ print("\n" + 20 * '-' + "\n")
 def yetki_sorgula(page):
     def inner(role):
         if role == 'Admin':
-            return f"{role} rolü {page} sayfasına ulaşabilir."
+            return f"'{role}' rolü '{page}' sayfasına ulaşabilir."
         else:
-            return f"{role} rolü {page} sayfasına ulaşamaz."
+            return f"'{role}' rolü '{page}' sayfasına ulaşamaz."
     return inner
 user1 = yetki_sorgula("Product Edit")
 print(user1("Admin"))
@@ -47,8 +47,6 @@ print(topla(1, 2, 3))
 carp = islem("carpma")
 print(carp(2, 3, 4, 5, 6))
 print("\n" + 20 * '-' + "\n")
-
-
 
 # Decorator Fonksiyonları
 import math
@@ -98,8 +96,6 @@ print("map ile bir açık fonksiyon ve listenin işlenmesi:", result)
 
 result2 = list(map(square, numbers))
 print("map ile bir kapalı fonksiyon ve listenin işlenmesi:", result2)
-# burda veriler bir herhangi bir iterable veri olabilir: liste, tuple, set, string, dict, range
-
+# burda veriler herhangi bir iterable veri olabilir: liste, tuple, set, string, dict, range
 for item in map(square, numbers):
     print(item)
-print("\n" + 20 * '-' + "\n")

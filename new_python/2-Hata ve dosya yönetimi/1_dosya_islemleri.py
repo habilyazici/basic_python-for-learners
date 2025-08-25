@@ -15,7 +15,7 @@ file.close()
 print("\n" + 20 * '-' + "\n")
 
 # "a": (Append) ekleme. Dosya konumda yoksa oluşturur.
-file2 = open("file2.txt", "a", encoding='utf-8')
+file2 = open("newfile.txt", "a", encoding='utf-8')
 file2.write("\nÇınar Turan")
 file2.close()
 
