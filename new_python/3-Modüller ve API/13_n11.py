@@ -6,11 +6,11 @@ headers = {
     "User-Agent": "Mozilla/5.0"
 }
 
-html = requests.get(url).text
+html = requests.get(url, headers=headers).text
 soup = BeautifulSoup(html, "html.parser")
 
 print(soup.prettify())
-# n11 ürünlerini javascript ile ekrana yansıtıyor. Tarayıcıdan girmeden veriye erişim yok dolayısıyla selenium ile açılıp kodlar driver.page_source ile alınabilir.
+
 
 # list = soup.find("ul", attrs={"id":"listingUl", "class":"list-ul"}).find_all("li")
 

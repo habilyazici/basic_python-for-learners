@@ -9,9 +9,11 @@ html = requests.get(url, headers=headers).text
 
 soup = BeautifulSoup(html, "html.parser")
 
-li_list = soup.find('ul', attrs={"role": "presentation"}).find_all('li')
+li_list = soup.html.body.div.find_next_sibling().find('ul', attrs={"role": "presentation"}).find_all('li')
 for li in li_list:
     film_adi = li.find('h3', attrs={"class": "ipc-title__text"}).string
     year = li.find('span', attrs={"class": "sc-15ac7568-7"}).string
     rating = li.find("div", attrs={"data-testid": "ratingGroup--container"}).find("span").find("span").string
     print(f"{film_adi}, Yıl: {year}, Rating: {rating}")
+
+# n11 gibi bazı siteler ürünlerini javascript ile ekrana yansıtıyor. Tarayıcıdan girmeden veriye erişim yapılamıyor dolayısıyla selenium ile açılıp kodlar driver.page_source ile alınabilir.

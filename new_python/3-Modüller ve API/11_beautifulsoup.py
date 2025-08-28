@@ -65,17 +65,14 @@ print("Head etiketi:", soup.head)
 # print("Body etiketi:", soup.body)
 print("\n" + 20 * '-' + "\n")
 
-# eğer tek etiket varsa string şeklinde döndürebiliyoruz yoksa none döndürür.
+# eğer içinde tek etiket varsa string şeklinde döndürebiliyoruz yoksa none döndürür.
 print("Title ismi:", soup.title.name)
 print("Title string:", soup.title.string)
-print("li etiketleri:", soup.li.string)
-print("\n" + 20 * '-' + "\n")
-
+print("ilk li etiketi:", soup.li.string)
 print("h1 etiketi:", soup.h1)
 print("İlk h2 etiketi:", soup.h2)
-print("h2 ismi:", soup.ul.name)
+print("ul ismi:", soup.ul.name)
 print("h2 string:", soup.h2.string.strip())
-print("h1 string:", soup.h1.string.strip())
 print("\n" + 20 * '-' + "\n")
 
 tum_h2 = soup.find_all('h2')
@@ -89,11 +86,10 @@ print("İkinci div:", soup.find_all('div')[1])
 print("İkinci div içindeki tüm li'ler:", soup.find_all('div')[1].ul.find_all('li'))
 print("\n" + 20 * '-' + "\n")
 
-print("İlk div'in tüm çocukları:", soup.div.find_all(True))
+print("İlk div'in ul'sinin tüm çocukları:", soup.div.ul.find_all(True))
 print("\n" + 20 * '-' + "\n")
 
-
-print("İlk div'den sonraki 2. kardeş ve bir önceki kardeş:", soup.div.find_next_sibling().find_next_sibling().find_previous_sibling())
+print("2. div:", soup.div.find_next_sibling().find_next_sibling().find_previous_sibling())
 print("\n" + 20 * '-' + "\n")
 
 print("Tüm linkler (href):")
@@ -101,3 +97,7 @@ for link in soup.find_all('a'):
     print("Link:", link.get('href'))
     # print("Link:", link['href'])
 # ikisi de string döner ama get ile aranan değer yoksa none döner!
+
+# attr ile veri çekme
+print("h1 id:", soup.find("h1", attrs={"id": "header"}).string.strip())
+print("ilk a etiketi href:", soup.find("a", attrs={"class": "sister", "id": "link1"})['href'])
