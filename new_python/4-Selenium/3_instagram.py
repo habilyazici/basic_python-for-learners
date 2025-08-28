@@ -1,4 +1,3 @@
-from tkinter import dialog
 from instagramUserInfo import username, password
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -6,12 +5,12 @@ import time
 
 class Instagram:
     def __init__(self,username,password):
+        self.username = username
+        self.password = password
         self.browserProfile = webdriver.ChromeOptions()
         self.browserProfile.add_experimental_option('prefs', {'intl.accept_languages':'en,en_US'})
         self.browser = webdriver.Chrome(options=self.browserProfile)
         self.browser.maximize_window()
-        self.username = username
-        self.password = password
 
     def signIn(self):
         self.browser.get("https://www.instagram.com/accounts/login/")
@@ -61,18 +60,18 @@ class Instagram:
 
         followers = get_follower_divs()
 
-        followerList = []
+        followerLinks = []
         i = 1
         for div in followers:
             link = div.find_element("css selector", "a").get_attribute("href")
-            followerList.append(link)
+            followerLinks.append(link)
             i += 1
             if i == max + 1:
                 break
 
         with open("followers.txt", "w",encoding="UTF-8") as file:
-            for item in followerList:
-                file.write(item + "\n")
+            for link in followerLinks:
+                file.write(link + "\n")
 
     def followUser(self, username):
         self.browser.get("https://www.instagram.com/"+ username)

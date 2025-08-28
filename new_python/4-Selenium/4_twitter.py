@@ -5,13 +5,13 @@ import time
 
 class Twitter:
     def __init__(self, username, password):
+        self.username = username
+        self.password = password
         self.browserProfile = webdriver.ChromeOptions()
         self.browserProfile.add_experimental_option('prefs', {'intl.accept_languages': 'en,en_US'})
         self.browser = webdriver.Chrome(options=self.browserProfile)
-        self.username = username
-        self.password = password
-    
-    def singIn(self):
+
+    def signIn(self):
         self.browser.get("https://twitter.com/login")
         time.sleep(2)
 
@@ -21,27 +21,23 @@ class Twitter:
         usernameInput.send_keys(self.username)
         passwordInput.send_keys(self.password)
 
-        btnSubmit = self.browser.find_element_by_xpath("//*[@id='page-container']/div/div[1]/form/div[2]/button")
+        btnSubmit = self.browser.find_element("xpath", "//*[@id='page-container']/div/div[1]/form/div[2]/button")
         btnSubmit.click()
-
         time.sleep(2)
 
     def search(self, hashtag):
-        searchInput = self.browser.find_element_by_xpath("//*[@id='react-root']/div/div/div/main/div/div/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/form/div[1]/div/div/div[2]/input")
+        searchInput = self.browser.find_element("xpath", "//*[@id='react-root']/div/div/div/main/div/div/div/div[2]/div/div[2]/div/div/div/div[1]/div/div/div/form/div[1]/div/div/div[2]/input")
         searchInput.send_keys(hashtag)
         time.sleep(3)
         searchInput.send_keys(Keys.ENTER)
         time.sleep(3)
 
         results = []
-
         self.browser.implicitly_wait(5)
         # Selenium'a bir elementi bulmaya çalışırken maksimum 5 saniye boyunca beklemesini söyler
-
         for i in self.browser.find_elements("xpath", "//div[@data-testid='tweet']/div[2]/div[2]"):
             results.append(i.text)
             self.like(i)
-
         time.sleep(3)
 
         loopCounter = 0
@@ -79,6 +75,5 @@ class Twitter:
             print("sorun")
 
 twitter = Twitter(username,password)
-# login
-twitter.singIn()
+twitter.signIn()
 twitter.search("reactjs")
