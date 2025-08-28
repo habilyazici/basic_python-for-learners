@@ -1,4 +1,4 @@
-# regular expression, string içinde arama, eşleşme, değiştirme gibi işlemleri kolaylaştırır
+# regular expression, string içinde arama, eşleşme, değiştirme gibi işlemleri kolaylaştırır.
 # kaçış karakterleri ayrı regular expression ayrıdır \n yeni - \b. Regex ararken r kullanmak kaçış karakteri oluşmasını engeller.
 import re
 
@@ -19,7 +19,7 @@ print(re.sub(" ","-",str))
 print(re.sub(r"\s","-",str))
 print("\n" + 20 * '-')
 
-# Kelimenin stringde ilk bulunan kısmının verilerini gösterir
+# stringde ilk bulunan kelimenin verilerini gösterir
 result = re.search("Python", str)
 print("result tipi: ", type(result))
 print("result nesnesi: ", result)
@@ -33,8 +33,8 @@ for match in re.finditer(r'Python', str, re.IGNORECASE):
     print(match.span(), match.group())
 print("\n" + 20 * '-')
 
+# searchta kullanılabilir burdan aşağıda
 # [] - Köşeli parantezler arasına yazılan bütün karakterler aranır.
-
 print("[a48c] harflerinden biri: ", re.findall("[a48c]",str))
 print("[a-e] aralığındaki karakterler: ", re.findall("[a-e]", str))
 print("[0-5] aralığındaki rakamlar: ", re.findall("[0-5]", str))
@@ -83,7 +83,7 @@ print("a iki kez.", re.findall("sa{2}", str))
 print("a iki veya üç kez.", re.findall("sa{2,3}", str))
 print("a iki kez, t ile biter.", re.findall("sa{2}t", str))
 print("iki rakam.", re.findall("[0-9]{2}", str))
-print("iki-dört rakam.", re.findall("[0-9]{2,4}", str))
+print("bir-dört rakam arası.", re.findall("[0-9]{1,4}", str))
 print("\n" + 20 * '-')
 
 # | - alternatif seçeneklerden birinin gerçekleşmesi gerekir.
@@ -143,7 +143,7 @@ def check_password(psw):
     elif re.search(r"\s",psw):
         raise Exception("parola boşluk içermemelidir.")
     else:
-        print("geçerli parola: {}".format(psw))
+        print("geçerli parola: ***")
 password = "1234567aA_"
 try:
     check_password(password)

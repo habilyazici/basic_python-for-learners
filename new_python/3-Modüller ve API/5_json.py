@@ -4,9 +4,6 @@ import os
 import json
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-person_json_string = '{"name": "Ali", "languages": ["Python", "Java"]}'
-person_json_string = '[{"name": "Ali", "languages": ["Python", "Java"]},{"name": "Ayşe", "languages": ["C#", "JavaScript"]},{"name": "Mehmet", "languages": ["Go", "Rust"]},{"name": "Fatma", "languages": ["Python", "Ruby"]}]'
-
 person_python = {"name": "Ali", "languages": ["Python", "Java"]}
 person_python = [
     {"name": "Ali", "languages": ["Python", "Java"]},
@@ -14,6 +11,9 @@ person_python = [
     {"name": "Mehmet", "languages": ["Go", "Rust"]},
     {"name": "Fatma", "languages": ["Python", "Ruby"]}
 ]
+
+person_json_string = '{"name": "Ali", "languages": ["Python", "Java"]}'
+person_json_string = '[{"name": "Ali", "languages": ["Python", "Java"]},{"name": "Ayşe", "languages": ["C#", "JavaScript"]},{"name": "Mehmet", "languages": ["Go", "Rust"]},{"name": "Fatma", "languages": ["Python", "Ruby"]}]'
 
 # JSON string to python, dosya üzerinde işlemlerde tekil olarak kullan
 loads = json.loads(person_json_string)

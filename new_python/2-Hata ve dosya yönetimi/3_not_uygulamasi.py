@@ -1,7 +1,6 @@
 import os
 
-current_dir = os.path.dirname(os.path.abspath(__file__))
-os.chdir(current_dir)
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 def not_hesapla(satir):
     satir = satir[:-1] # satır sonundaki \n yi almıyor 
@@ -54,12 +53,13 @@ def not_gir():
         except ValueError:
             print("Notlar sayı olmalı!")
     with open("sinav_notlari.txt", "a", encoding="utf-8") as file:
-        file.write(ad + ' ' + soyad + ':' + str(not1) + ',' + str(not2) + ',' + str(not3)+ '\n') # write() methodu sadece str() türleri kabul eder.
+        file.write(ad + ' ' + soyad + ':' + str(not1) + ',' + str(not2) + ',' + str(not3)+ '\n')
     print("Girilen bilgiler veritabanına kaydedilsin mi?")
     cevap = input('(E/H): ')
     if cevap.upper() == 'E':
         notlari_kayitet()
         print("Notlar kaydedildi.")
+        
 def notlari_kayitet():
     with open("sinav_notlari.txt", "r", encoding="utf-8") as file:
         liste = []

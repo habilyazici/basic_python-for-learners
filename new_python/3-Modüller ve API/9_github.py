@@ -20,10 +20,10 @@ class Github:
         for repo in result:
             print(repo['name'])    
 
-    def createRepository(self, name):
+    def createRepository(self, name, description):
         response = requests.post(self.api_url + '/user/repos', headers=self.headers, json={
             "name": name,
-            "description": "Bu api ile oluşturulan bir repodur",
+            "description": f"{description}",
             "homepage": "https://github.com",
             "private": False,
             "has_issues": True,
@@ -36,7 +36,6 @@ github = Github()
 
 while True:
     secim = input('1- Find User\n2- Get Repositories\n3- Create Repository\n4- Exit\nSeçim: ')
-
     if secim == '4':
         break
     else:
@@ -48,7 +47,8 @@ while True:
             github.getRepositories(username)
         elif secim == '3':
             name = input('repository name: ')
-            result = github.createRepository(name)
+            description = input('description: ')
+            result = github.createRepository(name, description)
             print(result)
         else:
             print('yanlış seçim') 

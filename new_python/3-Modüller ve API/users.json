@@ -1,22 +1,27 @@
 [
     {
-        "username": "sadikturan",
+        "username": "mehmetkaran",
         "password": "123456",
-        "email": "email@sadikturan.com"
+        "email": "email@mehmetkaran.com"
     },
     {
-        "username": "cinarturan",
+        "username": "cinarkaran",
         "password": "12356",
-        "email": "email@cinarturan.com"
+        "email": "email@cinarkaran.com"
     },
     {
-        "username": "efeturan",
+        "username": "efekaran",
         "password": "123456",
-        "email": "efeturan@gmail.com"
+        "email": "efekaran@gmail.com"
     },
     {
-        "username": "habilturan",
+        "username": "habilyazici",
         "password": "123456",
-        "email": "habilturan@gmail.com"
+        "email": "habilyazici@gmail.com"
+    },
+    {
+        "username": "mehmet",
+        "password": "23442",
+        "email": "mehmetkarahanli@gmail.com"
     }
 ]

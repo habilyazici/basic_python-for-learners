@@ -26,10 +26,10 @@ print("\n" + 20 * '-' + "\n")
 
 print("Ctime ile okunabilir format:", datetime.ctime(simdi))
 print("Yıl (string):", datetime.strftime(simdi,'%Y')) # string for time
-print("Saat (string):", datetime.strftime(simdi,'%X'))
-print("Gün (string):", datetime.strftime(simdi,'%d'))
-print("Haftanın günü:", datetime.strftime(simdi,'%A'))
 print("Ay ismi:", datetime.strftime(simdi,'%B'))
+print("Haftanın günü:", datetime.strftime(simdi,'%A'))
+print("Gün (string):", datetime.strftime(simdi,'%d'))
+print("Saat (string):", datetime.strftime(simdi,'%X')) 
 print("Yıl, ay ve gün ismi:", datetime.strftime(simdi,'%Y %B %A %d'))
 print("\n" + 20 * '-' + "\n")
 
@@ -41,8 +41,7 @@ time2 = 'tarih: 15 April 2019 hour 10:12:30 saniye 234234      '
 result14 = datetime.strptime(time2, 'tarih: %d %B %Y hour %H:%M:%S saniye %f      ') 
 # string parse time, metini datetime nesnesine çevir.
 print("Oluşan dt nesnesi: ", result14)
-result15 = result14.year
-print("Oluşan tarihin yılı:", result15)
+print("Oluşan tarihin yılı:", result14.year)
 print("\n" + 20 * '-' + "\n")
 
 result16 = datetime.timestamp(birthday)
@@ -55,13 +54,13 @@ print("\n" + 20 * '-' + "\n")
 
 result19 = simdi - birthday
 print(type(result19))
-print("Doğum gününden bugüne geçen süre (timedelta):", result19)
-print("Total days:", result19.days)
-print("Total hours:", result19.total_seconds() // 3600)
-print("Kalan saat:", result19.seconds // 3600)
-print("years:", result19.days // 365)
-print("months:", (result19.days % 365) // 30)
-print("days:", (result19.days % 365) % 30)
+print("Doğum gününden bugüne geçen süre (timedelta): ", result19)
+print("Total days: ", result19.days)
+print("Total hours: ", result19.total_seconds() // 3600)
+print("Kalan saat: ", result19.seconds // 3600)
+print("years: ", result19.days // 365)
+print("months: ", (result19.days % 365) // 30)
+print("days: ", (result19.days % 365) % 30)
 print("\n" + 20 * '-' + "\n")
 
 result20 = simdi - timedelta(days = 10)

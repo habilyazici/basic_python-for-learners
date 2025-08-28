@@ -16,7 +16,7 @@ with open("newfile.txt", "r", encoding="utf-8") as f:
             break
 print("\n" + 20 * '-' + "\n")
 
-os.chdir(r'C:\Users\habil\OneDrive\Belgeler\GitHub\basic-python\new_python\3-Modüller ve API')
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
 try:
     if not os.path.exists("newdirectory"):
         os.mkdir("newdirectory")
@@ -45,17 +45,16 @@ for dosyaAdi in newdirectory:
         print(dosyaAdi)
 print("\n" + 20 * '-' + "\n")
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
 result = os.stat("3_os.py")
 print(result)
 result1 = result.st_size / 1024
 result2 = datetime.fromtimestamp(result.st_ctime)
 result3 = datetime.fromtimestamp(result.st_atime)
 result4 = datetime.fromtimestamp(result.st_mtime)
-print("Dosya boyutu (KB):", result1)
-print("Oluşturulma tarihi:", result2)
-print("Son erişilme tarihi:", result3)
-print("Değiştirilme tarihi:", result4)
+print("Dosya boyutu (KB): ", result1)
+print("Oluşturulma tarihi: ", result2)
+print("Son erişilme tarihi: ", result3)
+print("Değiştirilme tarihi: ", result4)
 print("\n" + 20 * '-' + "\n")
 
 # os.system("start chrome")
@@ -85,6 +84,3 @@ splitext_result = os.path.splitext("3_os.py")
 print(splitext_result)
 print("Dosya adı:", splitext_result[0])
 print("Dosya uzantısı:", splitext_result[1])
-
-# import sys
-# sys.path.append("modülün_bulunduğu_dizin_yolu")
