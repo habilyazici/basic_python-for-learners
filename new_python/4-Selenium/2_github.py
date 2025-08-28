@@ -4,25 +4,25 @@ import time
 
 class Github:
     def __init__(self, username, password):
-        self.browser = webdriver.Chrome()
+        self.driver = webdriver.Chrome()
         self.username = username
         self.password = password
         self.followers = []
-        self.browser.maximize_window()
+        self.driver.maximize_window()
 
     def signIn(self):
-        self.browser.get("https://github.com/login")
+        self.driver.get("https://github.com/login")
         time.sleep(2)
 
-        self.browser.find_element("css selector", "form div input.form-control#login_field[name='login']").send_keys(self.username)
-        self.browser.find_element("xpath", "//*[@id='password']").send_keys(self.password)
+        self.driver.find_element("css selector", "form input.form-control#login_field[name='login']").send_keys(self.username)
+        self.driver.find_element("xpath", "//*[@id='password']").send_keys(self.password)
         time.sleep(1)
 
-        self.browser.find_element("xpath", "/html/body/div[1]/div[3]/main/div/div[2]/form/div[3]/input").click()
+        self.driver.find_element("xpath", "/html/body/div[1]/div[3]/main/div/div[2]/form/div[3]/input").click()
         time.sleep(15)
 
     def loadFollowers(self):
-        person_divs = self.browser.find_elements("css selector", "div.d-table.table-fixed")
+        person_divs = self.driver.find_elements("css selector", "div.d-table.table-fixed")
 
         for div in person_divs:
             spans = div.find_elements("css selector", "a span")
@@ -36,14 +36,14 @@ class Github:
         print("Bu sayfadaki takipçiler kaydedildi")
 
     def getFollowers(self):
-        self.browser.get(f"https://github.com/{self.username}?tab=followers")
+        self.driver.get(f"https://github.com/{self.username}?tab=followers")
         page_number = 1
         time.sleep(2)
 
         self.loadFollowers()
         while True:
             try:
-                links = self.browser.find_element("class name", "BtnGroup").find_elements("tag name", "a")
+                links = self.driver.find_element("class name", "BtnGroup").find_elements("tag name", "a")
                 # biri önceki sayfa diğeri sonraki sayfa için
             except Exception as e:
                 print("Hata:", e)

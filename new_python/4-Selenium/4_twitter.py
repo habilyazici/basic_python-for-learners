@@ -2,7 +2,6 @@ from twitterUserInfo import username, password
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
-import os
 
 class Twitter:
     def __init__(self, username, password):

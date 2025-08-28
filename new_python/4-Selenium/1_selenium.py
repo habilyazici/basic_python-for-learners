@@ -10,15 +10,16 @@ driver.maximize_window()
 time.sleep(3)
 
 url = "http://github.com"
-driver.execute_script(f"window.open('{url}')")
-driver.switch_to.window(driver.window_handles[-1])
+driver.get(url)
 
 time.sleep(2)
 url = "http://github.com/sadikturan"
 driver.get(url)
 print(driver.current_url)
+kaynak = driver.page_source
 driver.refresh()
 time.sleep(2)
+print("\n" + 20 * '-')
 
 driver.back()
 # driver.forward()
