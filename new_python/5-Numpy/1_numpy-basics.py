@@ -5,7 +5,7 @@ np_array = np.array([1,2,3,4,5,6,7,8,9])
 
 print(type(py_array))
 print(type(np_array))
-print("\n" + 20 * '-')
+print("\n" + 20 * '-' + "\n")
 
 py_multi = [[1,2,3],[4,5,6],[7,8,9]]
 np_multi = np_array.reshape(3,3)
@@ -14,14 +14,14 @@ print(py_multi)
 print(type(py_multi))
 print(np_multi)
 print(type(np_multi))
-print("\n" + 20 * '-')
+print("\n" + 20 * '-' + "\n")
 
 print("Dizi boyutu:", np_array.ndim)
 print("Matris boyutu:", np_multi.ndim)
 
 print("Dizi şekli:", np_array.shape)
 print("Matris şekli:", np_multi.shape)
-print("\n" + 20 * '-')
+print("\n" + 20 * '-' + "\n")
 
 matris_3d = np.array([
     [
@@ -39,7 +39,7 @@ matris_3d = np.array([
 print(matris_3d)
 print("Boyut sayısı:", matris_3d.ndim)
 print("Şekli:", matris_3d.shape)
-print("\n" + 20 * '-')
+print("\n" + 20 * '-' + "\n")
 
 matris_4d = np.array([
     [
