@@ -40,6 +40,3 @@ result = df.groupby("Departman").agg(np.mean)
 result = df.groupby("Departman")["Maaş"].agg([np.sum,np.mean,np.max,np.min]).loc["Muhasebe"]
 
 print(result)
-
-
-
