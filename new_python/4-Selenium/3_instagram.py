@@ -38,20 +38,19 @@ class Instagram:
                 "/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/div[1]/div"
             ).find_elements("css selector", "div")
 
-        followers = get_follower_divs()
-        print(f"first count: {len(followers)}")
+        print(f"first count: {len(get_follower_divs())}")
         time.sleep(2)
 
         action = webdriver.ActionChains(self.browser)
 
-        while len(followers) < max:
+        while len(get_follower_divs()) < max:
             dialog.click()
             action.key_down(Keys.SPACE).key_up(Keys.SPACE).perform()
             time.sleep(2)
 
             newCount = len(get_follower_divs())
 
-            if len(followers) != newCount:
+            if len(get_follower_divs()) != newCount:
                 followers = get_follower_divs()
                 print(f"second count: {newCount}")
                 time.sleep(1)

@@ -35,3 +35,12 @@ result = numbers1 % 2 == 0
 print(numbers1[result])
 
 print(result)
+
+np_array = np.random.randint(-20, 20, 20)
+np_multi = np_array.reshape(5, 4)
+np_multi = np_multi * 3
+print('np_multi:\n', np_multi)
+ciftler = np_multi[np_multi % 2 == 0]
+print('ciftler: ', ciftler)
+print('ciftler > 0: ', ciftler[ciftler > 0])
+print("\n" + 20 * '-')
