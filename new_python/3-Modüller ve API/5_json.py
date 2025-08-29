@@ -4,8 +4,8 @@ import os
 import json
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-person_python = {"name": "Ali", "languages": ["Python", "Java"]}
-person_python = [
+dict = {"name": "Ali", "languages": ["Python", "Java"]}
+dict_list = [
     {"name": "Ali", "languages": ["Python", "Java"]},
     {"name": "Ayşe", "languages": ["C#", "JavaScript"]},
     {"name": "Mehmet", "languages": ["Go", "Rust"]},
@@ -30,11 +30,11 @@ with open("users.json", encoding="utf-8") as f:
 print("\n" + 20 * '-')
 
 # Python to JSON string, indent kullanmazsan direkt sıfır boşluksuz bir satıra yazar 
-dumps = json.dumps(person_python, sort_keys= True, ensure_ascii=False)
+dumps = json.dumps(dict, sort_keys= True, ensure_ascii=False)
 print("json stringi:", dumps)
 print(type(dumps))
 
 with open("person.json", "w" , encoding="utf-8") as f:
-    json.dump(person_python, f, indent=4, sort_keys= True, ensure_ascii=False)
+    json.dump(dict, f, indent=4, sort_keys= True, ensure_ascii=False)
     print("JSON dosyasına yazıldı.")
 print("\n" + 20 * '-')
