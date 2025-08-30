@@ -18,20 +18,18 @@ print('çoklu column silme:\n', df.drop(["column1","column2"], axis = 1))
 # satır ile de yapılabiliyor
 print("\n" + 20 * '-' + "\n")
 
-print('Boş veriler null:', df.isnull())
-# notnull() tam tersi
+print('Boş veriler null:\n', df.isnull()) # notnull() tam tersi
 print("\n" + 20 * '-' + "\n")
 print('her sütun null sayısı:\n', df.isnull().sum())
-print("\n" + 20 * '-' + "\n")
 print('her sütun null sayısı:\n', df.isnull().sum().sum())
 print("\n" + 20 * '-' + "\n")
-print('column1 null sayısı:\n', df["column1"].isnull())
+print('column1 null:\n', df["column1"].isnull())
 print("\n" + 20 * '-' + "\n")
-print('column1 null tüm veriler:', df[df["column1"].isnull()])
-print("\n" + 20 * '-' + "\n")
-print('column1 null veriler:\n', df[df["column1"].isnull()]["column1"])
+print('column1 null ile tüm veriler:\n', df[df["column1"].isnull()])
 print("\n" + 20 * '-' + "\n")
 print('column1 dolu değerler:\n', df[df["column1"].notnull()])
+print("\n" + 20 * '-' + "\n")
+print('column1 dolu değerler ile tüm veriler:\n', df[df["column1"].notnull()]["column1"])
 print("\n" + 20 * '-' + "\n")
 print('tüm dolu veriler:\n', df[df.notnull().all(axis=1)])
 print("\n" + 20 * '-' + "\n")
@@ -44,21 +42,16 @@ print("\n" + 20 * '-' + "\n")
 print('herhangi null içeren sütunu sil:\n', df.dropna(axis = 1))
 print("\n" + 20 * '-' + "\n")
 
-print('col1-col2 de herhangi null içeren satırı sil:\n', df.dropna(subset = ["column1","column2"], how = "any"))
+print('col1 ve col3 de herhangi null verinin satırı sil:\n', df.dropna(subset = ["column1","column3"], how = "any"))
 print("\n" + 20 * '-' + "\n")
-print('col1-col2 de tüm null içeren satırı sil:\n', df.dropna(subset = ["column1","column2"], how = "all"))
+print('col1 ve col3 de tüm null verinin satırı sil:\n', df.dropna(subset = ["column1","column3"], how = "all"))
 print("\n" + 20 * '-' + "\n")
-print('en az 2 dolu verili satırı tutar:\n', df.dropna(thresh = 2))
+print('bir satırda en az 2 dolu veri olmalı:\n', df.dropna(thresh = 2))
 print("\n" + 20 * '-' + "\n")
 
-print('NaN yerine yazı:\n', df.fillna(value = 'no input'))
+print('NaN yerine yazılır:\n', df.fillna(value = 'no input'))
 print("\n" + 20 * '-' + "\n")
 print('NaN yerine 1:\n', df.fillna(value = 1))
-print("\n" + 20 * '-' + "\n")
-
-print('her sütun toplam:\n', df.sum())
-print('tüm tablo toplam:\n', df.sum().sum())
-print('toplam eleman:\n', df.size)
 print("\n" + 20 * '-' + "\n")
 
 def ortalama(df):
@@ -66,8 +59,8 @@ def ortalama(df):
     adet = df.size - df.isnull().sum().sum()
     return toplam / adet
 
-print(df.fillna(value = ortalama(df)))
+print("Boş verileri tüm ortalamalarla doldur:\n", df.fillna(value = ortalama(df)))
 
 print("\n" + 20 * '-' + "\n")
 print(df.mean())
-print(df.fillna(df.mean()))
+print(df.fillna(df.mean(), axis = 0))

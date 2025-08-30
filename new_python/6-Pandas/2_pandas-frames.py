@@ -12,12 +12,12 @@ dict_list = [
 print("boş dataframe:\n", pd.DataFrame())
 print("boş dataframe tipi:\n", type(pd.DataFrame()))
 print("\n" + 20 * '-' + "\n")
-# 
-print("normal dataframe:\n", pd.DataFrame([10,20,30,40]))
+# hepsinin boyutu 2'dir, shapeleri farklıdır
+print("4 satır 1 sütun:\n", pd.DataFrame([10,20,30,40]))
 print("\n" + 20 * '-' + "\n")
-print("normal dataframe:\n", pd.DataFrame([[10,20,30,40]]))
+print("1 satır 4 sütun:\n", pd.DataFrame([[10,20,30,40]]))
 print("\n" + 20 * '-' + "\n")
-print("normal dataframe:\n", pd.DataFrame([[10,20,30,40], [50,60,70,80]]))
+print("2 satır 4 sütun:\n", pd.DataFrame([[10,20,30,40], [50,60,70,80]]))
 print("\n" + 20 * '-' + "\n")
 print("list:\n", pd.DataFrame(list))
 print("\n" + 20 * '-' + "\n")

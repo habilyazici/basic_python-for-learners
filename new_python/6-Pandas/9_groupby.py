@@ -10,33 +10,70 @@ personeller = {
 }
 
 df = pd.DataFrame(personeller)
+print("personeller:\n", df)
+print("Maaş toplamı:", df["Maaş"].sum())
+print("\n" + 20 * '-' + "\n")
 
-result = df
-result = df["Maaş"].sum()
-result = df.groupby("Departman").groups
-result = df.groupby(["Departman","Semt"]).groups
+print("Departman grupları bellek yeri:\n", df.groupby("Departman"))
+print("Departman grupları:\n", df.groupby("Departman").groups)
+print("\n" + 20 * '-' + "\n")
 
-# for name, group in df.groupby("Semt"):
-#     print(name)
-#     print(group)
+# Her benzersiz ("Departman", "Semt") kombinasyonu için bir grup oluşturur.
+print("Departman ve Semt grupları:\n", df.groupby(["Departman","Semt"]).groups)
+print("\n" + 20 * '-' + "\n")
 
-# for name, group in df.groupby("Departman"):
-#     print(name)
-#     print(group)
+print("Semt grupları:\n", df.groupby("Semt").groups)
+print("\n" + 20 * '-' + "\n")
 
-result = df.groupby("Semt").get_group("Kadıköy")
-result = df.groupby("Departman").get_group("Muhasebe")
-result = df.groupby("Departman").sum()
-result = df.groupby("Departman").mean()
-result = df.groupby("Departman")["Maaş"].mean()
-result = df.groupby("Semt")["Yaş"].mean()
-result = df.groupby("Semt")["Maaş"].mean()
-result = df.groupby("Semt")["Çalışan"].count()
-result = df.groupby("Departman")["Yaş"].max()
-result = df.groupby("Departman")["Maaş"].min()
-result = df.groupby("Departman")["Maaş"].max()
-result = df.groupby("Departman")["Maaş"].max()["Muhasebe"]
-result = df.groupby("Departman").agg(np.mean)
-result = df.groupby("Departman")["Maaş"].agg([np.sum,np.mean,np.max,np.min]).loc["Muhasebe"]
+for name, group in df.groupby("Departman"):
+    print("adı:", name)
+    print("grup:\n", group)
+    print()
+print("\n" + 20 * '-' + "\n")
 
-print(result)
+print("Muhasebe departmanındaki çalışanlar:")
+print(df.groupby("Departman").get_group("Muhasebe"))
+print("\n" + 20 * '-' + "\n")
+
+print("Her departmanın toplanmış değerleri:")
+print(df.groupby("Departman").sum())
+print("\n" + 20 * '-' + "\n")
+
+print("Her departmanın ortalama yaşı:")
+print(df.groupby("Departman")["Yaş"].mean())
+print("\n" + 20 * '-' + "\n")
+
+print("Her departmanın toplam maaşı:")
+result = df.groupby("Departman")
+print(result["Maaş"].sum())
+print("\n" + 20 * '-' + "\n")
+
+print("Her semtin ortalama maaşı:")
+print(df.groupby("Semt")["Maaş"].mean())
+print("\n" + 20 * '-' + "\n")
+
+print("Her semtteki çalışan sayısı:")
+print(df.groupby("Semt")["Çalışan"].count())
+print("\n" + 20 * '-' + "\n")
+
+print("Her departmanın en büyük yaşı:")
+print(df.groupby("Departman")["Yaş"].max())
+print("\n" + 20 * '-' + "\n")
+
+print("Her departmanın en yüksek maaşı:")
+print(df.groupby("Departman")["Maaş"].max())
+print("\n" + 20 * '-' + "\n")
+
+print("Muhasebe departmanının en yüksek maaşı:")
+print(df.groupby("Departman")["Maaş"].max()["Muhasebe"])
+print("\n" + 20 * '-' + "\n")
+
+# her depertmana ait sayısal sutunların ortalaması 
+# print(df.groupby("Departman").agg(np.mean))
+
+print("departmanların maaş istatistikleri:")
+print(df.groupby("Departman")["Maaş"].agg(["sum", "mean", "max", "min"]))
+print("\n" + 20 * '-' + "\n")
+
+print("muhasebe departmanının maaş istatistikleri:")
+print(df.groupby("Departman")["Maaş"].agg(["sum", "mean", "max", "min"]).loc["Muhasebe"])

@@ -22,7 +22,7 @@ print("\n" + 20 * '-' + "\n")
 print("Dictionary:\n",pd.Series(dict))
 # index belirlenirse dictin keyi ezilir
 print("\n" + 20 * '-' + "\n")
-print("Random Numbers:\n",pd.Series(random_numbers))
+print("Random Numbers:\n", pd.Series(random_numbers))
 print("\n" + 20 * '-' + "\n")
 print("Numbers değiştirilmiş index:\n", pd.Series([20,30,40,50], [3,4,5,6]))
 print("\n" + 20 * '-' + "\n")
