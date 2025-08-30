@@ -1,11 +1,5 @@
 import numpy as np
 
-
-# eklenecek bir şey var mı bak yapay zeka ile
-
-
-
-
 py_array = [1,2,3,4,5,6,7,8,9]
 np_array = np.array([1,2,3,4,5,6,7,8,9])
 
@@ -15,7 +9,7 @@ print("\n" + 20 * '-' + "\n")
 
 py_multi = [[1,2,3],[4,5,6],[7,8,9]]
 np_multi = np_array.reshape(3,3)
-# tek boyutlu dizi, 3x3 tablo boyutuna uygun iki boyutlu bir diziye yani 3x3 lük bir matrise dönüşüyor.
+# tek boyutlu dizi, iki boyutlu bir diziye yani 3x3 lük bir matrise dönüşüyor.
 print(py_multi)
 print(type(py_multi))
 print(np_multi)

@@ -40,6 +40,15 @@ print("\n" + 20 * '-' + "\n")
 print('DataFrame describe:\n', df.describe())
 print("\n" + 20 * '-' + "\n")
 
+list = [["Ahmet", 50], ["Ali", 60], ["Yağmur", 70], ["Çınar", 80]]
+df = pd.DataFrame(list, index = ['a','b','c','d'], columns = ['Name','Grade'])
+print('boyut ndim:', df.ndim)
+print("\n" + 20 * '-' + "\n")
+print('dtype:\n', df.dtypes)
+print("\n" + 20 * '-' + "\n")
+print('shape:', df.shape)
+print("\n" + 20 * '-' + "\n")
+
 print('df.sort_values("Column2"):\n', df.sort_values("col2"))
 print("\n" + 20 * '-' + "\n")
 print('df.sort_values("Column3"):\n', df.sort_values("col3", ascending = False))
