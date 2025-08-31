@@ -65,15 +65,15 @@ print(df.groupby("Departman")["Maaş"].max())
 print("\n" + 20 * '-' + "\n")
 
 print("Muhasebe departmanının en yüksek maaşı:")
-print(df.groupby("Departman")["Maaş"].max()["Muhasebe"])
+print(df.groupby("Departman")["Maaş"].max().loc["Muhasebe"])
+print(df.groupby("Departman").get_group("Muhasebe")["Maaş"].max())
+print(df[df["Departman"] == "Muhasebe"]["Maaş"].max())
 print("\n" + 20 * '-' + "\n")
 
 # her depertmana ait sayısal sutunların ortalaması 
-# print(df.groupby("Departman").agg(np.mean))
+# print(df.groupby("Departman").agg(mean))
 
 print("departmanların maaş istatistikleri:")
 print(df.groupby("Departman")["Maaş"].agg(["sum", "mean", "max", "min"]))
 print("\n" + 20 * '-' + "\n")
-
-print("muhasebe departmanının maaş istatistikleri:")
 print(df.groupby("Departman")["Maaş"].agg(["sum", "mean", "max", "min"]).loc["Muhasebe"])
