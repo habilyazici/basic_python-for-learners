@@ -5,9 +5,10 @@ x = np.linspace(-10,9,20)
 y = x ** 3
 z = x ** 2
 
-"""
 figure = plt.figure()
+# kulanmazsakta otomatik olarak bir tane oluştur 
 axes_cube = figure.add_axes([0.1,0.1,0.8,0.8])
+# sol, alt, genişlik, yükseklik
 
 axes_cube.plot(x,y,'b')
 axes_cube.set_xlabel("X Axis")
@@ -20,7 +21,6 @@ axes_square.set_xlabel("X Axis")
 axes_square.set_ylabel("Y Axis")
 axes_square.set_title("Square")
 
-"""
 """
 figure = plt.figure()
 

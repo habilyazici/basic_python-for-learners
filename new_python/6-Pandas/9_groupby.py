@@ -71,7 +71,7 @@ print(df[df["Departman"] == "Muhasebe"]["Maaş"].max())
 print("\n" + 20 * '-' + "\n")
 
 # her depertmana ait sayısal sutunların ortalaması 
-# print(df.groupby("Departman").agg(mean))
+print(df.groupby("Departman").agg(np.mean(numeric_only=True)))
 
 print("departmanların maaş istatistikleri:")
 print(df.groupby("Departman")["Maaş"].agg(["sum", "mean", "max", "min"]))
