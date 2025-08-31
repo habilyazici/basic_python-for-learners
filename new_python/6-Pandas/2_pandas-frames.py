@@ -1,7 +1,11 @@
 import pandas as pd
 
+# dataframe'lerin boyutu 2'dir, shapeleri farklıdır
 list = [["Ahmet", 50], ["Ali", 60], ["Yağmur", 70], ["Çınar", 80]]
-dictt = {"Name": ["Ahmet", "Ali", "Yağmur", "Çınar"], "Grade": [50, 60, 70, 80]}
+dictt = {
+    "Name": ["Ahmet", "Ali", "Yağmur", "Çınar"],
+    "Grade": [50, 60, 70, 80]
+}
 dict_list = [
                 {"Name": "Ahmet", "Grade": 50},
                 {"Name": "Ali", "Grade": 60},
@@ -12,7 +16,8 @@ dict_list = [
 print("boş dataframe:\n", pd.DataFrame())
 print("boş dataframe tipi:\n", type(pd.DataFrame()))
 print("\n" + 20 * '-' + "\n")
-# hepsinin boyutu 2'dir, shapeleri farklıdır
+
+#tek boyutlu dataframe, teknik olarak dataseries
 print("4 satır 1 sütun:\n", pd.DataFrame([10,20,30,40]))
 print("\n" + 20 * '-' + "\n")
 print("1 satır 4 sütun:\n", pd.DataFrame([[10,20,30,40]]))

@@ -40,9 +40,9 @@ print('vstack shape:', result2.shape)
 print('hstack shape:', result3.shape)
 print("\n" + 20 * '-' + "\n")
 
-x = np.array([1, 2, 3, 4, 5, 6])
-print("diziyi 3 eşit parçaya ayır: ", np.split(x, 3))
-print("ayrılan parçalara erişim: ", np.split(x, 3)[0])
+new_array = np.array([1, 2, 3, 4, 5, 6])
+print("diziyi 3 eşit parçaya ayır: ", np.split(new_array, 3))
+print("ayrılan parçalara erişim: ", np.split(new_array, 3)[0])
 print("\n" + 20 * '-' + "\n")
 
 print("numbers1 > 50 bool:\n   ", m_numbers1 > 50)

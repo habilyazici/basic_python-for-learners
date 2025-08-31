@@ -36,25 +36,11 @@ print("\n" + 20 * '-' + "\n")
 print("iki df outer join:\n", result4)
 print("\n" + 20 * '-' + "\n")
 
-data1 = {
-    'CustomerId': [1,2,3,4],
-    'FirstName': ["Ahmet","Ali","Hasan","Canan"],
-    'LastName': ["Yılmaz","Korkmaz","Çelik","Toprak"]
-}
-
-data2 = {
-    'CustomerId': [4,5,6,7],
-    'FirstName': ["Yağmur","Çınar","Cengiz","Can"],
-    'LastName': ["Bilge","Turan","Yılmaz","Turan"]
-}
+data1 = df_customers.copy()
+data2 = df_orders.copy()
 
 df_data1 = pd.DataFrame(data1)
 df_data2 = pd.DataFrame(data2)
-
-print("df_data1:\n", df_data1)
-print("\n" + 20 * '-' + "\n")
-print("df_data2:\n", df_data2)
-print("\n" + 20 * '-' + "\n")
 
 result1 = pd.concat([df_data1, df_data2])
 result2 = pd.concat([df_data1, df_data2], axis=1)
@@ -63,18 +49,26 @@ print("concat axis 0:\n", result1)
 print("concat axis 1:\n", result2)
 print("\n" + 20 * '-' + "\n")
 
-df1 = pd.DataFrame({'A': [1, 2], 'B': [5, 6]}, index=['x', 'y'])
-df2 = pd.DataFrame({'D': [3, 4], 'E': [9, 10]}, index=['x', 'y'])
+data3= {
+    'A': [1, 2],
+    'B': [5, 6]
+}
+data4 = {
+    'C': [7, 8],
+    'D': [9, 10]
+}
+df1 = pd.DataFrame(data3, index=['x', 'y'])
+df2 = pd.DataFrame(data4, index=['x', 'y'])
 
 print("join ile iki df birleştirme:\n", df1.join(df2))
 print("\n" + 20 * '-' + "\n")
 
-data = {
+data5 = {
     "Ay": ["Mayıs","Haziran","Nisan","Mayıs","Haziran","Nisan","Mayıs","Haziran","Nisan"],
     "Kategori": ["Elektronik","Elektronik","Elektronik","Kitap","Kitap","Kitap","Giyim","Giyim","Giyim"],
     "Gelir": [20,30,15,14,32,42,12,36,52]
 }
-df = pd.DataFrame(data)
+df = pd.DataFrame(data5)
 print(df)
 print("\n" + 20 * '-' + "\n")
 
