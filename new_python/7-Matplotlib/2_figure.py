@@ -7,7 +7,7 @@ x = np.linspace(-10,9,20)
 y = x ** 3
 z = x ** 2
 figure = plt.figure(figsize=(8, 6))
-# figüre işimize lazım diye oluşturduk, otomatik oluşmaktadır
+# figüre işimize lazım diye oluşturduk, normalde otomatik oluşmaktadır
 
 axes_cube = figure.add_axes([0.1,0.1,0.8,0.8])
 # sol, alt, genişlik, yükseklik
