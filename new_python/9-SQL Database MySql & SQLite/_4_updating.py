@@ -1,5 +1,7 @@
 import mysql.connector
+from _2_selecting import getFilms, getFilmById
 
+getFilms()
 def updateFilm(id, name, IMDB_Puan):
     connection = mysql.connector.connect(host="localhost", user = "root", password="", database="sinema")
     cursor = connection.cursor()
@@ -17,5 +19,5 @@ def updateFilm(id, name, IMDB_Puan):
         connection.close()
         print('database bağlantısı kapandı.')
 
-# updateFilm(1, 'Iphone 8', 6000)
-# getFilm()
+updateFilm(1, 'Yeşil Yol2', 2001)
+getFilmById(1)

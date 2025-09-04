@@ -46,6 +46,11 @@ class PersonBase():
     def eat(self):
         print('I am eating' )
 
+    # static method class instance'dır yani class'tan bağımsızdır. İlla init ile nesne oluşturulması gerekmiyor.
+    @staticmethod
+    def sayHello():
+        return 'Hello'
+    
 class Student(PersonBase):
     def __init__(self, fname, lname, number):
         PersonBase.__init__(self, fname, lname)
