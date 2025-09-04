@@ -1,5 +1,5 @@
-from dbmanager import DbManager
-from Student import Student
+from _dbmanager import DbManager
+from _Student import Student
 import datetime
 
 class App:
@@ -83,8 +83,6 @@ class App:
         return classid
 
     
-
-
 
 app = App()     
 app.initApp()

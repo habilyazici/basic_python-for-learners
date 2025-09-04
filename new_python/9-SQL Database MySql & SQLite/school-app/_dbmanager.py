@@ -1,9 +1,9 @@
 import mysql.connector
 from datetime import datetime
-from connection import connection
-from Student import Student
-from Teacher import Teacher
-from Class import Class
+from _connection import connection
+from _Student import Student
+from _Teacher import Teacher
+from _Class import Class
 
 class DbManager:
     def __init__(self):
@@ -75,12 +75,9 @@ class DbManager:
         except mysql.connector.Error as err:
             print('hata:', err) 
 
-
     def editTeacher(self, teacher: Teacher):
         pass
 
     def __del__(self):
         self.connection.close()
         print('db silindi')
-    
-   

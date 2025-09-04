@@ -1,5 +1,5 @@
 class Teacher:
-    def __init__(self, id,branch,name,surname,birthdate,gender,classid):
+    def __init__(self, id, branch, name, surname, birthdate, gender):
         if id is None:
             self.id = 0
         else:
