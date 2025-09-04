@@ -1,4 +1,3 @@
-import datetime
 class Teacher:
     def __init__(self, id, branch, name, surname, birthdate, gender):
         if id is None:
@@ -8,7 +7,7 @@ class Teacher:
         self.branch = branch
         self.name = name
         self.surname = surname
-        self.birthdate = datetime.strptime(birthdate, '%Y-%m-%d').date()
+        self.birthdate = birthdate
         self.gender = gender
 
     @staticmethod

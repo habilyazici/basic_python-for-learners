@@ -3,13 +3,14 @@ from _Student import Student
 from _Teacher import Teacher
 
 import datetime
+print("\n" + 20 * '-' + "\n")
 
 class App:
     def __init__(self):
         self.db = DbManager()
 
     def initApp(self):
-        msg = "*****\n1-Öğrenci Listesi\n2-Öğrenci Ekle\n3-Öğrenci Güncelle\n4-Öğrenci Sil\n5-Öğretmen Ekle\n6-Öğretmen Güncelle\n7-Dersleri göster\n8-Çıkış(E/Ç)"
+        msg = "\n*****\n1-Öğrenci Listesi\n2-Öğrenci Ekle\n3-Öğrenci Güncelle\n4-Öğrenci Sil\n5-Öğretmenleri göster\n6-Öğretmen Ekle\n7-Öğretmen Güncelle\n8-Derslerin bilgilerini göster\n9-Çıkış(E/Ç)"
         while True:
             print(msg)
             islem = input("Seçim: ")
@@ -22,27 +23,30 @@ class App:
             elif islem == '4':
                 self.deleteStudent()
             elif islem == '5':
-                self.addTeacher()
+                self.displayTeachers()
             elif islem == '6':
-                self.editTeacher()
+                self.addTeacher()
             elif islem == '7':
-                self.displayLessons()
-            elif islem == '8' or islem == 'E' or islem == 'Ç':
+                self.editTeacher()
+            elif islem == '8':
+                self.LessonsInfo()
+            elif islem == '9' or islem == 'E' or islem == 'Ç':
                 break
             else:
                 print('yanlış seçim')
 
-    def displayStudents(self):       
-        self.db.getClasses()
-        classid = int(input('Sınıfın ID\'si: '))
+    def displayStudents(self):
+        self.displayClasses()
 
+        classid = int(input('Sınıfın ID\'si: '))
         students = self.db.getStudentsByClassId(classid)
-        print("Öğrenci Listesi")
+        print("\nÖğrenci Listesi")
         for std in students:
-            print(f'{std.id}-{std.name} {std.surname}')
+            print(f' öğrencinin id: {std.id}, öğrencinin adı: {std.name}, öğrencinin soyadı: {std.surname}, doğum tarihi: {std.birthdate}, cinsiyeti: {std.gender}, sınıfı: {std.classid}')
 
     def addStudent(self):
-        self.db.getClasses()
+        self.displayClasses()
+
         classid = int(input('Sınıfın ID\'si: '))
         number = input('Numara: ')
         name = input('Ad: ')
@@ -51,6 +55,7 @@ class App:
         month = int(input('Ay: '))
         day = int(input('Gün: '))
         birthdate = datetime.date(year, month, day)
+        # birthdate = f"{year}-{month}-{day}"
         gender = input('Cinsiyet (E/K): ')
 
         student = Student(None, number, name, surname, birthdate, gender, classid)
@@ -72,7 +77,7 @@ class App:
         day = input("gün: ") or student[0].birthdate.day
 
         student[0].birthdate = datetime.date(year,month,day)
-        self.db.editStudent(student[0]) 
+        self.db.addorEditStudent(student[0]) 
 
     def deleteStudent(self):
         self.displayStudents()
@@ -81,6 +86,7 @@ class App:
         self.db.deleteStudent(studentid)
 
     def displayClasses(self):
+        print("\nSınıflar:")
         classes = self.db.getClasses()
         for clas in classes:
             print(f'{clas.id}: {clas.name}')
@@ -89,10 +95,11 @@ class App:
         teachers = self.db.getTeachers()
         print("Öğretmen Listesi")
         for t in teachers:
-            print(f'{t.id} - {t.name} {t.surname} / {t.branch}')
+            print(f'{t.id}: Öğretmen: {t.name} {t.surname} | Doğum Tarihi: {t.birthdate} | Cinsiyet: {t.gender} | Branşı: {t.branch}')
 
     def addTeacher(self):
         self.displayTeachers()
+
         branch = input('Branş: ')
         name = input('Ad: ')
         surname = input('Soyad: ')
@@ -121,11 +128,11 @@ class App:
         teacher = Teacher(teacher_id, branch, name, surname, birthdate, gender)
         self.db.addorEditTeacher(teacher)
 
-    def displayLessons(self):
-        lessons = self.db.getLessons()
-        print("Ders Listesi")
-        for lesson in lessons:
-            print(f'{lesson.id} - {lesson.name} | Öğretmen: {lesson.teacher_name} {lesson.teacher_surname} ({lesson.teacher_branch}) | Sınıf: {lesson.class_name}')
+    def LessonsInfo(self):
+        lessons_details = self.db.getLessons()
+        print("id ye göre Ders Listesi")
+        for lesson_details in lessons_details:
+            print(f"{lesson_details[0]} dersinin sınıf adı: {lesson_details[1]} ve öğretmen adı: {lesson_details[2]} {lesson_details[3]}")
 
 app = App()     
 app.initApp()

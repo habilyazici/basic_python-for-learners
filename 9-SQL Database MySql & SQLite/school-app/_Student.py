@@ -1,4 +1,3 @@
-from datetime import datetime
 class Student:
     def __init__(self, id, studentNumber, name, surname, birthdate, gender, classid):
         if id is None:
@@ -8,7 +7,8 @@ class Student:
         self.studentNumber = studentNumber      
         self.name = name
         self.surname = surname
-        self.birthdate = datetime.strptime(birthdate, '%Y-%m-%d').date()
+        # zaten veri mysqlden datetime olarak geliyor yapmana gerek yok yani
+        self.birthdate = birthdate
         self.gender = gender
         self.classid = classid
 

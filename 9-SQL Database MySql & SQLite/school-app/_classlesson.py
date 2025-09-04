@@ -1,5 +1,5 @@
 class ClassLesson:
-    def __init__(self, classid, lessonid, teacherid):
+    def __init__(self, id, classid, lessonid, teacherid):
         if id is None:
             self.id = 0
         else:

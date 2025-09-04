@@ -56,7 +56,7 @@ class DbManager:
 
     def addorEditStudent(self, student: Student):
         if not student.id or student.id == 0:
-            sql = "INSERT INTO Student(StudentNumber, Name, Surname, Birthdate, Gender, ClassId) VALUES (%s,%s,%s,%s,%s,%s)"
+            sql = "INSERT INTO Student(studentNumber, name, surname, birthdate, gender, classId) VALUES (%s,%s,%s,%s,%s,%s)"
             value = (student.studentNumber, student.name, student.surname, student.birthdate, student.gender, student.classid)
             self.cursor.execute(sql, value)
 
@@ -118,14 +118,14 @@ class DbManager:
                 print('hata:', err)
 
     def getLessons(self):
-        sql = """ SELECT lesson.id, lesson.name, teacher.branch, teacher.name, teacher.surname, class.name FROM lesson INNER JOIN teacher ON lesson.teacher_id = teacher.id INNER JOIN class ON lesson.class_id = class.id """
+        sql = """ SELECT lesson.name, class.name, teacher.name, teacher.surname FROM lesson,class_lesson, class, teacher WHERE lesson.id = class_lesson.lessonid AND class_lesson.classid = class.id AND class_lesson.teacherid = teacher.id; """
         self.cursor.execute(sql)
         try:
-            obj = self.cursor.fetchall()
-            return Lesson.CreateLesson(obj)
+            return self.cursor.fetchall()
         except mysql.connector.Error as err:
             print('Error:', err)
 
     def __del__(self):
+        self.cursor.close()
         self.connection.close()
         print('db silindi')
