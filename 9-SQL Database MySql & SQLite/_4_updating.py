@@ -16,6 +16,7 @@ def updateFilm(id, name, IMDB_Puan):
     except mysql.connector.Error as err:
         print('hata:', err)
     finally:
+        cursor.close()
         connection.close()
         print('database bağlantısı kapandı.')
 

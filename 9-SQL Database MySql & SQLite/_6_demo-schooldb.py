@@ -24,8 +24,6 @@ class Student:
             print(f'{Student.mycursor.rowcount} tane kayıt eklendi.')
         except mysql.connector.Error as err:
             print('hata:', err)
-        finally:
-            Student.connection.close()
 
     @staticmethod
     def saveStudents(students):
@@ -95,6 +93,7 @@ class Student:
             return None
 
     def __del__(self):
+        Student.mycursor.close()
         Student.connection.close()
 
 # student1 = Student('2023002', 'Mehmet', 'Kars', datetime(2003, 12, 9), 'E')

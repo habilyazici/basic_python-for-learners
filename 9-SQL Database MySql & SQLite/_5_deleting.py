@@ -15,6 +15,7 @@ def deleteFilm(id):
     except mysql.connector.Error as err:
         print('hata:', err)
     finally:
+        cursor.close()
         connection.close()
         print('database bağlantısı kapandı.')
 

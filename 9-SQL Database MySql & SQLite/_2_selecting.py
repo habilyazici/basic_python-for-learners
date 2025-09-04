@@ -14,6 +14,7 @@ def getFilms():
     except mysql.connector.Error as err:
         print('hata:', err)
     finally:
+        cursor.close()
         connection.close()
         print('database bağlantısı kapandı.')
 getFilms()
@@ -30,6 +31,7 @@ def getFilmById(id):
 
     result = cursor.fetchone()    
     print(f'id: {result[0]} film adı: {result[1]} IMDB puanı: {result[2]}')
+    cursor.close()
     connection.close()
 
 getFilmById(3)

@@ -1,5 +1,5 @@
 class ClassLesson:
-    def __init__(self, classid,lessonid,teacherid):
+    def __init__(self, classid, lessonid, teacherid):
         if id is None:
             self.id = 0
         else:
@@ -7,7 +7,7 @@ class ClassLesson:
         self.classid = classid
         self.lessonid = lessonid
         self.teacherid = teacherid
-        
+
     @staticmethod
     def CreateClassLesson(obj):
         list = []
