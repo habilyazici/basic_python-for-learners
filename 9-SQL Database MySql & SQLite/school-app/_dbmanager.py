@@ -2,8 +2,12 @@ import mysql.connector
 from datetime import datetime
 from _connection import connection
 from _Student import Student
-from _Teacher import Teacher
 from _Class import Class
+from _Teacher import Teacher
+from _Lesson import Lesson
+from _classlesson import ClassLesson
+
+# genel olarak tüm alınan verileri listenin içinde class nesnesi olarak saklıyoruz
 
 class DbManager:
     def __init__(self):
@@ -20,14 +24,14 @@ class DbManager:
         except mysql.connector.Error as err:
             print('Error:', err)
 
-    def deleteStudent(self,studentid):
+    def deleteStudent(self, studentid):
         sql = "delete from student where id=%s"
         value = (studentid,)
         self.cursor.execute(sql,value)
 
         try:
             self.connection.commit()
-            print(f'{self.cursor.rowcount} tane kayıt eklendi.')
+            print(f'{self.cursor.rowcount} tane kayıt silindi.')
         except mysql.connector.Error as err:
             print('hata:', err)
 
@@ -40,7 +44,7 @@ class DbManager:
         except mysql.connector.Error as err:
             print('Error:', err)
 
-    def getStudentsByClassId(self,classid):
+    def getStudentsByClassId(self, classid):
         sql = "select * from student where classid = %s"
         value  = (classid,)
         self.cursor.execute(sql,value)
@@ -50,33 +54,77 @@ class DbManager:
         except mysql.connector.Error as err:
             print('Error:', err)
 
-    def addorEditStudent(self,student: Student):
-        pass
+    def addorEditStudent(self, student: Student):
+        if not student.id or student.id == 0:
+            sql = "INSERT INTO Student(StudentNumber, Name, Surname, Birthdate, Gender, ClassId) VALUES (%s,%s,%s,%s,%s,%s)"
+            value = (student.studentNumber, student.name, student.surname, student.birthdate, student.gender, student.classid)
+            self.cursor.execute(sql, value)
 
-    def addStudent(self, student: Student):        
-        sql = "INSERT INTO Student(StudentNumber,Name,Surname,Birthdate,Gender,ClassId) VALUES (%s,%s,%s,%s,%s,%s)"
-        value = (student.studentNumber,student.name, student.surname,student.birthdate,student.gender,student.classid)
-        self.cursor.execute(sql,value)
+            try:
+                self.connection.commit()
+                print(f'{self.cursor.rowcount} tane kayıt eklendi.')
+            except mysql.connector.Error as err:
+                print('hata:', err)
+        else:
+            sql = "update student set studentnumber=%s, name=%s, surname=%s, birthdate=%s, gender=%s, classid=%s where id=%s"
+            value = (student.studentNumber, student.name, student.surname, student.birthdate, student.gender, student.classid, student.id)
+            self.cursor.execute(sql, value)
 
+            try:
+                self.connection.commit()
+                print(f'{self.cursor.rowcount} tane kayıt güncellendi.')
+            except mysql.connector.Error as err:
+                print('hata:', err)
+
+    def getTeachers(self):
+        sql = "select * from teacher"
+        self.cursor.execute(sql)
         try:
-            self.connection.commit()
-            print(f'{self.cursor.rowcount} tane kayıt eklendi.')
+            obj = self.cursor.fetchall()
+            return Teacher.CreateTeacher(obj)
         except mysql.connector.Error as err:
-            print('hata:', err)
+            print('Error:', err)
 
-    def editStudent(self, student: Student):
-        sql = "update student set studentnumber=%s,name=%s,surname=%s,birthdate=%s,gender=%s,classid=%s where id=%s"
-        value = (student.studentNumber,student.name, student.surname,student.birthdate,student.gender,student.classid,student.id)
+    def getTeacherById(self,id):
+        sql = "select * from teacher where id = %s"
+        value  = (id,)
         self.cursor.execute(sql,value)
-
         try:
-            self.connection.commit()
-            print(f'{self.cursor.rowcount} tane kayıt güncellendi.')
+            obj = self.cursor.fetchone()
+            return Teacher.CreateTeacher(obj)
         except mysql.connector.Error as err:
-            print('hata:', err) 
+            print('Error:', err)
+    
+    def addorEditTeacher(self, teacher: Teacher):
+        if not teacher.id or teacher.id == 0:
+            sql = "INSERT INTO Teacher(branch, name, surname, birthdate, gender) VALUES (%s, %s, %s, %s, %s)"
+            value = (teacher.branch, teacher.name, teacher.surname, teacher.birthdate, teacher.gender)
+            self.cursor.execute(sql, value)
 
-    def editTeacher(self, teacher: Teacher):
-        pass
+            try:
+                self.connection.commit()
+                print(f'{self.cursor.rowcount} tane öğretmen eklendi.')
+            except mysql.connector.Error as err:
+                print('hata:', err)
+        else:
+            sql = "UPDATE Teacher SET branch=%s, name=%s, surname=%s, birthdate=%s, gender=%s WHERE id=%s"
+            value = (teacher.branch, teacher.name, teacher.surname, teacher.birthdate, teacher.gender, teacher.id)
+            self.cursor.execute(sql, value)
+
+            try:
+                self.connection.commit()
+                print(f'{self.cursor.rowcount} tane öğretmen güncellendi.')
+            except mysql.connector.Error as err:
+                print('hata:', err)
+
+    def getLessons(self):
+        sql = """ SELECT lesson.id, lesson.name, teacher.branch, teacher.name, teacher.surname, class.name FROM lesson INNER JOIN teacher ON lesson.teacher_id = teacher.id INNER JOIN class ON lesson.class_id = class.id """
+        self.cursor.execute(sql)
+        try:
+            obj = self.cursor.fetchall()
+            return Lesson.CreateLesson(obj)
+        except mysql.connector.Error as err:
+            print('Error:', err)
 
     def __del__(self):
         self.connection.close()
