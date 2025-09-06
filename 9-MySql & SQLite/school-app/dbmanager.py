@@ -1,11 +1,11 @@
 import mysql.connector
 from datetime import datetime
-from _connection import connection
-from _Student import Student
-from _Class import Class
-from _Teacher import Teacher
-from _Lesson import Lesson
-from _classlesson import ClassLesson
+from connection import connection
+from Student import Student
+from Class import Class
+from Teacher import Teacher
+from Lesson import Lesson
+from classlesson import ClassLesson
 
 # genel olarak tüm alınan verileri listenin içinde class nesnesi olarak saklıyoruz
 

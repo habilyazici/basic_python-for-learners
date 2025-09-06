@@ -1,6 +1,6 @@
-from _dbmanager import DbManager
-from _Student import Student
-from _Teacher import Teacher
+from dbmanager import DbManager
+from Student import Student
+from Teacher import Teacher
 
 import datetime
 print("\n" + 20 * '-' + "\n")
