@@ -66,7 +66,7 @@ class UserRepository:
         for user in self.users:
             list.append(user.__dict__)
         with open('users.json', 'w', encoding='utf-8') as file:
-            json.dump(list, file, ensure_ascii=False, indent=4)
+            json.dump(list, file, indent=4, ensure_ascii=False)
 
 repository = UserRepository()
 

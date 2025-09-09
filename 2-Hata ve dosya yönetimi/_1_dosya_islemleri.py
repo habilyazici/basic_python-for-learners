@@ -61,7 +61,7 @@ print("\n" + 20 * '-' + "\n")
 with open("newfile.txt", "r", encoding="utf-8") as file10:
     for i in file10:
         print(i, end="-") 
-    # end="" olmalı böylece satır sonu eklenmez end olmazsa boş bir satır ekler. for daha az RAM için kullanılır.
+    # end="" olmalı böylece satır sonu eklenmez end olmazsa boş bir satır ekler.
     print("\n" + 20 * '-' + "\n")
 
     file10.seek(0)

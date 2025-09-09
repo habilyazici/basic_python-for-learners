@@ -100,7 +100,6 @@ for user in json_veri:
     users.append(BankaHesap(**user))
 print(users)
 
-# Her hesap için para çekme işlemi
 cekilecek_miktarlar = [3500, 2000, 3000]
 for user, miktar in zip(users, cekilecek_miktarlar):
     user.para_cek(miktar)

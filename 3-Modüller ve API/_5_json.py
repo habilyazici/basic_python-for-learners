@@ -35,6 +35,6 @@ print("json stringi:", dumps)
 print(type(dumps))
 
 with open("person.json", "w" , encoding="utf-8") as f:
-    json.dump(dict, f, indent=4, sort_keys= True, ensure_ascii=False)
+    json.dump(dict_list, f, indent=4, sort_keys= True, ensure_ascii=False)
     print("JSON dosyasına yazıldı.")
 print("\n" + 20 * '-')

@@ -30,7 +30,7 @@ print("\n" + 20 * '-' + "\n")
 # *args ve **kwargs kullanımı
 def add(*params):
     print(type(params))
-    # def içerisinde args kullanımı list döndürmez
+    # fonksiyonda args kullanımı list yerine tuple döndürür.
     total = 0
     for x in params:
         total += x

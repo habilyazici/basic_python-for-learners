@@ -8,6 +8,7 @@ number1 += 30
 print("number1 tekrar güncellendi (30 eklendi):", number1)
 print("\n" + 20 * '-' + "\n")
 
+# Pythonda büyük küçük harf duyarlılığı vardır
 age = 20
 AGE = 30
 _age = 40

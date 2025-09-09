@@ -1,7 +1,6 @@
 #TUPLE
 # Liste elemanlarında yapılabilen bir çok şeyi tuple'da yapamıyorsun örnek: append, del vs...
 # Değişken tek cümle ise string, birden fazla virgül varsa tuple olmaktadır.
-# ister parantez ister tırnak kullan ikiside tuple'dır.
 list2 = ['ali','veli']
 tuple2 = ('damla','ayşe','ayşe')
 names1 = ('demet','emel','ayşe') + tuple2
@@ -11,6 +10,7 @@ list2[0] = 'ahmet'
 print(names1.count('ayşe'))
 print(names1.index('ayşe'))
 print("\n" + 20 * '-' + "\n")
+
 
 # Set yapıları sırasız ve listelerin aksina tek yapılardır yani sette oluşturulan verilerin bir sırası yoktur.
 fruits1 = { 'orange', 'apple', 'banana'}

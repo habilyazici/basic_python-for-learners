@@ -66,8 +66,7 @@ def notlari_kayitet():
         for i in file:
             liste.append(not_hesapla(i))
         with open("sonuclar.txt", "w", encoding="utf-8") as file2:
-            for i in liste:
-                file2.write(i)
+            file2.writelines(liste)
 
 print("\nHoşgeldiniz!!")
 while True:

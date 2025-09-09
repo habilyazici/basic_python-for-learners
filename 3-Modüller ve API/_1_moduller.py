@@ -21,7 +21,6 @@ print("\n" + 20 * '-' + "\n")
 
 import random as random
 print(random.random())
-print(random.random() * 100)
 print(int(random.uniform(10,100)))
 print(random.randint(1,100))
 print("\n" + 20 * '-' + "\n")

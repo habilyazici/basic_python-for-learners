@@ -11,12 +11,12 @@ print(result)
 print(len(result))
 print("\n" + 20 * '-')
 
-print(re.split(" ", str, 3))
+print(re.split(" ", str, maxsplit=3))
 print(re.split("R", str))
 print("\n" + 20 * '-')
 
-print(re.sub(" ","-",str))
-print(re.sub(r"\s","-",str))
+print(re.sub(" ", "-", str))
+print(re.sub(r"\s", "-", str))
 print("\n" + 20 * '-')
 
 # stringde ilk bulunan kelimenin verilerini gösterir
@@ -33,9 +33,9 @@ for match in re.finditer(r'Python', str, re.IGNORECASE):
     print(match.span(), match.group())
 print("\n" + 20 * '-')
 
-# searchta kullanılabilir burdan aşağıda
+# searchta kullanılabilir burdan aşağısında
 # [] - Köşeli parantezler arasına yazılan bütün karakterler aranır.
-print("[a48c] harflerinden biri: ", re.findall("[a48c]",str))
+print("[a48c] harflerinden biri: ", re.findall("[a48c]", str))
 print("[a-e] aralığındaki karakterler: ", re.findall("[a-e]", str))
 print("[0-5] aralığındaki rakamlar: ", re.findall("[0-5]", str))
 print("Rakam harici karakterler: ", re.findall("[^0-9]", str))
@@ -50,31 +50,31 @@ print("P ile başlar n ile biter.", re.findall("P..h.n", str))
 print("\n" + 20 * '-')
 
 # ^ ve $ = string belirtilen karakterle başlayıp bitiyor mu?
-print("P ile başlıyor: ", re.findall("^P",str))
-print("a ile başlıyor: ", re.findall("^a",str))
-print("t ile bitiyor: ", re.findall("t$",str))
-print("s ile başlayıp t ile biten 4 karakterli: ", re.findall("s..t$",str))
-print("saatt ile bitiyor mu: ", re.findall("saatt$",str))
+print("P ile başlıyor: ", re.findall("^P", str))
+print("a ile başlıyor: ", re.findall("^a", str))
+print("t ile bitiyor: ", re.findall("t$", str))
+print("s ile başlayıp t ile biten 4 karakterli: ", re.findall("s..t$", str))
+print("saatt ile bitiyor mu: ", re.findall("saatt$", str))
 print("\n" + 20 * '-')
 
 # * = Bir karakterin sıfır ya da daha fazla sayıda olmasını kontrol eder.
-print("a sıfır veya fazla.", re.findall("sa*t",str))
-print("a sıfır veya fazla.", re.findall("saa*t",str))
-print("a sıfır veya fazla.", re.findall("saaa*t",str))
-print("a ve i sıfır veya fazla.", re.findall("saaa*i*t",str))
+print("a sıfır veya fazla.", re.findall("sa*t", str))
+print("a sıfır veya fazla.", re.findall("saa*t", str))
+print("a sıfır veya fazla.", re.findall("saaa*t", str))
+print("a ve i sıfır veya fazla.", re.findall("saaa*i*t", str))
 print("\n" + 20 * '-')
 
 # + = Bir karakterin bir ya da daha fazla sayıda olmasını kontrol eder.
-print("a bir veya fazla.", re.findall("sa+t",str))
-print("a bir veya fazla.", re.findall("saa+t",str))
-print("a bir veya fazla.", re.findall("saaa+t",str))
+print("a bir veya fazla.", re.findall("sa+t", str))
+print("a bir veya fazla.", re.findall("saa+t", str))
+print("a bir veya fazla.", re.findall("saaa+t", str))
 print("\n" + 20 * '-')
 
 # ? = Bir karakterin sıfır ya da bir kez olmasını kontrol eder.
-print("a sıfır veya bir.", re.findall("sa?t",str))
-print("a sıfır veya bir.", re.findall("saa?t",str))
-print("a sıfır veya bir.", re.findall("saaa?t",str))
-print("a ve y sıfır veya bir.", re.findall("saaa?y?t",str))
+print("a sıfır veya bir.", re.findall("sa?t", str))
+print("a sıfır veya bir.", re.findall("saa?t", str))
+print("a sıfır veya bir.", re.findall("saaa?t", str))
+print("a ve y sıfır veya bir.", re.findall("saaa?y?t", str))
 print("\n" + 20 * '-')
 
 # {} = Karakter sayısını kontrol eder.
@@ -107,10 +107,10 @@ print(re.findall(r"\APython", "Python Kursu"))
 print(re.findall(r"saat\Z", str))
 print("\n" + 20 * '-')
 
-# \b: Belirtilen karakter kelimenin başında veya sonunda mı?
-print(re.findall(r"\bKursu", "Python Kursu"))
+# \b: Belirtilen karakter stringin başında veya sonunda mı?
+print(re.findall(r"\bPython", "Python Kursu"))
 print(re.findall(r"Kursu\b", "Python Kursu"))
-# \B: Belirtilen karakter kelimenin başında veya sonunda değil mi?
+# \B: Belirtilen karakter stringin başında veya sonunda değil mi?
 print(re.findall(r"\Btho", "Python abdon"))
 print("\n" + 20 * '-')
 
@@ -140,7 +140,7 @@ def check_password(psw):
         raise Exception("parola rakam içermelidir.")
     elif not re.search("[_@$]", psw):
         raise Exception("parola alpha numeric karakter içermelidir.")
-    elif re.search(r"\s",psw):
+    elif re.search(r"\s", psw):
         raise Exception("parola boşluk içermemelidir.")
     else:
         print("geçerli parola: ***")

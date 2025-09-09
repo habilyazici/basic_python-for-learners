@@ -28,12 +28,6 @@ fonk1()
 print("\n" + 20 * '-' + "\n")
 global_var = 'Ben globalim!'
 
-def yerel_kullan():
-    local_var = 'Ben yerelim!'
-    print('Fonksiyon içinden yerel:', local_var)
-yerel_kullan()
-print("\n" + 20 * '-' + "\n")
-
 x = 'ilk global'
 def global_degistir():
     global x
@@ -41,13 +35,4 @@ def global_degistir():
     print('Fonksiyon içinden x:', x)
 global_degistir()
 print('Fonksiyon dışından x:', x)
-print("\n" + 20 * '-' + "\n")
-
-# scope örneği: fonksiyon içindeki yerel değişken dışarıdan erişilemez
-def scope_ornek():
-    global y
-    y = 'global fonksiyon içinde'
-    print('Fonksiyon içinden y:', y)
-scope_ornek()
-print('Fonksiyon dışından y:', y)
 print("\n" + 20 * '-' + "\n")

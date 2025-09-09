@@ -59,6 +59,7 @@ dict1= {}
 dict2= dict()
 
 dict1= {'mehmet': 12, 'selim': 53, 'ali': 89}
+# items(), keys(), values()
 for k,v in dict1.items():
     if v>=50:
         print(f'{k} nın aldığı not {v} ve : {k} GEÇTİ')

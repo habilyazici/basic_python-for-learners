@@ -1,4 +1,3 @@
-print("\n" + 20 * '-' + "\n")
 first_name = 'Sadık'
 last_name = 'Turan'
 person_age = 36
@@ -75,40 +74,37 @@ print("startswith:", message1.startswith('H'))
 print("endswith:", message1.endswith('n'))
 print("\n" + 20 * '-' + "\n")
 
-website = "http://www.sadikturan.com"
+website = "http://www.habilyazici.com"
 course  = "Python Kursu: Baştan Sona Python Programlama Rehberiniz (40 saat)"
 
 print("9- replace - (5 adet):", course.replace(' ', '-', 5))
-print("9- replace boşluk:", course.replace(' ', ''))
 result = course.split(' ')
 print("11- split:", result)
 print("11- split 5. eleman:", result[5])
-print("replace:", message1.replace('ç','c').replace('ı','i').replace(' ','-'))
+print("replace:", course.replace('ç','c').replace('ı','i').replace(' ','-'))
 print("\n" + 20 * '-' + "\n")
 
 print("1- lstrip:", '   Hello World   '.lstrip())
 print("1- rstrip:", '   Hello World   '.rstrip())
+# imleç giderken parametrelerden harici bir sembol görürse durur.
 print("1- lstrip website :", website.lstrip('/:pth'))
-print("2- strip:", 'www.sadikturan.com'.strip('w.moca'))
+print("2- strip:", 'www.habilyazici.com'.strip('w.moca'))
 print("4- website 'a' sayısı:", website.count('a'))
-print("4- website 'www' sayısı:", website.count('www'))
 print("4- website 'www' (0-10) arasında:", website.count('www',0,10))
 print("\n" + 20 * '-' + "\n")
 
-print("6- find com (0-10):", website.find('com',0,10))
 print("6- course lfind Python:", course.find('Python'))
+print("6- find com (0-10):", website.find('com', 0, 10))
 print("6- course rfind Python:", course.rfind('Python'))
 print("6- website index com:", website.index('com'))
-print("6- website rindex com:", website.rindex('com'))
-# rindex sağdan gelir ve bulursa onun indexini söyler 'com' bir tane var.
 # find aranan ifade bulunamazsa -1 döner, index ise aranan ifade bulunamazsa exception fırlatır.
 print("\n" + 20 * '-' + "\n")
 
+# isaplhada: sadece harflerden oluşuyorsa True, isdigitte: sadece rakamlardan oluşuyorsa True
 print("7- course isalpha:", course.isalpha())
 print("7- 'Hello' isalpha:", 'Hello'.isalpha())
 print("7- course isdigit:", course.isdigit())
 print("7- '123' isdigit:", '123'.isdigit())
-# isaplhada: sadece harflerden oluşuyorsa True, isdigitte: sadece rakamlardan oluşuyorsa True
 
 print("8- center:", 'Contents'.center(50, '*'))
 print("8- ljust:", 'Contents'.ljust(50, '*'))

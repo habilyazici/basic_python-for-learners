@@ -42,7 +42,6 @@ numbers2.insert(-1,52)
 numbers2.pop()
 numbers2.pop(0)
 numbers2.remove(52)
-numbers2.discard(100)  # Hata vermez, eleman yoksa da devam eder
 numbers2.sort()
 numbers2.reverse()
 print("Son Hali:", numbers2)

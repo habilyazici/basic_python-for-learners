@@ -8,7 +8,7 @@ os.chdir('C:\\Users\\habil\\OneDrive\\Belgeler\\')
 os.chdir('..')
 print("\n" + 20 * '-' + "\n")
 
-os.chdir(r'C:\Users\habil\OneDrive\Belgeler\GitHub\basic-python\new_python\2-Hata ve dosya yönetimi')
+os.chdir(r'C:\Users\habil\OneDrive\Belgeler\GitHub\basic_python-for-learners\2-Hata ve dosya yönetimi')
 with open("newfile.txt", "r", encoding="utf-8") as f:
     for i, line in enumerate(f, 1):
         if i == 4:
@@ -45,7 +45,7 @@ for dosyaAdi in newdirectory:
         print(dosyaAdi)
 print("\n" + 20 * '-' + "\n")
 
-result = os.stat("3_os.py")
+result = os.stat("_3_os.py")
 print(result)
 result1 = result.st_size / 1024
 result2 = datetime.fromtimestamp(result.st_ctime)
