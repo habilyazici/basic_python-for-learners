@@ -24,7 +24,7 @@ print("sutun toplamı: ", np_multi.sum(axis=0))
 print("satır toplamı: ", np_multi.sum(axis=1))
 print("\n" + 20 * '-' + "\n")
 
-rnd_numbers = np.random.randint(-10,100,10)
+rnd_numbers = np.random.randint(-10, 100, 10)
 print("rastgele sayılar: ", rnd_numbers)
 print("maksimum değer: ", rnd_numbers.max())
 # min(), mean(), std(), argmin(), argmax(), var()
@@ -63,7 +63,7 @@ print('numbers2 son satır tüm sütunlar: ', numbers2[-1,:])
 print('numbers2 ilk 2 satır son 2 sütun:\n', numbers2[:2,1:])
 print("\n" + 20 * '-' + "\n")
 
-arr1 = np.arange(0,10)
+arr1 = np.arange(0, 10)
 arr2 = arr1.copy()
 arr2[0] = 20
 print(arr1)

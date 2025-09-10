@@ -9,20 +9,22 @@ print(type(py_array))
 print(type(np_array))
 print("\n" + 20 * '-' + "\n")
 
-# tek boyutlu dizi, iki boyutlu bir diziye yani 3x3 lük bir matrise dönüşüyor.
-py_array2 = [1,2,3,4,5,6,7,8,9] 
+array1 = np.array([1,2,3,4,5,6,7,8,9])
+array1 = array1.reshape(3,3)
+print("arayı matris yapma: ", array1)
+print("\n" + 20 * '-' + "\n")
+
 py_array2 = [[1,2,3], [4,5,6], [7,8,9]]
 np_array2 = np.array(py_array2)
-np_multi2 = np_array2.reshape(3,3)
-print(np_multi2)
+print("numpy matrisi: ", np_array2)
 print("\n" + 20 * '-' + "\n")
 
 result1 = np.array([1,2,3,4,5,6,7,8,9])
 result2 = result1.reshape(3,3)
 result3 = np.array([[1,2,3],[4,5,6],[7,8,9]])
-print(result1)
-print(result2)
-print(result3)
+print("Dizi: ", result1)
+print("Matris: ", result2)
+print("Matris: ", result3)
 print(type(result1))
 print(type(result2))
 print(type(result3))
@@ -31,7 +33,6 @@ print("\n" + 20 * '-' + "\n")
 print("Dizi boyutu:", result1.ndim)
 print("Matris boyutu:", result2.ndim)
 print("Matris boyutu:", result3.ndim)
-
 print("Dizi şekli:", result1.shape)
 print("Matris şekli:", result2.shape)
 print("Matris şekli:", result3.shape)

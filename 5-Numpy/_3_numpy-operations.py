@@ -1,7 +1,7 @@
 import numpy as np
 
-numbers1 = np.random.randint(10,100,6)
-numbers2 = np.random.randint(10,100,6)
+numbers1 = np.random.randint(10, 100, 6)
+numbers2 = np.random.randint(10, 100, 6)
 print(numbers1)
 print(numbers2)
 print("\n" + 20 * '-' + "\n")

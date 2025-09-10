@@ -1,5 +1,5 @@
-# themoviedb.org 
 import requests
+# themoviedb.org 
 
 class theMovieDb:
     def __init__(self):

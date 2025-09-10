@@ -87,15 +87,14 @@ class Instagram:
         self.browser.get("https://www.instagram.com/"+ username)
         time.sleep(2)
 
-        followButton = self.browser.find_element("tag name", "button")
-        if followButton.text == "Following":
-            followButton.click()
+        unfollowButton = self.browser.find_element("tag name", "button")
+        if unfollowButton.text == "Following":
+            unfollowButton.click()
             time.sleep(2)
             self.browser.find_element("xpath", '/html/body/div[4]/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div/div[8]/div[1]/div').click()
             time.sleep(2)
         else:
             print("zaten takip etmiyorsunuz.")
-
 
 instgrm = Instagram(username, password)
 instgrm.signIn()

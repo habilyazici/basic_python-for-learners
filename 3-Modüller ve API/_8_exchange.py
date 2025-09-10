@@ -2,7 +2,7 @@ import requests
 import json
 
 access_key = "7eb06b60e5377d9969de9c75a2c47bdc"
-# apilayer.com
+# apilayer.com exchangeratesapi.io
 
 bozulan_doviz = input("bozulan döviz türü: ").upper()
 alinan_doviz = input("alınan döviz türü: ").upper()

@@ -11,8 +11,8 @@ time.sleep(3)
 
 url = "http://github.com"
 driver.get(url)
-
 time.sleep(2)
+
 url = "http://github.com/sadikturan"
 driver.get(url)
 print(driver.current_url)
@@ -38,8 +38,8 @@ try:
 
     result4 = driver.find_element("css selector", "h1#nasılsın.merhaba").text
     result5 = driver.find_element("css selector", "input[name='q']").get_attribute("placeholder")
-    result6 = driver.find_element("xpath", "//input[@name='q']").get_attribute("placeholder")
-    result7 = driver.find_element("css selector", "div.some-class").find_element("tag name", "ul").find_element("tag name", "li").find_element("tag name", "a")
+    result6 = driver.find_element("css selector", "div.some-class").find_element("tag name", "ul").find_element("tag name", "li").find_element("tag name", "a")
+    result7 = driver.find_element("xpath", "//input[@name='q']").get_attribute("placeholder")
 
     results = [result1, result2, result3, result4, result5, result6, result7]
     for result in results:
@@ -48,12 +48,11 @@ try:
 except Exception as e:
     print("Hata bulundu:", e)
 
-searchButton = driver.find_element("css selector", "button[type='button'].header-search-button.input-button").click()
+driver.find_element("css selector", "button[type='button'].header-search-button.input-button").click()
 time.sleep(2)
-searchInput = driver.find_element("css selector", "input[type='text'][spellcheck='false']#query-builder-test")
-searchInput.send_keys("python")
+driver.find_element("css selector", "input[type='text'][spellcheck='false']#query-builder-test").send_keys("python")
 time.sleep(1)
-searchInput.send_keys(Keys.ENTER)
+driver.find_element("css selector", "input[type='text'][spellcheck='false']#query-builder-test").send_keys(Keys.ENTER)
 time.sleep(2)
 
 a_list = driver.find_elements("css selector", "div.Box-sc-g0xbh4-0 h3 a")

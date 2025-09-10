@@ -4,11 +4,11 @@ import time
 
 class Github:
     def __init__(self, username, password):
-        self.driver = webdriver.Chrome()
         self.username = username
         self.password = password
-        self.followers = []
+        self.driver = webdriver.Chrome()
         self.driver.maximize_window()
+        self.followers = []
 
     def signIn(self):
         self.driver.get("https://github.com/login")
@@ -29,6 +29,7 @@ class Github:
             name = spans[0].text
             username_id = spans[1].text
             self.followers.append({"name": name, "username_id": username_id})
+            
     def click_and_load(self, link):
         link.click()
         time.sleep(1)

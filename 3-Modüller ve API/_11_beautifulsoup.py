@@ -71,7 +71,6 @@ print("Title string:", soup.title.string)
 print("ilk li etiketi:", soup.li.string)
 print("h1 etiketi:", soup.h1)
 print("İlk h2 etiketi:", soup.h2)
-print("ul ismi:", soup.ul.name)
 print("h2 string:", soup.h2.string.strip())
 print("\n" + 20 * '-' + "\n")
 
@@ -92,6 +91,7 @@ print("\n" + 20 * '-' + "\n")
 print("2. div:", soup.div.find_next_sibling().find_next_sibling().find_previous_sibling())
 print("\n" + 20 * '-' + "\n")
 
+# get ile veri çekme
 print("Tüm linkler (href):")
 for link in soup.find_all('a'):
     print("Link:", link.get('href'))
@@ -100,4 +100,4 @@ for link in soup.find_all('a'):
 
 # attr ile veri çekme
 print("h1 id:", soup.find("h1", attrs={"id": "header"}).string.strip())
-print("ilk a etiketi href:", soup.find("a", attrs={"class": "sister", "id": "link1"})['href'])
+print("ilk a etiketi href:", soup.find("a", attrs={"class": "sister", "id": "link1"}).get('href'))
