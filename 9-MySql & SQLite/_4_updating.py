@@ -1,5 +1,5 @@
 import mysql.connector
-from _2_selecting import getFilms, getFilmById
+from _2_selecting import getFilms
 
 getFilms()
 def updateFilm(id, name, IMDB_Puan):
@@ -20,5 +20,4 @@ def updateFilm(id, name, IMDB_Puan):
         connection.close()
         print('database bağlantısı kapandı.')
 
-updateFilm(1, 'Yeşil Yol2', 2001)
-getFilmById(1)
+updateFilm(1, 'Yeşil Yol2', 8.9)

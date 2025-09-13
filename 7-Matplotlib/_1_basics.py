@@ -11,7 +11,7 @@ y = [1,4,9,16]
 plt.plot(x, y, color="red", marker="o", markersize=8, linestyle="--", linewidth=2, label="Veri")
 plt.axis([0,6,0,20])
 
-font1 = {'family':'serif','color':'blue','size':20}
+font1 = {'family':'serif', 'color':'blue', 'size':20}
 plt.title("Grafik Başlığı", fontdict = font1)
 plt.xlabel("x label")
 plt.ylabel("y label")
@@ -55,7 +55,7 @@ plt.show()
 
 # örnek4
 x = np.linspace(0,2,100)
-fig,axs =  plt.subplots(2,2)
+fig, axs =  plt.subplots(2,2)
 fig.suptitle("grafik başlığı")
 
 axs[0,0].plot(x, x, color="red")

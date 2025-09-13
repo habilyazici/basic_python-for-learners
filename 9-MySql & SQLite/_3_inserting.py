@@ -17,10 +17,10 @@ def insertFilm(Ad, Tarih, IMDB_Puan):
     cursor = connection.cursor()
 
     sql = "INSERT INTO filmler(Ad, Tarih, IMDB_Puan) VALUES (%s, %s, %s)" 
-    values = (Ad,Tarih,IMDB_Puan)
+    values = (Ad, Tarih, IMDB_Puan)
 
     try:
-        cursor.execute(sql,values)
+        cursor.execute(sql, values)
         connection.commit()   
         print(f'{cursor.rowcount} tane kayıt eklendi')
         film_id = cursor.lastrowid
@@ -45,7 +45,7 @@ def insertFilm(Ad, Tarih, IMDB_Puan):
         connection.close()
         print('database bağlantısı kapandı.')
 
-insertFilm( "merhaba dünya", "2023,01,01", 8.5)
+insertFilm("merhaba dünya", "2023-01-01", 8.5)
 
 # Gönderdiğin veri tiplerine iyice dikkat et mysql veritabanında ne yazarsa ona göre kayıt yapar.
 
@@ -55,10 +55,10 @@ def insertFilms(list):
 
     sql = "INSERT INTO filmler(Ad, Tarih, IMDB_Puan) VALUES (%s, %s, %s)" 
     values = list
-    # birden fazla kayıt eklemek için liste içerisinde tuple oluşturulur
-    cursor.executemany(sql, values)
 
     try:
+        # birden fazla kayıt eklemek için liste içerisinde tuple oluşturulur
+        cursor.executemany(sql, values)
         connection.commit()   
         print(f'{cursor.rowcount} tane kayıt eklendi')
         print(f'son eklenen kaydın id: {cursor.lastrowid}')
@@ -67,7 +67,6 @@ def insertFilms(list):
     finally:
         cursor.close()
         connection.close()
-        print('database bağlantısı kapandı.')
 
 list = []
 while True:

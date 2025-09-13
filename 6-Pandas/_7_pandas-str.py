@@ -4,6 +4,7 @@ os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 data = pd.read_csv("datasets/nba.csv")
 data.dropna(inplace = True)
+print(data.sample(5))
 
 data["Name"] = data["Name"].str.lower()
 data["index"] = data["Name"].str.find('a')

@@ -11,5 +11,3 @@ if connection.is_connected():
     print("Connection successful")
 else:
     print("Connection failed")
-
-

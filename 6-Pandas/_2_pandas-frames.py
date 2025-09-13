@@ -11,7 +11,7 @@ dict_list = [
                 {"Name": "Ali", "Grade": 60},
                 {"Name": "Yağmur", "Grade": 70},
                 {"Name": "Çınar", "Grade": 80}
-            ]
+]
 
 print("boş dataframe:\n", pd.DataFrame())
 print("boş dataframe tipi:\n", type(pd.DataFrame()))

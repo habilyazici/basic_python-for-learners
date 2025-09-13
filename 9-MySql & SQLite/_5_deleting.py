@@ -7,7 +7,7 @@ def deleteFilm(id):
 
     sql = "delete from filmler where Film_ID=%s"
     values = (id,)
-    cursor.execute(sql,values)
+    cursor.execute(sql, values)
 
     try:
         connection.commit()   
@@ -19,5 +19,4 @@ def deleteFilm(id):
         connection.close()
         print('database bağlantısı kapandı.')
 
-deleteFilm(14)
-getFilms()
+deleteFilm(23)

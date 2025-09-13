@@ -20,12 +20,12 @@ print("\n" + 20 * '-' + "\n")
 print("df_orders:\n", df_orders)
 print("\n" + 20 * '-' + "\n")
 
-# Merge ile iki dfyi birleştirmek için ortak bir sutunları olması gerekir.
+# Merge ile iki dfyi birleştirmek için ortak bir sutun olması gerekir.
 # on="CustomerId", left_on="a_column" ve right_on="b_column" ile ortak sutunları belirtebiliriz.
-result1 = pd.merge(df_customers, df_orders, how="inner")
-result2 = pd.merge(df_customers, df_orders, how="left")
-result3 = pd.merge(df_customers, df_orders, how="right")
-result4 = pd.merge(df_customers, df_orders, how="outer")
+result1 = pd.merge(df_customers, df_orders, on="CustomerId", how="inner")
+result2 = pd.merge(df_customers, df_orders, on="CustomerId", how="left")
+result3 = pd.merge(df_customers, df_orders, on="CustomerId", how="right")
+result4 = pd.merge(df_customers, df_orders, on="CustomerId", how="outer")
 
 print("iki df inner join:\n", result1)
 print("\n" + 20 * '-' + "\n")

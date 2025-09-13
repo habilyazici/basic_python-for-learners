@@ -29,8 +29,6 @@ print('column1 dolu değerler:\n', df[df["column1"].notnull()])
 print("\n" + 20 * '-' + "\n")
 print('column1 dolu değerler ile tüm veriler:\n', df[df["column1"].notnull()]["column1"])
 print("\n" + 20 * '-' + "\n")
-print('tüm dolu veriler:\n', df[df.notnull().all(axis=1)])
-print("\n" + 20 * '-' + "\n")
 
 print('herhangi null içeren satırı sil:\n', df.dropna())
 # otomatik olarak axis = 0 parametresi ise how= "any" dir
