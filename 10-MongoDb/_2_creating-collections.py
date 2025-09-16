@@ -5,7 +5,7 @@ myclient = pymongo.MongoClient("mongodb://localhost:27017")
 
 mydb = myclient["new_database"]
 mycollection = mydb["data_table1"]
-# veri ekleme sonrasında olmayan database ve collection otomatik oluşur.
+# veri ekleme sonrasında, olmayan database ve collection otomatik eklenir.
 
 product = {"name": "Samsung S5", "price": 2000}
 
@@ -15,7 +15,6 @@ print("eklenme sonucu: ", result)
 print("eklenme sonucu type: ", type(result))
 print("result.inserted_id: ", result.inserted_id)
 print("result.inserted_id type: ", type(result.inserted_id))
-
 print("\n" + 20 * '-' + "\n")
 
 productList = [

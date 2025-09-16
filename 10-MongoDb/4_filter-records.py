@@ -14,14 +14,14 @@ print(result)
 print("\n" + 20 * '-' + "\n")
 
 '''
-MongoDB sorgu operatörleri Türkçe açıklamaları:
+MongoDB sorgu operatörleri
 $eq  : Alanın değeri belirtilen değere eşitse eşleşir. (eşittir)
 $ne  : Alanın değeri belirtilen değere eşit değilse eşleşir. (eşit değildir)
 $gt  : Alanın değeri belirtilen değerden büyükse eşleşir. (büyüktür)
 $gte : Alanın değeri belirtilen değerden büyük veya eşitse eşleşir. (büyük veya eşittir)
 $lt  : Alanın değeri belirtilen değerden küçükse eşleşir. (küçüktür)
 $lte : Alanın değeri belirtilen değerden küçük veya eşitse eşleşir. (küçük veya eşittir)
-$in  : Alanın değeri verilen dizi diziden biriyle eşleşirse eşleşir. (dizi içinde varsa)
+$in  : Alanın değeri verilen diziden biriyle eşleşirse eşleşir. (dizi içinde varsa)
 $and : Tüm verilen sorgu koşulları sağlanıyorsa eşleşir. (ve)
 $or  : Verilen sorgu koşullarından en az biri sağlanıyorsa eşleşir. (veya)
 $nor : Verilen sorgu koşullarından hiçbiri sağlanmıyorsa eşleşir. (ne ... ne)
@@ -30,7 +30,7 @@ $not : Belirtilen sorgu koşulunu sağlamayan belgelerle eşleşir. (değil)
 
 filter = {
     "name": {
-        "$in" : ["Samsung S5","Samsung S10"]
+        "$in" : ["Samsung S5", "Samsung S10"]
     }
 }
 result = mycollection.find(filter)
@@ -45,7 +45,7 @@ result = mycollection.find({
         {"name": "Samsung S5"}
     ]
 })
-print("AND sorgusu:")
+print("AND ve gt sorgusu:")
 for i in result:
     print(i)
 print("\n" + 20 * '-' + "\n")

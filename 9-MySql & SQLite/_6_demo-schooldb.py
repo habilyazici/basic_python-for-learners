@@ -29,7 +29,7 @@ class Student:
     def saveStudents(students):
         sql = "INSERT INTO ogrenci(StudentNumber,Name,Surname,Birthdate,Gender) VALUES (%s,%s,%s,%s,%s)"
         values = students
-        Student.mycursor.executemany(sql,values)
+        Student.mycursor.executemany(sql, values)
         Student.connection.commit()
         print(f'{Student.mycursor.rowcount} tane kayıt eklendi.')
 
@@ -38,7 +38,7 @@ class Student:
         sql = "select * from ogrenci where id=%s"
         value = (id,)
 
-        Student.mycursor.execute(sql,value)
+        Student.mycursor.execute(sql, value)
 
         try:
             obj = Student.mycursor.fetchone()
@@ -47,7 +47,7 @@ class Student:
             print('Error', err)        
     
     def updateStudent(self):
-        sql = "update ogrenci set studentnumber=%s,name=%s,surname=%s,birthdate=%s,gender=%s where id=%s"
+        sql = "update ogrenci set studentnumber=%s, name=%s, surname=%s, birthdate=%s, gender=%s where id=%s"
         values = (self.studentNumber, self.name, self.surname, self.birthdate, self.gender, self.id)
         Student.mycursor.execute(sql, values)
 
@@ -58,8 +58,21 @@ class Student:
             print('Hata:',err)
     
     @staticmethod
+    def getStudentsGender(gender):
+        sql = "select * from ogrenci where gender = %s"
+        value = (gender,)
+
+        Student.mycursor.execute(sql, value)
+
+        try:
+            return Student.mycursor.fetchall()
+        except mysql.connector.Error as err:
+            print('Error', err)
+            return None
+
+    @staticmethod
     def updateStudents(studentList):
-        sql = "update ogrenci set studentnumber=%s,name=%s,surname=%s,birthdate=%s,gender=%s where id=%s"
+        sql = "update ogrenci set studentnumber=%s, name=%s, surname=%s, birthdate=%s, gender=%s where id=%s"
         values = []
 
         order = (1, 2, 3, 4, 5, 0)  
@@ -77,20 +90,7 @@ class Student:
             Student.connection.commit()
             print(f'{Student.mycursor.rowcount} tane kayıt güncellendi')
         except mysql.connector.Error as err:
-            print('Hata:',err)
-
-    @staticmethod
-    def getStudentsGender(gender):
-        sql = "select * from ogrenci where gender = %s"
-        value = (gender,)
-
-        Student.mycursor.execute(sql,value)
-
-        try:
-            return Student.mycursor.fetchall()
-        except mysql.connector.Error as err:
-            print('Error', err)
-            return None
+            print('Hata:', err)
 
     def __del__(self):
         Student.mycursor.close()

@@ -11,7 +11,7 @@ for i in mycollection.find():
 print("\n" + 20 * '-' + "\n")
 
 # mycollection.delete_one({"name": "IPhone 8"})
-# mycollection.delete_many({"name": {"$regex":"^S"}})
+# mycollection.delete_many({"name": {"$regex": "^S"}})
 result = mycollection.delete_many({})
 
 print(f'{result.deleted_count} adet kayıt silindi.')

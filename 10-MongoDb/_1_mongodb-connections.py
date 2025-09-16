@@ -11,6 +11,7 @@ print("\n" + 20 * '-' + "\n")
 
 print(type(mydb))
 print(dir(mydb))
+
 print("\n" + 20 * '-' + "\n")
 print(mydb.list_collection_names())
 

@@ -19,13 +19,13 @@ mycollection.update_one(
     }}
 )
 
-filter = {'name': 'Samsung S7'}
+value = {'name': 'Samsung S7'}
 newvalues = {'$set': {
                 'name': 'IPhone 8',
                 'price': 5000
             }} 
 
-result = mycollection.update_many(filter, newvalues)
+result = mycollection.update_many(value, newvalues)
 
 print(f'{result.modified_count} adet kayıt güncellendi.')
 
