@@ -102,7 +102,7 @@ print("\n" + 20 * '-' + "\n")
 
 # isaplhada: sadece harflerden oluşuyorsa True, isdigitte: sadece rakamlardan oluşuyorsa True
 print("7- course isalpha:", course.isalpha())
-print("7- 'Hello' isalpha:", 'Hello'.isalpha())
+print("7- 'Hello' isalpha:", 'Hellox'.isalpha())
 print("7- course isdigit:", course.isdigit())
 print("7- '123' isdigit:", '123'.isdigit())
 
