@@ -64,9 +64,9 @@ class Student(PersonBase):
 
     def who_am_i(self):
         print(f'I am a student. My name is {self.firstName} {self.lastName}. My student number is {self.studentNumber}.')
-    # parentte de sayhHello metodu var o yüzden override oldu.
     def sayHello(self):
         print('Hello I am a student')
+    # parentte de sayhHello metodu var o yüzden override oldu.
 
 class Teacher(PersonBase):
     def __init__(self, fname, lname, branch):

@@ -42,7 +42,7 @@ class MyNumbers:
         else:
             raise StopIteration
 
-object = MyNumbers(20,30)
+object = MyNumbers(20, 30)
 
 while True:
     try:

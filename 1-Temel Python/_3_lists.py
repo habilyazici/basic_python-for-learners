@@ -24,7 +24,7 @@ print("users:", users1)
 print("users[0][0]:", users1[0][0])
 print("\n" + 20 * '-' + "\n")
 
-studentA1 = ['Yiğit','Bilgi',2010,[70,60,70]]
+studentA1 = ['Yiğit', 'Bilgi' ,2010 , [70,60,70]]
 studentB1 = ['Sena','Turan',1999,[80,80,70]]
 studentC1 = ['Ahmet','Turan',1998,[80,70,90]]
 print("studentA adı:", studentA1[0])

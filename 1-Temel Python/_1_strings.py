@@ -86,11 +86,11 @@ print("\n" + 20 * '-' + "\n")
 
 print("1- lstrip:", '   Hello World   '.lstrip())
 print("1- rstrip:", '   Hello World   '.rstrip())
-# imleç giderken parametrelerden harici bir sembol görürse durur.
 print("1- lstrip website :", website.lstrip('/:pth'))
+# imleç giderken parametrelerden harici bir sembol görürse durur.
 print("2- strip:", 'www.habilyazici.com'.strip('w.moca'))
 print("4- website 'a' sayısı:", website.count('a'))
-print("4- website 'www' (0-10) arasında:", website.count('www',0,10))
+print("4- website 'www' (0-10) arasında:", website.count('www', 0, 10))
 print("\n" + 20 * '-' + "\n")
 
 print("6- course lfind Python:", course.find('Python'))

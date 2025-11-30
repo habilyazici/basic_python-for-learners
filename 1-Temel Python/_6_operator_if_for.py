@@ -29,7 +29,7 @@ print(type(z))
 print(x, y, z[1])
 print("\n" + 20 * '-' + "\n")
 
-names = ['çınar','sadık','sena']
+names = ['çınar', 'sadık', 'sena']
 for name in names:
     print(f'my name is {name}')
 name = 'Sadık Turan'
@@ -42,7 +42,7 @@ for a,b in tuple_list:
     print(a,b)
 
 d = {'k1':1, 'k2':2, 'k3':3}
-for key,value in d.items():
+for key, value in d.items():
     print(key, value)
 print("\n" + 20 * '-' + "\n")
 
@@ -55,7 +55,7 @@ while x <= 10:
     x += 1
 print("\n" + 20 * '-' + "\n")
 
-sayilar = [1,3,5,7,9,12,19,21]
+sayilar = [1, 3, 5, 7, 9, 12, 19, 21]
 for s in sayilar:
     if s % 3 == 0:
         print(f'{s}, 3\'ün katıdır.')

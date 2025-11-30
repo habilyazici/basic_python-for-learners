@@ -62,11 +62,11 @@ toplama(10, 20)
 print("\n" + 20 * '-' + "\n")
 
 def calculate_time(func):
-    def inner(*args,**kwargs):
+    def inner(*args, **kwargs):
         # burda *args ve **kwargs kullanırsak kapsadığımız fonksiyon istediği kadar parametre ve istediği parametreyi alabilir dict, string, int, float vs.
         start = time.time()
         time.sleep(1)
-        func(*args,**kwargs)
+        func(*args, **kwargs)
         finish = time.time()
         print(f"fonksiyon {func.__name__} {finish-start} saniye sürdü.")
     return inner

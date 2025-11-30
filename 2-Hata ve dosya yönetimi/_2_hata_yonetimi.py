@@ -81,7 +81,7 @@ try:
     x = int(input('x: '))
     y = int(input('y: '))
     print(x/y)
-except (ZeroDivisionError,ValueError) as e:
+except (ZeroDivisionError, ValueError) as e:
     print('Hatalı işlem!')
     print(e)
 print("\n" + 20 * '-' + "\n")

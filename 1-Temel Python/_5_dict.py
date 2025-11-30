@@ -31,7 +31,6 @@ users['selimturan']['roles'].append('db_admin')
 print("\n" + 20 * '-' + "\n")
 
 ogrenciler = {
-
 }
 ogrNo = int(input("öğrenci no: "))
 name = input("öğrenci adı: ")
